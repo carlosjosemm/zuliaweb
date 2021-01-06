@@ -1,69 +1,182 @@
-import { Box, Button, Flex, Icon, Image, Input, InputGroup, InputRightElement, Spacer } from "@chakra-ui/react";
-import {HiMenu} from 'react-icons/hi';
-import {BiSearch} from 'react-icons/bi';
-import {IoClose} from 'react-icons/io5';
-import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    // MenuItemOption,
-    // MenuGroup,
-    // MenuOptionGroup,
-    // MenuIcon,
-    // MenuCommand,
-    // MenuDivider,
-  } from "@chakra-ui/react";
+import { Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, Icon, Image, Input, InputGroup, InputRightElement, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
+import firebase from "firebase";
+import React, { useEffect, useRef, useState } from "react";
+import { BiCart, BiSearch, BiUser } from "react-icons/bi";
+import { useDataLayer } from "../DataLayer";
+import { actionTypes } from "../reducer";
+import MiCuentaDrawer from "./MiCuentaDrawer";
 
-const Header: React.FC<{}> = () => {
+interface HeaderProps {};
+
+const Header:React.FC<HeaderProps> = () => {
+    const [cartItems, setCartItems] = useState(1);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = useRef();
+    const [{user}, dispatch] = useDataLayer();
+    console.log(`api key: ${process.env.FB_APIKEY}`)
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // User is signed in.
+              dispatch(
+                    {type: actionTypes.SET_USER, user: user}
+                );
+            } else {
+              // No user is signed in.
+              dispatch(
+                {type: actionTypes.SET_USER, user: null}
+            );
+            }
+          });
+
+    }, [user]);
+
     return (
-            <Flex position="sticky" top="0" bg='purple.500' justifyContent="space-between" height="70px" alignItems="center" >
-                <Box >
-                    <Menu colorScheme="purple">
-                        {({isOpen}) => (
-                            <>
-                            <MenuButton isActive={isOpen} as={Button} rightIcon={!isOpen ? 
-                                <Icon as={HiMenu} h="30px" w="30px" color="purple.50" /> :
-                                <Icon as={IoClose} h="30px" w="30px" color="purple.50" /> } />
-                        
-                            <MenuList bgColor="purple.200" color="purple.700">
-                                <MenuItem>Download</MenuItem>
-                                <MenuItem>Create a Copy</MenuItem>
-                                <MenuItem>Mark as Draft</MenuItem>
-                                <MenuItem>Delete</MenuItem>
-                                <MenuItem>Attend a Workshop</MenuItem>
-                            </MenuList>
-                            </>
-                        )}
-                    </Menu>
-                </Box>
-                <Box p="2">
-                    <Image
-                        boxSize="120px"
-                        objectFit="contain"
-                        src="https://i.imgur.com/3xajgtl.png"
-                        alt="logo"
-                        />
-                    
-                </Box>
+        <div>
+            <HStack bgColor="yellow.100" px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
 
-                <Spacer />
-
-                <Box mx="10px">
+            {/* HEADER LEFT */}
+            <Box mb="20px" ml="20px">
                     <InputGroup>
                     <InputRightElement children={
                         <Icon 
                             mx="10px" 
                             as={BiSearch} 
                             h="30px" w="30px" 
-                            color="purple.50" 
+                            color="yellow.800" 
                         />} 
                     />
 
-                    <Input variant="filled" placeholder="Buscar producto..." size="md" />    
+                    <Input variant="outline" 
+                        borderColor="yellow.600"
+                        focusBorderColor="yellow.800" 
+                        color="yellow.800" 
+                        placeholder="Buscar producto..." 
+                        _placeholder={{color: "white"}}
+                        size="md"
+                        bgColor="#feb800"
+                        />    
+                    
                     </InputGroup>
-                </Box>               
-            </Flex>
+                </Box >
+
+                {/* HEADER CENTER  */}
+                <Box w="40%" h="100%" mr="90px">
+                    <Image
+                        crossOrigin="anonymous"
+                        p="10px"
+                        align="50% 50%"
+                        boxSize="100%"
+                        minH="150px"
+                        minW="390px"
+                        fit="contain"
+                        src="https://i.imgur.com/3xajgtl.png"
+                        alt="logo"
+                        maxH="150px"
+                    />
+                </Box>
+
+                {/* HEADER RIGHT */}
+                <Box mb="20px" mr="20px">
+                    <VStack>
+                    <Button ref={btnRef} onClick={onOpen}
+                        size="md"
+                        w="100%" 
+                        justifySelf="center"
+                        _hover= {{bg: "orange.400", color: "white"}} 
+                        bgColor="#feb800" 
+                        borderColor="yellow.800"
+                        color="yellow.800"
+                        _focus={{outlineColor: "yellow.800"}}
+                        leftIcon={ <Icon  
+                            as={BiUser} 
+                            h="25px" w="25px" 
+                            color="inherit"/>}
+                    >
+                        Mi cuenta
+                    </Button>
+
+                    <Button size="md" 
+                        justifySelf="center"
+                        _hover= {{bg: "orange.400", color: "white"}} 
+                        bgColor="#feb800" 
+                        borderColor="yellow.800"
+                        color="yellow.800" 
+                        leftIcon={ <Icon  
+                            as={BiCart} 
+                            h="25px" w="25px" 
+                            color="inherit" 
+                        />}
+                        rightIcon={(cartItems!==0) ? 
+                            (<Center 
+                            borderRadius="999px" 
+                            bgColor="red.600" 
+                            w="3ch" h="3ch" 
+                            color="white"
+                            >
+                                {cartItems}
+                            </Center>) : 
+                            (<Center 
+                                borderRadius="999px" 
+                                bgColor="inherit" 
+                                w="3ch" h="3ch" 
+                                color="white"
+                                >
+                                    🚀
+                                </Center>)}
+                    >
+                        Mi carrito
+                    </Button>
+                    </VStack>
+                </Box>
+            </HStack>
+            
+            <HStack 
+                mx="10px" 
+                mt="2px" 
+                borderRadius="8px" 
+                fontWeight="500" 
+                bgColor="#57a7dc" 
+                px="100px" 
+                direction="row" 
+                alignItems="center" 
+                justifyContent="space-around" 
+                h="40px"  
+                divider={<StackDivider borderColor="gray.200" />}
+            >
+                <Box>
+                    <Link _hover={{textDecoration: 'none'}}>
+                        Ofertas 
+                    </Link> ⚡
+                </Box>
+                <Box>
+                    <Link _hover={{textDecoration: 'none'}}>
+                        Categorias
+                    </Link>
+                </Box>
+                <Box>
+                    <Link _hover={{textDecoration: 'none'}}>
+                        Marcas
+                    </Link>
+                </Box>
+                <Box>
+                    <Link 
+                        _hover={{textDecoration: 'none'}}
+                    >
+                        Contáctanos
+                    </Link> 📞
+                </Box>
+                
+            </HStack>
+
+            {/* ACCOUNT DRAWER */}
+
+            <MiCuentaDrawer isOpen={isOpen} onClose={onClose} />
+
+
+
+        </div>
     );
 }
 
