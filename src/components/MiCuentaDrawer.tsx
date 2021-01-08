@@ -8,14 +8,18 @@ import {
     Button, 
     Icon, 
     DrawerFooter, 
-    Center 
+    Center, 
+    LightMode,
+    Flex
 } from "@chakra-ui/react";
 import firebase from "firebase";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useDataLayer } from "../DataLayer";
-import { auth, provider } from "../firebase";
+import { auth, fbprovider, ggprovider } from "../firebase";
 import { actionTypes } from "../reducer";
+import {FaFacebook} from "react-icons/fa";
+
 
 interface DrawerProps {
     isOpen: boolean;
@@ -28,7 +32,7 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
     const signInGoogle = () => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(async () => {
-            const result = await auth.signInWithPopup(provider);
+            const result = await auth.signInWithPopup(ggprovider);
             dispatch(
                 { type: actionTypes.SET_USER, user: result.user }
             );
@@ -40,10 +44,46 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
         });
     };
 
+    const signInFacebook = () => {
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then( async () => {
+            fbprovider.addScope('email');
+            await firebase.auth().signInWithPopup(fbprovider).then( (result) => {
+                // @type {firebase.auth.OAuthCredential}
+                // var credential = result.credential;
+    
+                // The signed-in user info.
+                var userlogged = result.user;
+
+                dispatch(
+                    { type: actionTypes.SET_USER, user: userlogged }
+                );
+
+
+    
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                // var accessToken = credential.accessToken;
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                // var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                // var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                // var credential = error.credential;
+                console.log('error message: ', errorMessage);
+                // ...
+            });
+        }
+        )
+
+            
+    };
+
     const darkerGrey = '#404040';
 
     return (
-        <div>
+        <>
             <Drawer
                 isOpen={isOpen}
                 placement="right"
@@ -54,12 +94,21 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                 <DrawerContent bgColor="yellow.100">
                     <DrawerCloseButton color="yellow.800" />
                     <DrawerHeader color="yellow.800" borderBottom="1px solid darkgrey">
-                        {user? `Hola, ${user.displayName}!` : 'Crea tu Cuenta'}
+                        {user? `Hola, ${user.displayName}!` : 'Mi Cuenta Zulia'}
                     </DrawerHeader>
                                 
-                    <DrawerBody display='flex' flexDirection='column' justifyContent='space-around'>
+                    <DrawerBody 
+                        display='flex' 
+                        flexDirection='column' 
+                        justifyContent='flex-end'
+                        pb="50px"
+                    >
                     
-                    <Center>
+                    {/* <Flex 
+                        // flexDirection="column" 
+                        // alignContent="space-evenly" 
+                        // justifyContent="center" 
+                    > */}
                     {user ? 
                         
                         <Button  
@@ -82,6 +131,7 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                         >
                             Cerrar sesion
                         </Button> :
+                        <>
                         <Button leftIcon={<Icon as={FcGoogle} w="25px" h="25px" />} 
                             variant="outline" 
                             color={darkerGrey} 
@@ -91,11 +141,29 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                             _hover={{bg: 'lighgrey'}}
                             _focus={{border: '1px solid darkgrey'}}
                             onClick={signInGoogle}
+                            mb="10px"
                         >
                         Iniciar sesión con Google
                         </Button>
+                        
+                        <LightMode>
+                            <Button leftIcon={<Icon as={FaFacebook} w="25px" h="25px" />} 
+                            // variant="outline" 
+                            // color={darkerGrey} 
+                            colorScheme="facebook"
+                            // _active={{bg: 'grey'}}
+                            // borderColor="darkgrey" 
+                            // bgColor="white"
+                            // _hover={{bg: 'lighgrey'}}
+                            // _focus={{border: '1px solid darkgrey'}}
+                            onClick={signInFacebook}
+                            >
+                            Iniciar sesión con Facebook
+                        </Button>
+                        </LightMode>
+                        </>
                     }
-                    </Center>                    
+                    {/* </Flex>                     */}
                     </DrawerBody>
 
                     <DrawerFooter>
@@ -109,7 +177,7 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                 </DrawerContent>
                 </DrawerOverlay>
             </Drawer>
-        </div>
+        </>
     );
 }
 

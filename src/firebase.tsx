@@ -13,9 +13,11 @@ const firebaseConfig = {
 //   const firebaseApp = firebase.initializeApp(firebaseConfig);
 if(!firebase.apps.length) { firebase.initializeApp(firebaseConfig) };
   const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
+  const ggprovider = new firebase.auth.GoogleAuthProvider();
+  const fbprovider = new firebase.auth.FacebookAuthProvider();
+  // fbprovider.addScope('email');
 
-  export {auth, provider};
+
+  export {auth, ggprovider, fbprovider};
   const db = firebase.firestore();
   export default db;
-
