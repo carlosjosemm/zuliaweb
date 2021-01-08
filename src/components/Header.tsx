@@ -1,11 +1,12 @@
-import { Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, Spacer, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
 import firebase from "firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 import { useDataLayer } from "../DataLayer";
 import { actionTypes } from "../reducer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
-import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
+import {FaFacebook, FaInstagram,} from "react-icons/fa";
+import {SiWhatsapp} from "react-icons/si";
 
 interface HeaderProps {};
 
@@ -33,7 +34,7 @@ const Header:React.FC<HeaderProps> = () => {
     }, [user]);
 
     return (
-        <div>
+        <>
             <Flex px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
 
             {/* HEADER LEFT */}
@@ -41,24 +42,29 @@ const Header:React.FC<HeaderProps> = () => {
                 <VStack>
                     <Flex minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
                         <LightMode>
+                            <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
                             <IconButton //onClick={}
                                 aria-label="Facebook"
                                 color="white"
                                 colorScheme="facebook" 
                                 icon={<FaFacebook />}
                             ></IconButton>
+                            </Link>
                         </LightMode>
-
+                        
                         <LightMode>
+                        <Link href="https://wa.link/8xxfzu" isExternal>
                             <IconButton 
-                                colorScheme="twitter" 
-                                aria-label="Twitter"
-                                icon={<FaTwitter />}
+                                colorScheme="whatsapp" 
+                                aria-label="Whatsapp"
+                                icon={<SiWhatsapp />}
                                 color="white"
                                 ></IconButton>
+                        </Link>
                         </LightMode>
 
                         <LightMode>
+                        <Link href="https://www.instagram.com/zuliapallevar/" isExternal>
                             <IconButton 
                                 aria-label="Instagram"
                                 icon={<FaInstagram />}
@@ -67,6 +73,7 @@ const Header:React.FC<HeaderProps> = () => {
                                 border="2px solid #718096"
                                 _hover={{bgColor: "gray.600", border: "2px solid #4A5568"}}
                                 ></IconButton>
+                        </Link>
                         </LightMode>
                 </Flex>
 
@@ -206,7 +213,7 @@ const Header:React.FC<HeaderProps> = () => {
 
 
 
-        </div>
+        </>
     );
 }
 
