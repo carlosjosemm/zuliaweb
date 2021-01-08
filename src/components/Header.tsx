@@ -37,15 +37,12 @@ const Header:React.FC<HeaderProps> = () => {
             <Flex px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
 
             {/* HEADER LEFT */}
-            <Box mb="20px" ml="20px">
+            <Box mb="20px" ml="20px" >
                 <VStack>
                     <Flex minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
                         <LightMode>
                             <IconButton //onClick={}
-                                // size="md"
-                                // w="100%" 
                                 aria-label="Facebook"
-                                // justifySelf="center"
                                 color="white"
                                 colorScheme="facebook" 
                                 icon={<FaFacebook />}
@@ -96,25 +93,19 @@ const Header:React.FC<HeaderProps> = () => {
                     </InputGroup>
                 </VStack>
             </Box >
-                        <Spacer />
                 {/* HEADER CENTER  */}
-                <Box w="40%" h="100%" mr="90px">
                     <Image
-                        crossOrigin="anonymous"
+                        h="100%" 
                         p="10px"
-                        align="50% 50%"
-                        boxSize="100%"
-                        minH="150px"
-                        minW="390px"
                         fit="contain"
                         src="https://i.imgur.com/3xajgtl.png"
                         alt="logo"
-                        maxH="150px"
                     />
-                </Box>
-                        <Spacer />
                 {/* HEADER RIGHT */}
-                <Box minW="170px" mb="20px" mr="20px">
+                <Box 
+                    mb="20px" 
+                    mr="20px"
+                >
                     <VStack>
                     <Button ref={btnRef} onClick={onOpen}
                         size="md"
