@@ -1,10 +1,11 @@
-import { Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, Icon, Image, Input, InputGroup, InputRightElement, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, Spacer, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
 import firebase from "firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 import { useDataLayer } from "../DataLayer";
 import { actionTypes } from "../reducer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
+import {FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 
 interface HeaderProps {};
 
@@ -33,10 +34,45 @@ const Header:React.FC<HeaderProps> = () => {
 
     return (
         <div>
-            <HStack px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
+            <Flex px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
 
             {/* HEADER LEFT */}
             <Box mb="20px" ml="20px">
+                <VStack>
+                    <Flex minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
+                        <LightMode>
+                            <IconButton //onClick={}
+                                // size="md"
+                                // w="100%" 
+                                aria-label="Facebook"
+                                // justifySelf="center"
+                                color="white"
+                                colorScheme="facebook" 
+                                icon={<FaFacebook />}
+                            ></IconButton>
+                        </LightMode>
+
+                        <LightMode>
+                            <IconButton 
+                                colorScheme="twitter" 
+                                aria-label="Twitter"
+                                icon={<FaTwitter />}
+                                color="white"
+                                ></IconButton>
+                        </LightMode>
+
+                        <LightMode>
+                            <IconButton 
+                                aria-label="Instagram"
+                                icon={<FaInstagram />}
+                                color="white"
+                                bgColor="gray.500"
+                                border="2px solid #718096"
+                                _hover={{bgColor: "gray.600", border: "2px solid #4A5568"}}
+                                ></IconButton>
+                        </LightMode>
+                </Flex>
+
                     <InputGroup>
                     <InputRightElement children={
                         <Icon 
@@ -58,8 +94,9 @@ const Header:React.FC<HeaderProps> = () => {
                         />    
                     
                     </InputGroup>
-                </Box >
-
+                </VStack>
+            </Box >
+                        <Spacer />
                 {/* HEADER CENTER  */}
                 <Box w="40%" h="100%" mr="90px">
                     <Image
@@ -75,9 +112,9 @@ const Header:React.FC<HeaderProps> = () => {
                         maxH="150px"
                     />
                 </Box>
-
+                        <Spacer />
                 {/* HEADER RIGHT */}
-                <Box mb="20px" mr="20px">
+                <Box minW="170px" mb="20px" mr="20px">
                     <VStack>
                     <Button ref={btnRef} onClick={onOpen}
                         size="md"
@@ -129,7 +166,7 @@ const Header:React.FC<HeaderProps> = () => {
                     </Button>
                     </VStack>
                 </Box>
-            </HStack>
+            </Flex>
 
             {/* NAV BAR */}
             <HStack 
