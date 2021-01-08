@@ -2,6 +2,8 @@ import '../../styles/globals.css'
 import { ChakraProvider } from "@chakra-ui/react"
 import { DataProvider } from '../DataLayer'
 import reducer, { initialState } from '../reducer'
+import '../../styles/CarouselStyles.css'
+
 
 function MyApp({ Component, pageProps }) {
   return (

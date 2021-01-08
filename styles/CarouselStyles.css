@@ -1,0 +1,59 @@
+.rec.rec-dot {
+  background: #feb800;
+  border: 1px #white solid;
+  border-radius: 999px;
+  display: none;
+}
+
+.rec.rec-dot_active {
+  background: #57a7dc;
+  border: 1px #333 solid;
+}
+
+.rec.rec-dot:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+.rec.rec-arrow-right:focus {
+  border-radius: 50%;
+  background-color: white !important;
+  color: black !important;
+}
+
+.rec.rec-arrow-left:focus {
+  border-radius: 50%;
+  background-color: white !important;
+  color: black !important;
+}
+
+.rec.rec-arrow-right:hover {
+  border-radius: 50%;
+  background-color: #feb800 !important;
+  color: white !important;
+}
+
+.rec.rec-arrow-left:hover {
+  border-radius: 50%;
+  background-color: #feb800 !important;
+  color: white !important;
+}
+
+.rec.rec-arrow-left {
+  border-radius: 50%;
+  background-color: white !important;
+}
+
+.rec.rec-arrow-right {
+  border-radius: 50%;
+  background-color: white !important;
+}
+
+.rec-carousel-item:focus {
+  border: none !important;
+}
+
+.rec-carousel-item:hover {
+  outline: none !important;
+  cursor: pointer;
+}

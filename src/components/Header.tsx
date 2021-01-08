@@ -13,7 +13,6 @@ const Header:React.FC<HeaderProps> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = useRef();
     const [{user}, dispatch] = useDataLayer();
-    console.log(`api key: ${process.env.FB_APIKEY}`)
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -34,7 +33,7 @@ const Header:React.FC<HeaderProps> = () => {
 
     return (
         <div>
-            <HStack bgColor="yellow.100" px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
+            <HStack px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
 
             {/* HEADER LEFT */}
             <Box mb="20px" ml="20px">
@@ -131,11 +130,14 @@ const Header:React.FC<HeaderProps> = () => {
                     </VStack>
                 </Box>
             </HStack>
-            
+
+            {/* NAV BAR */}
             <HStack 
-                mx="10px" 
+                mx="10px"
+                color="white" 
                 mt="2px" 
-                borderRadius="8px" 
+                borderRadius="5px"
+                borderColor= "#57a7dc"
                 fontWeight="500" 
                 bgColor="#57a7dc" 
                 px="100px" 

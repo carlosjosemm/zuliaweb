@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import Header from '../components/Header'
+import HotProductSlide from '../components/HotProductSlide';
 import { useDataLayer } from '../DataLayer'
 // import db from '../firebase';
 // import { useEffect, useState } from 'react';
@@ -15,14 +16,14 @@ export default function Home() {
   //       discount: 1,
   //       ofert: false,
   //       price: 120,
-  //       unit: 'unidad',
+  //       unit: 'unidad', 
   //       unity: false,
   //       name: "Don Toston Ajo 60gr",
   //       photoURL:"https://i.imgur.com/kVm6VXm.jpg"
   //     }).then((docRef) => {
   //       console.log(`producto creado con id: ${docRef}`);
   //       }).catch(function(error) {
-  //         console.error("Error writing document: ", error);
+  //         console.error("Error writing document: ", error); 
   //     });
 
   //       db.collection("products").get().then(pr => {
@@ -38,10 +39,31 @@ export default function Home() {
   // , []);
 
   return (
+    
     <div>
-      <Box bgColor="yellow.100">
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossOrigin="anonymous"
+      />
+
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
+
+      <Box bgColor="yellow.50">
         <Header />
         {/* <HeaderMobile /> */}     
+        <HotProductSlide />
       </Box>
     </div>
     
