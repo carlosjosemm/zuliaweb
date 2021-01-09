@@ -156,7 +156,7 @@
   border-radius: 0.25rem;
   background-color: #fffff0 !important;
   border: none !important;
-  transition: transform 450ms !important;
+  transition: transform 250ms !important;
 }
 
 .productCard:hover {
