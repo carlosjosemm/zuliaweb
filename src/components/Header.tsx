@@ -174,7 +174,7 @@ const Header:React.FC<HeaderProps> = () => {
                 borderRadius="5px"
                 borderColor= "#57a7dc"
                 fontWeight="500" 
-                bgColor="#57a7dc" 
+                bgColor="blue.500" 
                 px="100px" 
                 direction="row" 
                 alignItems="center" 
