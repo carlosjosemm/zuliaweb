@@ -1,16 +1,34 @@
-import { Box } from '@chakra-ui/react'
+import { Box, IconButton, LightMode, Link } from '@chakra-ui/react'
 import Header from '../components/Header'
 import HotProductSlide from '../components/HotProductSlide';
 import { useDataLayer } from '../DataLayer'
+import IgPostsBanner from '../components/IgPostsBanner';
+import React, { 
+  useState, 
+  useEffect,
+} from 'react';
+import {SiWhatsapp} from "react-icons/si";
+import styles from "../../styles/Home.module.css";
+// import InstagramEmbed from 'react-instagram-embed';
 // import db from '../firebase';
-// import { useEffect, useState } from 'react';
 // import HeaderMobile from '../components/HeaderMobile'
 
 export default function Home() {
   const [{user}, dispatch] = useDataLayer();
+  const [show, useShow] = useState(true);
   // const [products, useProducts] = useState(null);
   
-  // useEffect(() => {
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 150) {
+        useShow(true);
+      } else {
+        useShow(false);
+      }
+      return () => {
+        window.removeEventListener("scroll", this.window);
+    };
+  });
   //     db.collection('products').doc('dontostonajo').set({
   //       availability: true,
   //       discount: 1,
@@ -35,12 +53,12 @@ export default function Home() {
   //         console.log(pr.docs.map(doc => (doc.data())));
   //         console.log(products);
   //       });
-  //   }
-  // , []);
+    }
+  , []);
 
   return (
     
-    <div>
+    <>
       <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -48,24 +66,40 @@ export default function Home() {
         crossOrigin="anonymous"
       />
 
-      <link
-        rel="stylesheet"
-        type="text/css"
-        charSet="UTF-8"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      />
-
-      <Box bgColor="yellow.50">
+      <Box>
         <Header />
         {/* <HeaderMobile /> */}     
         <HotProductSlide />
+
+        {/* <InstagramEmbed
+          url='https://www.instagram.com/p/CIopViaj9NG/'
+          clientAccessToken='485012469136259|609cdbf6afd98b1a289baeb616eb456b'
+          maxWidth={500}
+          hideCaption={true}
+          containerTagName='div'
+          protocol=''
+          injectScript
+          onLoading={() => {}}
+          onSuccess={() => {}}
+          onAfterRender={() => {}}
+          onFailure={() => {console.log('instagram plugin failed')}}
+        /> */}
+
+        <IgPostsBanner />
+        <LightMode>
+          <Link href="https://wa.link/8xxfzu" isExternal >
+              <IconButton 
+                  className={!show? styles.floatingButtonWhatsapp__hidden : styles.floatingButtonWhatsapp}
+                  colorScheme="whatsapp" 
+                  aria-label="Whatsapp"
+                  borderRadius="full"
+                  icon={<SiWhatsapp size="23px"/>}
+                  color="white"
+                  ></IconButton>
+          </Link>
+        </LightMode>
       </Box>
-    </div>
+    </>
     
   )
 }

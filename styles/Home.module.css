@@ -181,3 +181,18 @@
 .productName {
   font-weight: 500;
 }
+
+.floatingButtonWhatsapp {
+  position: fixed !important;
+  bottom: 50px !important;
+  right: 50px !important;
+  z-index: 100;
+  transition-timing-function: ease-in !important;
+  transition: all 0.4s !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.floatingButtonWhatsapp__hidden {
+  display: none !important;
+}
