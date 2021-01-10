@@ -39,8 +39,8 @@ const Header:React.FC<HeaderProps> = () => {
 
             {/* HEADER LEFT */}
             <Box mb="20px" ml="20px" >
-                <VStack >
-                    <Flex minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
+                <VStack>
+                    <Flex mb="10px" minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
                         <LightMode>
                             <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
                             <IconButton //onClick={}
