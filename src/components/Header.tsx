@@ -39,13 +39,14 @@ const Header:React.FC<HeaderProps> = () => {
 
             {/* HEADER LEFT */}
             <Box mb="20px" ml="20px" >
-                <VStack>
+                <VStack >
                     <Flex minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
                         <LightMode>
                             <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
                             <IconButton //onClick={}
                                 aria-label="Facebook"
                                 color="white"
+                                borderRadius="full"
                                 colorScheme="facebook" 
                                 icon={<FaFacebook />}
                             ></IconButton>
@@ -57,6 +58,7 @@ const Header:React.FC<HeaderProps> = () => {
                             <IconButton 
                                 colorScheme="whatsapp" 
                                 aria-label="Whatsapp"
+                                borderRadius="full"
                                 icon={<SiWhatsapp />}
                                 color="white"
                                 ></IconButton>
@@ -69,6 +71,7 @@ const Header:React.FC<HeaderProps> = () => {
                                 aria-label="Instagram"
                                 icon={<FaInstagram />}
                                 color="white"
+                                borderRadius="full"
                                 bgColor="gray.500"
                                 border="2px solid #718096"
                                 _hover={{bgColor: "gray.600", border: "2px solid #4A5568"}}
@@ -86,7 +89,7 @@ const Header:React.FC<HeaderProps> = () => {
                             color="yellow.800" 
                         />} 
                     />
-
+                    <LightMode>
                     <Input variant="outline" 
                         borderColor="yellow.600"
                         focusBorderColor="yellow.800" 
@@ -95,7 +98,9 @@ const Header:React.FC<HeaderProps> = () => {
                         _placeholder={{color: "white"}}
                         size="md"
                         bgColor="#feb800"
-                        />    
+                        // bgColor="white"
+                    />    
+                    </LightMode>
                     
                     </InputGroup>
                 </VStack>
@@ -118,11 +123,11 @@ const Header:React.FC<HeaderProps> = () => {
                         size="md"
                         w="100%" 
                         justifySelf="center"
-                        _hover= {{bg: "orange.400", color: "white"}} 
-                        bgColor="#feb800" 
-                        borderColor="yellow.800"
+                        _hover= {{bg: "yellow.300", color: "black"}} 
+                        bgColor="yellow.200" 
+                        borderColor="yellow.200"
                         color="yellow.800"
-                        _focus={{outlineColor: "yellow.800"}}
+                        _focus={{outlineColor: "yellow.300"}}
                         leftIcon={ <Icon  
                             as={BiUser} 
                             h="25px" w="25px" 
@@ -133,9 +138,10 @@ const Header:React.FC<HeaderProps> = () => {
 
                     <Button size="md" 
                         justifySelf="center"
-                        _hover= {{bg: "orange.400", color: "white"}} 
-                        bgColor="#feb800" 
-                        borderColor="yellow.800"
+                        _hover= {{bg: "yellow.300", color: "black"}} 
+                        bgColor="yellow.200" 
+                        borderColor="yellow.200"
+                        _focus={{outlineColor: "yellow.300"}}
                         color="yellow.800" 
                         leftIcon={ <Icon  
                             as={BiCart} 
@@ -168,19 +174,25 @@ const Header:React.FC<HeaderProps> = () => {
 
             {/* NAV BAR */}
             <HStack 
-                mx="10px"
+                // mx="10px"
                 color="white" 
                 mt="2px" 
-                borderRadius="5px"
-                borderColor= "#57a7dc"
+                // borderRadius="5px"
+                padding="3px"
+                // borderColor= "#57a7dc"
+                // borderBottom="3px solid #3182CE"
+                // border="3px solid #3182CE"
                 fontWeight="500" 
                 bgColor="blue.500" 
                 px="100px" 
                 direction="row" 
                 alignItems="center" 
                 justifyContent="space-around" 
-                h="40px"  
+                h="45px"  
                 divider={<StackDivider borderColor="gray.200" />}
+                position="sticky"
+                top="0"
+                zIndex="100"                
             >
                 <Box>
                     <Link _hover={{textDecoration: 'none'}}>
