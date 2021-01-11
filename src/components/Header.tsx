@@ -1,6 +1,9 @@
-import { Box, Button, Center, Flex, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, GridItem, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
 import firebase from "firebase";
-import React, { useEffect, useRef, useState } from "react";
+import React, { 
+    useEffect, 
+    useRef, 
+} from "react";
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 import { useDataLayer } from "../DataLayer";
 import { actionTypes } from "../reducer";
@@ -33,78 +36,92 @@ const Header:React.FC<HeaderProps> = () => {
     }, [user]);
 
     return (
-        <>
-            <Flex px="20px" direction="row" alignItems="flex-end" justifyContent="space-between" h="150px">
+        <>  
+        <Box
+            w="100vw"
+            h="150px"
+        >
+            <Grid
+                templateRows="repeat(2, 1fr)"
+                templateColumns="repeat(10, 1fr)"
+                w="100%"
+                p="0px"
+                h="150px"
+            >
+                <GridItem
+                    rowSpan={2} colSpan={3}
+                >
+                    <Flex mb="3ch" ml="3ch" w="100%" h="100%" flexDir="row" justifyContent="flex-start" alignItems="center">
+                        <VStack maxW="80%">
+                            <Flex mb="1ch" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
+                                <LightMode>
+                                    <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
+                                    <IconButton //onClick={}
+                                        aria-label="Facebook"
+                                        color="white"
+                                        borderRadius="full"
+                                        colorScheme="facebook" 
+                                        icon={<FaFacebook />}
+                                    ></IconButton>
+                                    </Link>
+                                </LightMode>
+                                
+                                <LightMode>
+                                <Link href="https://wa.link/8xxfzu" isExternal>
+                                    <IconButton 
+                                        colorScheme="whatsapp" 
+                                        aria-label="Whatsapp"
+                                        borderRadius="full"
+                                        icon={<SiWhatsapp />}
+                                        color="white"
+                                        ></IconButton>
+                                </Link>
+                                </LightMode>
 
-            {/* HEADER LEFT */}
-            <Box mb="20px" ml="20px" >
-                <VStack>
-                    <Flex mb="10px" minW="130px" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
-                        <LightMode>
-                            <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
-                            <IconButton //onClick={}
-                                aria-label="Facebook"
-                                color="white"
-                                borderRadius="full"
-                                colorScheme="facebook" 
-                                icon={<FaFacebook />}
-                            ></IconButton>
-                            </Link>
-                        </LightMode>
-                        
-                        <LightMode>
-                        <Link href="https://wa.link/8xxfzu" isExternal>
-                            <IconButton 
-                                colorScheme="whatsapp" 
-                                aria-label="Whatsapp"
-                                borderRadius="full"
-                                icon={<SiWhatsapp />}
-                                color="white"
-                                ></IconButton>
-                        </Link>
-                        </LightMode>
+                                <LightMode>
+                                <Link href="https://www.instagram.com/zuliapallevar/" isExternal>
+                                    <IconButton 
+                                        aria-label="Instagram"
+                                        icon={<FaInstagram />}
+                                        color="white"
+                                        borderRadius="full"
+                                        bgColor="gray.500"
+                                        border="2px solid #718096"
+                                        _hover={{bgColor: "gray.600", border: "2px solid #4A5568"}}
+                                        ></IconButton>
+                                </Link>
+                                </LightMode>
+                            </Flex>
 
-                        <LightMode>
-                        <Link href="https://www.instagram.com/zuliapallevar/" isExternal>
-                            <IconButton 
-                                aria-label="Instagram"
-                                icon={<FaInstagram />}
-                                color="white"
-                                borderRadius="full"
-                                bgColor="gray.500"
-                                border="2px solid #718096"
-                                _hover={{bgColor: "gray.600", border: "2px solid #4A5568"}}
-                                ></IconButton>
-                        </Link>
-                        </LightMode>
-                </Flex>
-
-                    <InputGroup>
-                    <InputRightElement children={
-                        <Icon 
-                            mx="10px" 
-                            as={BiSearch} 
-                            h="30px" w="30px" 
-                            color="yellow.800" 
-                        />} 
-                    />
-                    <LightMode>
-                    <Input variant="outline" 
-                        borderColor="yellow.600"
-                        focusBorderColor="yellow.800" 
-                        color="yellow.800" 
-                        placeholder="Buscar producto..." 
-                        _placeholder={{color: "white"}}
-                        size="md"
-                        bgColor="#feb800"
-                        // bgColor="white"
-                    />    
-                    </LightMode>
-                    
-                    </InputGroup>
-                </VStack>
-            </Box >
-                {/* HEADER CENTER  */}
+                            <InputGroup>
+                            <InputRightElement children={
+                                <Icon 
+                                    mx="10px" 
+                                    as={BiSearch} 
+                                    h="30px" w="30px" 
+                                    color="yellow.800" 
+                                />} 
+                            />
+                            <LightMode>
+                            <Input variant="outline" 
+                                borderColor="yellow.600"
+                                focusBorderColor="yellow.800" 
+                                color="yellow.800"
+                                placeholder="Buscar producto..." 
+                                _placeholder={{color: "white"}}
+                                size="md"
+                                bgColor="#feb800"
+                                // bgColor="white"
+                            />    
+                            </LightMode>
+                            </InputGroup>
+                        </VStack>
+                    </Flex>
+                </GridItem>
+                <GridItem
+                    rowSpan={2} colSpan={4}
+                >
+                    <Flex w="100%" h="100%" justifyContent="center" alignItems="center" pr="2ch">
                     <Image
                         h="100%" 
                         p="10px"
@@ -112,15 +129,22 @@ const Header:React.FC<HeaderProps> = () => {
                         src="https://i.imgur.com/3xajgtl.png"
                         alt="logo"
                     />
-                {/* HEADER RIGHT */}
-                <Box 
-                    mb="20px" 
-                    mr="20px"
+                    </Flex>
+                </GridItem>
+                <GridItem
+                    rowSpan={2} colSpan={3}
                 >
-                    <VStack>
+                <Flex 
+                    mb="3ch" 
+                    mr="3ch"
+                    w="100%" h="100%"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <VStack maxW="80%">
                     <Button ref={btnRef} onClick={onOpen}
                         size="md"
-                        w="100%" 
+                        w="18ch" 
                         justifySelf="center"
                         _hover= {{bg: "yellow.300", color: "black"}} 
                         bgColor="yellow.200" 
@@ -136,6 +160,7 @@ const Header:React.FC<HeaderProps> = () => {
                     </Button>
 
                     <Button size="md" 
+                        w="18ch" 
                         justifySelf="center"
                         _hover= {{bg: "yellow.300", color: "black"}} 
                         bgColor="yellow.200" 
@@ -169,8 +194,14 @@ const Header:React.FC<HeaderProps> = () => {
                         Mi carrito
                     </Button>
                     </VStack>
-                </Box>
-            </Flex>
+                </Flex>
+                </GridItem>
+            </Grid>
+        </Box>
+
+
+{/* //////////////////////////////////////////////////////////////             */}
+
 
             {/* NAV BAR */}
             <HStack 

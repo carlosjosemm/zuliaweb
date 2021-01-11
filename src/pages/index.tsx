@@ -66,7 +66,7 @@ export default function Home() {
         crossOrigin="anonymous"
       />
 
-      <Box>
+      <Box w="100vw" h="100vh">
         <Header />
         {/* <HeaderMobile /> */}     
         <HotProductSlide />
