@@ -1,4 +1,5 @@
 export type ProductData = {
+    new?: boolean;
     photoURL: string;
     price: number;
     unity: boolean;
