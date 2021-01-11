@@ -101,7 +101,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                     {product.new ? <Badge variant="primary">NUEVO</Badge> : null}
                   </Flex>
                   <Heading
-                    as="h2" size="lg" isTruncated mb="0px" pb="0.3ch"
+                    as="h2" size="lg" isTruncated mb="0px" pb="0.3ch" maxWidth="100%"
                   >
                     {product.name}
                   </Heading>
