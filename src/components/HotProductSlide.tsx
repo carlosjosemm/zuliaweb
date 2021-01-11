@@ -20,7 +20,7 @@ const HotProductSlide = () => {
         { width: 1200, itemsToShow: 3, itemsToScroll: 1 }
       ];
     
-
+ 
     useEffect(() => {
         const queryBuffer = []; 
         const getHotProducts = () => {
@@ -53,7 +53,7 @@ const HotProductSlide = () => {
             </Center>
 
             <Box marginX="5vw">
-                    <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false}>
+                    <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
                     {hotproducts? hotproducts.map((pr:ProductData, index) => (
                             <ProductCard
                                 key={index}
@@ -65,7 +65,8 @@ const HotProductSlide = () => {
                                 hot={pr.hot}
                                 ofert={pr.ofert}
                                 name={pr.name}
-                                unit={pr.unit} 
+                                unit={pr.unit}
+                                new={pr.new} 
                             />
                     )) : <div></div> }
                     </Carousel>
