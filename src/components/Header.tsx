@@ -7,14 +7,14 @@ import { actionTypes } from "../reducer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
 import {FaFacebook, FaInstagram,} from "react-icons/fa";
 import {SiWhatsapp} from "react-icons/si";
+import { CartItem } from "../types";
 
 interface HeaderProps {};
 
 const Header:React.FC<HeaderProps> = () => {
-    const [cartItems, setCartItems] = useState(1);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = useRef();
-    const [{user}, dispatch] = useDataLayer();
+    const [{user, cart}, dispatch] = useDataLayer();
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -148,20 +148,21 @@ const Header:React.FC<HeaderProps> = () => {
                             h="25px" w="25px" 
                             color="inherit" 
                         />}
-                        rightIcon={(cartItems!==0) ? 
+                        rightIcon={(cart.length!==0) ? 
                             (<Center 
                             borderRadius="999px" 
                             bgColor="red.600" 
                             w="3ch" h="3ch" 
                             color="white"
                             >
-                                {cartItems}
+                                {cart.length}
                             </Center>) : 
                             (<Center 
                                 borderRadius="999px" 
                                 bgColor="inherit" 
                                 w="3ch" h="3ch" 
                                 color="white"
+                                display="none"
                                 >
                                     🚀
                                 </Center>)}
