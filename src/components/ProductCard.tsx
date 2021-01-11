@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { ProductData } from "../types";
 import styles from "../../styles/home.module.css";
+import { useDisclosure } from "@chakra-ui/react";
+import ProductModal from "./ProductModal";
 
 
 interface ProductCardProps extends ProductData {
@@ -10,6 +12,7 @@ interface ProductCardProps extends ProductData {
 
 const ProductCard: React.FC<ProductCardProps> = ({...props}) => {
     const [finalprice, useFinalprice] = useState(null);
+    const { isOpen, onOpen, onClose } = useDisclosure()
     
     useEffect(() => {
         if (props.ofert) {
@@ -34,9 +37,11 @@ const ProductCard: React.FC<ProductCardProps> = ({...props}) => {
                             {`$${finalprice}`}
                         </Card.Text>
                     </div>
-                <Button className={styles.addButton} variant="primary">Agregar al carrito</Button>
+                <Button className={styles.addButton} variant="primary" onClick={onOpen}>Agregar al carrito</Button>
             </Card.Body>
         </Card>
+
+        <ProductModal isOpen={isOpen} onClose={onClose} product={props}/>
         </>
     );
 }
