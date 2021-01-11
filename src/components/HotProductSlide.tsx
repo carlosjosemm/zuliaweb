@@ -54,19 +54,20 @@ const HotProductSlide = () => {
 
             <Box marginX="5vw">
                     <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
-                    {hotproducts? hotproducts.map((pr:ProductData, index) => (
+                    {hotproducts? hotproducts.map((pr:ProductData, index:number) => (
                             <ProductCard
                                 key={index}
-                                photoURL={pr.photoURL}
-                                price={pr.price}
-                                unity={pr.unity}
-                                availability={pr.availability}
-                                discount={pr.discount}
-                                hot={pr.hot}
-                                ofert={pr.ofert}
-                                name={pr.name}
-                                unit={pr.unit}
-                                new={pr.new} 
+                                // photoURL={pr.photoURL}
+                                // price={pr.price}
+                                // unity={pr.unity}
+                                // availability={pr.availability}
+                                // discount={pr.discount}
+                                // hot={pr.hot}
+                                // ofert={pr.ofert}
+                                // name={pr.name}
+                                // unit={pr.unit}
+                                // new={pr.new} 
+                                product={pr}
                             />
                     )) : <div></div> }
                     </Carousel>

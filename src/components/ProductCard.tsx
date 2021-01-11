@@ -6,32 +6,33 @@ import { useDisclosure } from "@chakra-ui/react";
 import ProductModal from "./ProductModal";
 
 
-interface ProductCardProps extends ProductData {
-    id?: string;
+interface ProductCardProps {
+    product: ProductData;
+    key: number;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({...props}) => {
+const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
     const [finalprice, useFinalprice] = useState(null);
     const { isOpen, onOpen, onClose } = useDisclosure()
     
     useEffect(() => {
-        if (props.ofert) {
-            useFinalprice(props.price * props.discount);
+        if (product.ofert) {
+            useFinalprice(product.price * product.discount);
         } else {
-            useFinalprice(props.price);
+            useFinalprice(product.price);
         }
     }, [])
 
     return (
         <>
          <Card className={styles.productCard}>
-            <Card.Img variant="top" src={props.photoURL} style={{borderRadius: "0.25rem", maxHeight: "300px", objectFit: "contain"}}/>
+            <Card.Img variant="top" src={product.photoURL} style={{borderRadius: "0.25rem", maxHeight: "300px", objectFit: "contain"}}/>
             <Card.Body className={styles.productCardBody}>
-                <Card.Text className={styles.productName} >{props.name}</Card.Text>
+                <Card.Text className={styles.productName} >{product.name}</Card.Text>
 
                     <div className={styles.productCardInfo}>
                         <Card.Text className={styles.initialPrice} >
-                            {props.ofert ? `$${props.price}` : null}
+                            {product.ofert ? `$${product.price}` : null}
                         </Card.Text>
                         <Card.Text className={styles.finalPrice}>
                             {`$${finalprice}`}
@@ -41,7 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({...props}) => {
             </Card.Body>
         </Card>
 
-        <ProductModal isOpen={isOpen} onClose={onClose} product={props}/>
+        <ProductModal isOpen={isOpen} onClose={onClose} product={product}/>
         </>
     );
 }
