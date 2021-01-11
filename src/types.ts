@@ -11,3 +11,9 @@ export type ProductData = {
     unit: string;
     __proto__?: object;
 }
+
+export interface CartItem {
+    product: ProductData
+    quantity: number;
+    finalprice: number;
+}
