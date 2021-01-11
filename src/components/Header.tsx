@@ -7,7 +7,6 @@ import { actionTypes } from "../reducer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
 import {FaFacebook, FaInstagram,} from "react-icons/fa";
 import {SiWhatsapp} from "react-icons/si";
-import { CartItem } from "../types";
 
 interface HeaderProps {};
 
