@@ -20,8 +20,8 @@ const HotProductSlide = () => {
         { width: 1200, itemsToShow: 3, itemsToScroll: 1 }
       ];
     
- 
-    useEffect(() => {
+    useEffect(() => { 
+
         const queryBuffer = []; 
         const getHotProducts = () => {
             db.collection("products").where("hot","==",true).get().then(
@@ -40,7 +40,7 @@ const HotProductSlide = () => {
         // dispatch({
         //     type: actionTypes.SET_HOT_PRODUCTS, hotproducts: queryBuffer
         // });
-        console.log(`useEffect was here...`);
+        console.log(`useEffect was here slider...`);
         // hotproducts? console.log('hotproducts: ', hotproducts.map((pr:ProductData) => pr.price)) : null;
     }, []);
 
@@ -51,22 +51,11 @@ const HotProductSlide = () => {
                     Destacados
                 </Heading>
             </Center>
-
             <Box marginX="5vw">
                     <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
                     {hotproducts? hotproducts.map((pr:ProductData, index:number) => (
                             <ProductCard
                                 key={index}
-                                // photoURL={pr.photoURL}
-                                // price={pr.price}
-                                // unity={pr.unity}
-                                // availability={pr.availability}
-                                // discount={pr.discount}
-                                // hot={pr.hot}
-                                // ofert={pr.ofert}
-                                // name={pr.name}
-                                // unit={pr.unit}
-                                // new={pr.new} 
                                 product={pr}
                             />
                     )) : <div></div> }
