@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { ProductData } from "../types";
-import styles from "../../styles/home.module.css";
+import styles from "../../styles/Home.module.css";
 import { useDisclosure } from "@chakra-ui/react";
 import ProductModal from "./ProductModal";
 

@@ -18,7 +18,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { Badge, Button, Modal } from "react-bootstrap";
 import { CartItem, ProductData } from "../types";
-import styles from "../../styles/home.module.css";
+import styles from "../../styles/Home.module.css";
 import { useDataLayer } from "../DataLayer";
 import { actionTypes } from "../reducer";
 
