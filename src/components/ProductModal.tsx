@@ -13,6 +13,7 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Badge, Button, Modal } from "react-bootstrap";
@@ -32,6 +33,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   const [finalprice, useFinalprice] = useState(null);
   const [quantity, setQuantity] = useState(0);
   const [subTotal, useSubTotal] = useState(0);
+  const toast = useToast()
   // const [adding, useAdding] = useState(false);
 
   const format = (val) => val + ` ${product.unit}${(product.unity==false)? '(es)': '(s)' }`;
@@ -45,7 +47,14 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
     dispatch(
       {type: actionTypes.ADD_TO_CART, item: item, subtotal: subTotal}
     );
-    console.log('hotproducts from add to cart: ', hotproducts)
+    console.log('hotproducts from add to cart: ', hotproducts);
+    toast({
+      title: "Producto agregado agregado a tu carrito!",
+      // description: "El producto fue ",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
     setQuantity(0);
     // useAdding(false);
   };
