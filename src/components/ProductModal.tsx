@@ -1,6 +1,5 @@
 import { 
   Box, 
-  // Button, 
   Center, 
   Flex, 
   Grid, 
@@ -14,22 +13,13 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  Slider,
-  SliderTrack,
-  SliderThumb,
-  SliderFilledTrack, 
-  // Modal, 
-  // ModalBody, 
-  // ModalCloseButton, 
-  // ModalContent, 
-  // ModalFooter, 
-  // ModalHeader, 
-  // ModalOverlay 
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Badge, Button, Modal } from "react-bootstrap";
-import { ProductData } from "../types";
+import { CartItem, ProductData } from "../types";
 import styles from "../../styles/home.module.css";
+import { useDataLayer } from "../DataLayer";
+import { actionTypes } from "../reducer";
 
 interface ModalProps {
   isOpen: boolean;
@@ -38,12 +28,27 @@ interface ModalProps {
 }
 
 const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
-  const format = (val) => val + ` ${product.unit}${(product.unity==false)? '(es)': '(s)' }`;
-  const parse = (val) => val.replace(/^\$/, "");
+  const [{hotproducts}, dispatch] = useDataLayer();
   const [finalprice, useFinalprice] = useState(null);
   const [quantity, setQuantity] = useState(0);
-  // const handleChange = (quantity) => setQuantity(quantity);
   const [subTotal, useSubTotal] = useState(0);
+  // const [adding, useAdding] = useState(false);
+
+  const format = (val) => val + ` ${product.unit}${(product.unity==false)? '(es)': '(s)' }`;
+  const parse = (val) => val.replace(/^\$/, "");
+
+
+  const handleAddtoCart = (e: React.MouseEvent<HTMLElement, MouseEvent>, product: ProductData, quantity: number, finalprice: number, subTotal: number) => {
+    e.preventDefault();
+    // useAdding(true);
+    const item:CartItem = {product: product, quantity: parseInt(quantity.toString()), finalprice: finalprice};
+    dispatch(
+      {type: actionTypes.ADD_TO_CART, item: item, subtotal: subTotal}
+    );
+    console.log('hotproducts from add to cart: ', hotproducts)
+    setQuantity(0);
+    // useAdding(false);
+  };
 
   useEffect(() => {
     if (product.ofert) {
@@ -51,9 +56,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
     } else {
         useFinalprice(product.price);
     };
-
     useSubTotal(quantity * finalprice);
-    console.log('new: ', product.new);
 }, [quantity])
 
 
@@ -65,9 +68,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
           show={isOpen}
           onHide={onClose}
           aria-labelledby="example-modal-sizes-title-lg"
-          // closeButton
           centered
-          // backdrop="static"
         >
           <Modal.Body 
             style={{padding: "0px"}}
@@ -78,16 +79,16 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               templateRows="repeat(6, 1fr)"
               templateColumns="repeat(4, 1fr)"
             >
+              {/* MODAL IMAGE */}
               <GridItem rowSpan={6} colSpan={2}>
                 <Flex h="100%">
                 <Image
                   src={product.photoURL} 
-                  // justifySelf="center"
-                  // fit="contain"
                 />
                 </Flex>
               </GridItem>
 
+              {/* MODAL TITLE AND BADGES */}
               <GridItem rowSpan={1} colSpan={2}  mx="2ch">
                 <Flex
                   alignItems="flex-start"
@@ -108,6 +109,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </Flex>
               </GridItem>
 
+              {/* MODAL INFO & DESCRIPTION */}
               <GridItem rowSpan={2} colSpan={2}  mx="2ch">
                 <Flex
                   alignItems="left"
@@ -127,6 +129,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </Flex>
               </GridItem>
 
+              {/* MODAL QUANTITY INPUT */}
               <GridItem rowSpan={1} colSpan={2} borderY='1px solid lightgrey' mx="2ch">
                 <Flex h="100%" w="100%" alignItems="center" justifyContent="center" pl="20px">
                   <Text fontSize="lg" color="black" verticalAlign="center" mb="0px" mr="5px">
@@ -144,22 +147,8 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </Flex>
               </GridItem>
 
+              {/* MODAL PRICE AND FINAL PRICE */}
               {product.ofert? <>
-              {/* <GridItem rowSpan={1} colSpan={1} >
-                <Flex flexDir="row" w="100%" h="100%" alignItems="center" pr="5px" justifyContent="flex-end">
-                  <Text as="s" fontSize="2xl" color="red.500">
-                    ${product.price}
-                  </Text>
-                </Flex>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1} pl="5px">
-                <Flex flexDir="row" w="100%" h="100%" alignItems="center" pl="5px" justifyContent="flex-start">
-                  <Text as="b" fontSize="5xl" color="yellow.800">
-                    ${finalprice}
-                  </Text>
-                </Flex>
-              </GridItem>  */}
-{/* ////////////////////////////////////////////////////////////////////// */}
               <GridItem rowSpan={1} colSpan={2} >
                 <Flex flexDir="row" w="100%" h="100%" alignItems="center" pr="5px" justifyContent="center">
                   <Text as="s" fontSize="2xl" color="red.500" mr="1ch">
@@ -187,7 +176,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               </GridItem>
               </>}
 
-                {/* BUTTONS */}
+                {/* FOOTER BUTTONS AND SUBTOTAL */}
               <GridItem rowSpan={1} colSpan={2}>
                 <Flex h="100%" w="100%" justifyContent="space-around" alignItems="center">
                   <Box>
@@ -195,10 +184,14 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                     className={styles.addButton}
                     style={{marginRight: "10px"}} 
                     // variant="primary" //this is a darker blue
+                    onClick={(e) => handleAddtoCart(e, product, quantity, finalprice, subTotal)}
+                    disabled={parseInt(quantity.toString())==0}
+                    // active={adding}
                   >
                     Agregar al Carrito
                   </Button>
-                  <Button variant="danger" 
+                  <Button variant="danger"
+                  onClick={onClose} 
                   >
                     Cancelar
                   </Button>
@@ -218,72 +211,6 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
             </Grid>
           </Modal.Body>
       </Modal>
-
-
-
-        {/* <LightMode>
-        <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl" >
-          <ModalOverlay />
-          <ModalContent>
-            {/* <ModalHeader textAlign="center">{product.name}</ModalHeader> */}
-            {/* <ModalCloseButton />
-            <ModalBody p="0px">
-              <Grid
-                h="100%"
-                w="100%"
-                templateRows="repeat(6, 1fr)"
-                templateColumns="repeat(4, 1fr)"
-              >
-                <GridItem rowSpan={6} colSpan={2}>
-                  <Image 
-                    src={product.photoURL} 
-                    // justifySelf="center"
-                  />
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Box></Box>
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2} textAlign="left" pl="20px">
-                <Heading
-                    as="h3" size="md"
-                  >
-                    {product.name}
-                  </Heading>
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2} textAlign="left" pl="20px">
-                Product description here...
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2} textAlign="left" pl="20px">
-                Product quantity input here...
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={1} textAlign="right" pr="5px">
-                {product.price}
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={1} textAlign="left" pl="5px">
-                {finalprice}
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2} textAlign="left" pl="5px">
-                Add to cart button here
-                </GridItem>
-              </Grid>
-            </ModalBody> */}
-
-            {/* <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
-              </Button>
-              <Button variant="ghost">Secondary Action</Button>
-            </ModalFooter> */}
-
-          {/* </ModalContent>
-        </Modal>
-        </LightMode> */}
       </>
     );
 }
