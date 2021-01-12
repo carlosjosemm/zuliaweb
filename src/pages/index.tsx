@@ -1,4 +1,4 @@
-import { Box, IconButton, LightMode, Link } from '@chakra-ui/react'
+import { Box, IconButton, LightMode, Link, useBreakpoint } from '@chakra-ui/react'
 import Header from '../components/Header'
 import HotProductSlide from '../components/HotProductSlide';
 import { useDataLayer } from '../DataLayer'
@@ -17,6 +17,7 @@ export default function Home() {
   const [{user}, dispatch] = useDataLayer();
   const [show, useShow] = useState(true);
   // const [products, useProducts] = useState(null);
+  const br = useBreakpoint();
   
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -57,16 +58,15 @@ export default function Home() {
   , []);
 
   return (
-    
-    <>
+    <div className={styles.backgroundImg}>
+    {console.log(br)}
       <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
         crossOrigin="anonymous"
       />
-
-      <Box w="100vw" h="100vh">
+      <Box maxW="1000px" /*h="100vh"*/ margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
         <Header />
         {/* <HeaderMobile /> */}     
         <HotProductSlide />
@@ -86,6 +86,7 @@ export default function Home() {
         /> */}
 
         <IgPostsBanner />
+
         <LightMode>
           <Link href="https://wa.link/8xxfzu" isExternal >
               <IconButton 
@@ -99,7 +100,6 @@ export default function Home() {
           </Link>
         </LightMode>
       </Box>
-    </>
-    
+    </div>    
   )
 }
