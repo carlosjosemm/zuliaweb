@@ -38,7 +38,7 @@ const Header:React.FC<HeaderProps> = () => {
     return (
         <>  
         <Box
-            w="100vw"
+            w="100%"
             h="150px"
         >
             <Grid
@@ -94,7 +94,10 @@ const Header:React.FC<HeaderProps> = () => {
                             </Flex>
 
                             <InputGroup>
-                            <InputRightElement children={
+                            <InputRightElement 
+                                bottom="0px"
+                                h="100%"
+                                children={
                                 <Icon 
                                     mx="10px" 
                                     as={BiSearch} 
@@ -109,7 +112,7 @@ const Header:React.FC<HeaderProps> = () => {
                                 color="yellow.800"
                                 placeholder="Buscar producto..." 
                                 _placeholder={{color: "white"}}
-                                size="md"
+                                size="sm"
                                 bgColor="#feb800"
                                 // bgColor="white"
                             />    
