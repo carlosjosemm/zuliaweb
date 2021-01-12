@@ -1,4 +1,22 @@
-import { Box, Button, Center, Flex, Grid, GridItem, HStack, Icon, IconButton, Image, Input, InputGroup, InputRightElement, LightMode, Link, StackDivider, useDisclosure, VStack } from "@chakra-ui/react";
+import { Box, 
+    Button, 
+    Center, 
+    Flex, 
+    Grid, 
+    GridItem, 
+    HStack, 
+    Icon, 
+    IconButton, 
+    Image, 
+    Input, 
+    InputGroup, 
+    InputRightElement, 
+    LightMode, 
+    Link, 
+    StackDivider, 
+    useDisclosure,
+     VStack 
+} from "@chakra-ui/react";
 import firebase from "firebase";
 import React, { 
     useEffect, 
@@ -10,6 +28,7 @@ import { actionTypes } from "../reducer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
 import {FaFacebook, FaInstagram,} from "react-icons/fa";
 import {SiWhatsapp} from "react-icons/si";
+import { CartItem } from "../types";
 
 interface HeaderProps {};
 
@@ -17,6 +36,14 @@ const Header:React.FC<HeaderProps> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = useRef();
     const [{user, cart}, dispatch] = useDataLayer();
+
+    const totalItems = cart.map((item:CartItem) => {
+        return parseInt(item.quantity.toString())
+    })
+
+    const itemsToShow = totalItems.reduce((total, num) => {
+        return total + num;
+    });
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -182,7 +209,7 @@ const Header:React.FC<HeaderProps> = () => {
                             w="3ch" h="3ch" 
                             color="white"
                             >
-                                {cart.length}
+                                {itemsToShow}
                             </Center>) : 
                             (<Center 
                                 borderRadius="999px" 
