@@ -1,6 +1,6 @@
 .rec.rec-dot {
   background: #feb800;
-  border: 1px #white solid;
+  border: 1px white solid;
   border-radius: 999px;
   display: none;
 }
@@ -55,5 +55,5 @@
 
 .rec-carousel-item:hover {
   outline: none !important;
-  cursor: pointer;
+  /* cursor: pointer; */
 }

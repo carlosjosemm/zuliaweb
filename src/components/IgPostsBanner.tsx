@@ -15,7 +15,7 @@ const IgPostsBanner = () => {
             <Flex 
 
                 flexDir="row"
-                width="100vw"
+                width="100%"
             >
                 {posts.map( (post) => (
                     <InstagramPost url={post} />
