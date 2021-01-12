@@ -15,8 +15,8 @@ const HotProductSlide = () => {
 
     const breakPoints = [
         { width: 1, itemsToShow: 1, itemsToScroll: 1 },
-        { width: 550, itemsToShow: 2, itemsToScroll: 1 },
-        { width: 768, itemsToShow: 3, itemsToScroll: 1 },
+        { width: 450, itemsToShow: 2, itemsToScroll: 1 },
+        { width: 650, itemsToShow: 3, itemsToScroll: 1 },
         { width: 1200, itemsToShow: 3, itemsToScroll: 1 }
       ];
     
@@ -51,7 +51,7 @@ const HotProductSlide = () => {
                     Destacados
                 </Heading>
             </Center>
-            <Box marginX="5vw">
+            <Box marginX="2rem">
                     <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
                     {hotproducts? hotproducts.map((pr:ProductData, index:number) => (
                             <ProductCard

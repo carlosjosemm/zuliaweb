@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
     return (
         <>
          <Card className={styles.productCard}>
-            <Card.Img variant="top" src={product.photoURL} style={{borderRadius: "0.25rem", maxHeight: "300px", objectFit: "contain"}}/>
+            <Card.Img variant="top" src={product.photoURL} style={{borderRadius: "0.25rem", maxHeight: "250px", objectFit: "cover"}}/>
             <Card.Body className={styles.productCardBody}>
                 <Card.Text className={styles.productName} >{product.name}</Card.Text>
 
