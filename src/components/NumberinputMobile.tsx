@@ -36,9 +36,9 @@ const NumberinputMobile: React.FC<NumberInputMobileProps> = ({cartItem}) => {
         focusInputOnChange: false,
         // isReadOnly: true
       })
-      const inc = getIncrementButtonProps()
-      const dec = getDecrementButtonProps()
-      const input = getInputProps({}) 
+      const inc = getIncrementButtonProps({style: {padding: "0px 0px"}});
+      const dec = getDecrementButtonProps({style: {marginLeft: "0px", padding: "0px 0px"}});
+      const input = getInputProps({style: {marginLeft: "0px", textAlign: "center", padding: "0px 0px", width: "13ch"}});
       
       console.log(quantity);
 
@@ -60,10 +60,10 @@ const NumberinputMobile: React.FC<NumberInputMobileProps> = ({cartItem}) => {
     return (
         <>
             <HStack maxW="250px">
-                <Button {...inc}>+</Button>
-                <Input {...input} />
-                <Button {...dec}>-</Button>
-                <IconButton aria-label={`Quitar ${cartItem.product.name} del carrito`} icon={<BiTrash />} onClick={() => remove()} />
+                <Button {...inc} size="sm" marginLeft="0px">+</Button>
+                <Input {...input} fontSize="small" marginLeft="0px"/>
+                <Button {...dec} marginLeft="0px">-</Button>
+                <IconButton marginLeft="0px" aria-label={`Quitar ${cartItem.product.name} del carrito`} icon={<BiTrash />} onClick={() => remove()} />
             </HStack>
         </>
     );

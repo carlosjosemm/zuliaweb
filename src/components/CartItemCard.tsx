@@ -16,26 +16,28 @@ interface CartItemCardProps {
 const CartItemCard: React.FC<CartItemCardProps> = ({cartItem}) => {
     return (
         <>
-            <Card className={styles.cartItemCard}>
-      <div className={styles.cartITemCard__details}>
-        <CardContent className={styles.cartItemCard__content}>
-          <Typography component="h6" variant="h6">
-            {cartItem.product.name}
-          </Typography>
-          {/* <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography> */}
-        </CardContent>
-        <div className={styles.cartItemCard__input}>
-            <NumberinputMobile cartItem={cartItem} />
-        </div>
-      </div>
-      <CardMedia
-        className={styles.cartItemCard__photo}
-        image={cartItem.product.photoURL}
-        title="Imagen referencial"
-      />
-    </Card>
+          <Card className={styles.cartItemCard}>
+            <div className={styles.cartITemCard__details}>
+              <CardContent className={styles.cartItemCard__content}>
+                <Typography component="h6" variant="h6">
+                  {cartItem.product.name}
+                </Typography>
+                {/* <Typography variant="subtitle1" color="textSecondary">
+                  Mac Miller
+                </Typography> */}
+              </CardContent>
+              <div className={styles.cartItemCard__input}>
+                  <NumberinputMobile cartItem={cartItem} />
+              </div>
+            </div>
+            <CardMedia
+              className={styles.cartItemCard__photo}
+              src={cartItem.product.photoURL}
+              title="Imagen referencial"
+              component="img"
+              // height="140px"
+            />
+          </Card>
         </>
     );
 }

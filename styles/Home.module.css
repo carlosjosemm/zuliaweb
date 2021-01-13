@@ -209,7 +209,8 @@
 }
 
 .cartItemCard {
-  display: "flex";
+  display: flex !important;
+  justify-content: space-evenly;
   /* background-color: white;
   color: black; */
   margin: 1.5ch 1ch;
@@ -227,6 +228,7 @@
 }
 
 .cartItemCard__input {
+  border-top: 1px solid lightgray;
   display: "flex";
   align-items: "center";
   padding-left: 1;
@@ -234,5 +236,7 @@
 }
 
 .cartItemCard__photo {
-  width: 151px;
+  width: 50px !important;
+  object-fit: cover !important;
+  padding: 5px 0px;
 }
