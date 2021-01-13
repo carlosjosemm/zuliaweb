@@ -1,4 +1,4 @@
-import { CartItem } from "./types";
+import { CartItem, ProductData } from "./types";
 
 export const initialState = {
     user: null,
@@ -8,9 +8,9 @@ export const initialState = {
 };
 
 interface action {
-    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART";
+    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART"|"CHANGE_QUANTITY";
     user: any;
-    hotproducts: any;
+    hotproducts: Array<any>;
     subtotal: number;
     item: CartItem;
 };
@@ -26,6 +26,7 @@ export const actionTypes = {
     SET_USER: "SET_USER",
     SET_HOT_PRODUCTS: "SET_HOT_PRODUCTS",
     ADD_TO_CART: "ADD_TO_CART",
+    CHANGE_QUANTITY: "CHANGE_QUANTITY",
 };
 
 function checkCart (this:CartItem, item:CartItem) {
@@ -45,7 +46,19 @@ const reducer = (state:state, action:action) => {
             cartBuffer[exists].quantity = state.cart[exists].quantity + action.item.quantity : 
             cartBuffer.push(action.item);
             const totalBuffer = state.total + action.subtotal;
-            return {...state, cart: cartBuffer, total: totalBuffer}; 
+            return {...state, cart: cartBuffer, total: totalBuffer};
+        case actionTypes.CHANGE_QUANTITY:
+            const modifiedItem = state.cart.find(checkCart, action.item);
+            const modifiedItemIndex = state.cart.findIndex(checkCart, action.item);
+            if (action.item.quantity!==0) {
+                state.cart[modifiedItemIndex].quantity = action.item.quantity;
+                const newTotalBuffer = state.total + action.subtotal - (modifiedItem.quantity * modifiedItem.finalprice);
+                return {...state, total: newTotalBuffer}; 
+            } else {
+                state.cart.splice(modifiedItemIndex,1);
+                const newTotalBuffer = state.total - (modifiedItem.quantity * modifiedItem.finalprice);
+                return {...state, total: newTotalBuffer};  
+            }
         default:
             return state;
     }
