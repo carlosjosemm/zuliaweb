@@ -29,26 +29,25 @@ interface ModalProps {
 }
 
 const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
-  const [{hotproducts}, dispatch] = useDataLayer();
-  const [finalprice, useFinalprice] = useState(null);
-  const [quantity, setQuantity] = useState(0);
-  const [subTotal, useSubTotal] = useState(0);
+  const [{}, dispatch] = useDataLayer();
+  const [finalprice, useFinalprice] = useState(product.discount * product.price);
+  const [quantity, setQuantity] = useState((product.unity==true)? 0.1 : 1);
+  const [subTotal, useSubTotal] = useState((product.unity==true)? (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 0.1) : (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 1));
+
+  console.log('quantity: ', quantity);
+  console.log('subtotal: ', subTotal);
+
   const toast = useToast()
   const [windowsWidth, setWindowsWidth] = useState(null);
-  // const [adding, useAdding] = useState(false);
 
   const format = (val) => val + ` ${product.unit}${(product.unity==false)? '(es)': '(s)' }`;
-  const parse = (val) => val.replace(/^\$/, "");
-
 
   const handleAddtoCart = (e: React.MouseEvent<HTMLElement, MouseEvent>, product: ProductData, quantity: number, finalprice: number, subTotal: number) => {
     e.preventDefault();
-    // useAdding(true);
-    const item:CartItem = {product: product, quantity: parseInt(quantity.toString()), finalprice: finalprice};
+    const item:CartItem = {product: product, quantity: parseFloat(quantity.toString()), finalprice: finalprice};
     dispatch(
       {type: actionTypes.ADD_TO_CART, item: item, subtotal: subTotal}
     );
-    console.log('hotproducts from add to cart: ', hotproducts);
     toast({
       title: "Producto agregado agregado a tu carrito!",
       // description: "El producto fue ",
@@ -56,16 +55,15 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
       duration: 3000,
       isClosable: true,
     });
-    setQuantity(0);
-    // useAdding(false);
+    setQuantity((product.unity==true)? 0.1 : 1);
   };
 
   useEffect(() => {
-    if (product.ofert) {
-      useFinalprice(product.price * product.discount);
-    } else {
-        useFinalprice(product.price);
-    };
+    // if (product.ofert) {
+    //   useFinalprice(product.price * product.discount);
+    // } else {
+    //     useFinalprice(product.price);
+    // };
     useSubTotal(quantity * finalprice);
 
     // only execute all the code below in client side
@@ -163,7 +161,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                       Cantidad:
                     </Text>
                     <LightMode>
-                    <NumberInput maxW="150px" mr="2rem" min={0} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parse(valueString))}>
+                    <NumberInput maxW="150px" mr="2rem" min={(product.unity==true)? 0.1 : 1} max={(product.unity==true)? 10 : 100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
                       <NumberInputField />
                       <NumberInputStepper>
                         <NumberIncrementStepper />
@@ -315,7 +313,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                     Cantidad:
                   </Text>
                   <LightMode>
-                  <NumberInput maxW="60%" mr="2ch" min={0} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parse(valueString))}>
+                  <NumberInput maxW="60%" mr="2ch" min={0} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
                     <NumberInputField />
                     <NumberInputStepper>
                       <NumberIncrementStepper />
@@ -386,7 +384,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                       style={{marginRight: "1ch"}}
                       // variant="primary" //this is a darker blue
                       onClick={(e) => handleAddtoCart(e, product, quantity, finalprice, subTotal)}
-                      disabled={parseInt(quantity.toString())==0}
+                      disabled={parseFloat(quantity.toString())==0}
                       // active={adding}
                     >
                       Agregar al Carrito
