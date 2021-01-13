@@ -29,21 +29,19 @@ import MiCuentaDrawer from "./MiCuentaDrawer";
 import {FaFacebook, FaInstagram,} from "react-icons/fa";
 import {SiWhatsapp} from "react-icons/si";
 import { CartItem } from "../types";
+import MiCarritoDrawer from "./MiCarritoDrawer";
 
 interface HeaderProps {};
 
 const Header:React.FC<HeaderProps> = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onOpen, onClose } = useDisclosure();    
     const btnRef = useRef();
     const [{user, cart}, dispatch] = useDataLayer();
+    const [openCart, setOpenCart] = React.useState(false);
 
-    const totalItems = cart.map((item:CartItem) => {
+    const totalItems:Array<any> = cart.map((item:CartItem) => {
         return parseInt(item.quantity.toString())
     })
-
-    const itemsToShow = totalItems.reduce((total, num) => {
-        return total + num;
-    });
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -59,7 +57,6 @@ const Header:React.FC<HeaderProps> = () => {
             );
             }
           });
-
     }, [user]);
 
     return (
@@ -189,7 +186,7 @@ const Header:React.FC<HeaderProps> = () => {
                         Mi cuenta
                     </Button>
 
-                    <Button size="md" 
+                    <Button size="md"  onClick={() => setOpenCart(true)}
                         w="18ch" 
                         justifySelf="center"
                         _hover= {{bg: "yellow.300", color: "black"}} 
@@ -209,7 +206,9 @@ const Header:React.FC<HeaderProps> = () => {
                             w="3ch" h="3ch" 
                             color="white"
                             >
-                                {itemsToShow}
+                                {totalItems.reduce((total, num) => {
+                                    return total + num;
+                                })}
                             </Center>) : 
                             (<Center 
                                 borderRadius="999px" 
@@ -281,11 +280,8 @@ const Header:React.FC<HeaderProps> = () => {
             </HStack>
 
             {/* ACCOUNT DRAWER */}
-
             <MiCuentaDrawer isOpen={isOpen} onClose={onClose} />
-
-
-
+            <MiCarritoDrawer openCart={openCart} setOpenCart={setOpenCart} />
         </>
     );
 }
