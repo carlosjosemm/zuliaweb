@@ -150,12 +150,12 @@
 }
 
 .productCard {
-  min-width: 170px !important;
+  min-width: 12ch !important;
   width: 15rem;
   margin: 10px 10px;
-  padding: 10px;
+  padding: 1ch;
   border-radius: 0.25rem;
-  background-color: #ebfaff !important;
+  background-color: white !important;
   border: none !important;
   transition: transform 250ms !important;
 }
@@ -206,4 +206,33 @@
   height: 100%;
   background-repeat: repeat;
   background-size: auto;
+}
+
+.cartItemCard {
+  display: "flex";
+  /* background-color: white;
+  color: black; */
+  margin: 1.5ch 1ch;
+  /* background-color: #ebfaff; */
+  background: #ebfaff;
+}
+
+.cartITemCard__details {
+  display: "flex";
+  flex-direction: "column";
+}
+
+.cartItemCard__content {
+  flex: "1 0 auto";
+}
+
+.cartItemCard__input {
+  display: "flex";
+  align-items: "center";
+  padding-left: 1;
+  padding-bottom: 1;
+}
+
+.cartItemCard__photo {
+  width: 151px;
 }

@@ -60,6 +60,7 @@ export default function Home() {
   return (
     <div className={styles.backgroundImg}>
     {console.log(br)}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
       <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
