@@ -1,7 +1,7 @@
 import { Box, Image, Link } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 // import { InstagramMedia } from 'react-instagram-media'
-// import { instagramMediaParser } from 'react-instagram-media'
+import { instagramMediaParser } from 'react-instagram-media'
 
 interface postProps {
     url: string
@@ -10,16 +10,16 @@ interface postProps {
 const InstagramPost: React.FC<postProps> = ({...props}) => {
     const [post, usePost] = useState(null);
     
-    // !post && instagramMediaParser({ uri: props.url })
-    // .then(post => {
-    //     console.log(post.description);
-    //     usePost(post);
-    // });
+    !post && instagramMediaParser({ uri: props.url })
+    .then(post => {
+        console.log(post.description);
+        usePost(post);
+    });
 
-    // useEffect(() =>  {
-    //     console.log(post);
-    //     console.log('useeffect')  
-    // }, [])
+    useEffect(() =>  {
+        console.log(post);
+        console.log('useeffect')  
+    }, [])
     
 
 
