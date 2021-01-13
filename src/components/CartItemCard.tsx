@@ -5,10 +5,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 // import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import styles from '../../styles/Home.module.css';
-import { LightMode, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from '@chakra-ui/react';
+// import { LightMode, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from '@chakra-ui/react';
 import NumberinputMobile from './NumberinputMobile';
 import { CartItem } from '../types';
-import DiscardItemPopover from './DiscardItemPopover';
 
 interface CartItemCardProps {
     cartItem: CartItem;
