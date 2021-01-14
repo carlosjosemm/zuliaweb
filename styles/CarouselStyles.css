@@ -41,12 +41,16 @@
 
 .rec.rec-arrow-left {
   border-radius: 50%;
-  background-color: white !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  /* width: 20px !important; */
+  /* height: 30px !important; */
 }
 
 .rec.rec-arrow-right {
   border-radius: 50%;
-  background-color: white !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .rec-carousel-item:focus {
@@ -56,4 +60,12 @@
 .rec-carousel-item:hover {
   outline: none !important;
   /* cursor: pointer; */
+}
+
+.rec.rec-slider-container {
+  margin: 0px !important;
+}
+
+.rec.rec-slider-container {
+  width: 100% !important;
 }

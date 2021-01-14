@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { ProductData } from "../types";
 import styles from "../../styles/Home.module.css";
-import { useDisclosure } from "@chakra-ui/react";
+import { useBreakpoint, useDisclosure } from "@chakra-ui/react";
 import ProductModal from "./ProductModal";
 
 
@@ -14,6 +14,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
     const [finalprice, useFinalprice] = useState(null);
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const br = useBreakpoint();
     
     useEffect(() => {
         if (product.ofert) {
@@ -25,20 +26,20 @@ const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
 
     return (
         <>
-         <Card className={styles.productCard}>
-            <Card.Img variant="top" src={product.photoURL} style={{borderRadius: "0.25rem", maxHeight: "250px", objectFit: "cover"}}/>
-            <Card.Body className={styles.productCardBody}>
-                <Card.Text className={styles.productName} >{product.name}</Card.Text>
+         <Card className={(br!=='base')? styles.productCard : styles.productCard__mobile }>
+            <Card.Img variant="top" src={product.photoURL} className={(br!=='base')? styles.productCardPhoto : styles.productCardPhoto__mobile} />
+            <Card.Body className={(br!=='base')? styles.productCardBody : styles.productCardBody__mobile}>
+                <Card.Text className={(br!=='base')? styles.productName : styles.productName__mobile} >{product.name}</Card.Text>
 
-                    <div className={styles.productCardInfo}>
-                        <Card.Text className={styles.initialPrice} >
-                            {product.ofert ? `$${product.price}` : null}
-                        </Card.Text>
-                        <Card.Text className={styles.finalPrice}>
+                    <div className={(br!=='base')? styles.productCardInfo : styles.productCardInfo__mobile}>
+                        {product.ofert? <Card.Text className={(br!=='base')? styles.initialPrice : styles.initialPrice__mobile} >
+                            ${product.price}    
+                        </Card.Text> : null}
+                        <Card.Text className={(br!=='base')? styles.finalPrice : styles.finalPrice__mobile}>
                             {`$${finalprice}`}
                         </Card.Text>
                     </div>
-                <Button className={styles.addButton} variant="primary" onClick={onOpen}>Agregar al carrito</Button>
+                <Button className={(br!=='base')? styles.addButton : styles.addButton__mobile} variant="primary" onClick={onOpen}>{(br=='base')? 'Comprar' : 'Agregar al carrito'}</Button>
             </Card.Body>
         </Card>
 
