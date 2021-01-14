@@ -60,9 +60,9 @@ const NumberinputMobile: React.FC<NumberInputMobileProps> = ({cartItem}) => {
     return (
         <>
             <HStack maxW="250px">
-                <Button {...inc} size="sm" marginLeft="0px">+</Button>
+                <Button {...inc} size="sm" marginRight="0.5ch">+</Button>
                 <Input {...input} fontSize="small" marginLeft="0px"/>
-                <Button {...dec} size="sm" marginLeft="0px">-</Button>
+                <Button {...dec} size="sm" marginLeft="0.5ch">-</Button>
                 <IconButton marginLeft="0px" aria-label={`Quitar ${cartItem.product.name} del carrito`} icon={<BiTrash />} onClick={() => remove()} />
             </HStack>
         </>
