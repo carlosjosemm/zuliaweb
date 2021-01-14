@@ -1,4 +1,4 @@
-import { Box, IconButton, LightMode, Link, useBreakpoint } from '@chakra-ui/react'
+import { Box, Center, IconButton, LightMode, Link, Spinner, useBreakpoint } from '@chakra-ui/react'
 import Header from '../components/Header'
 import HotProductSlide from '../components/HotProductSlide';
 import { useDataLayer } from '../DataLayer'
@@ -67,7 +67,8 @@ export default function Home() {
         crossOrigin="anonymous"
       />
       <Box maxW="1000px" /*h="100vh"*/ margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
-        {(br=='base')? <HeaderMobile /> : <Header /> }
+        {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
+        {/* {(br=='base')? <HeaderMobile /> : <Header /> } */}
         {/* <Header />
         <HeaderMobile />      */}
         <HotProductSlide />

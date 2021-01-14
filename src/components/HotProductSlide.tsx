@@ -5,13 +5,14 @@ import { useDataLayer } from "../DataLayer";
 import db from "../firebase";
 import { actionTypes } from "../reducer";
 import { ProductData } from "../types";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, useBreakpoint } from "@chakra-ui/react";
 import Carousel from "react-elastic-carousel";
 import { Center } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 
 const HotProductSlide = () => {
     const [{hotproducts}, dispatch] = useDataLayer();
+    const br = useBreakpoint();
 
     const breakPoints = [
         { width: 1, itemsToShow: 1, itemsToScroll: 1 },
@@ -51,8 +52,8 @@ const HotProductSlide = () => {
                     Destacados
                 </Heading>
             </Center>
-            <Box marginX="2rem">
-                    <Carousel className="rec-arrow" breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
+            <Box marginX={(br=='base')? '0px' : '2rem'}>
+                    <Carousel  breakPoints={breakPoints} focusOnSelect={false} disableArrowsOnEnd={false} enableMouseSwipe={false}>
                     {hotproducts? hotproducts.map((pr:ProductData, index:number) => (
                             <ProductCard
                                 key={index}
