@@ -222,11 +222,15 @@
   display: "flex";
   flex-direction: "column";
   padding: 5px 0px;
+  align-items: center;
 }
 
 .cartItemCard__content {
   flex: "1 0 auto";
   padding: 5px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cartItemCard__input {

@@ -29,6 +29,10 @@ const CartItemCard: React.FC<CartItemCardProps> = ({cartItem}) => {
               <div className={styles.cartItemCard__input}>
                   <NumberinputMobile cartItem={cartItem} />
               </div>
+              <Typography variant="subtitle1" color="textSecondary" style={{textAlign: "center"}}>
+                Subtotal ({cartItem.quantity} item{(cartItem.quantity==1)? '':'s'}): ${cartItem.quantity * cartItem.finalprice}
+              </Typography>
+     
             </div>
             <CardMedia
               className={styles.cartItemCard__photo}

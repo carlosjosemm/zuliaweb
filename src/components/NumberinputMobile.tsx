@@ -40,7 +40,7 @@ const NumberinputMobile: React.FC<NumberInputMobileProps> = ({cartItem}) => {
       const dec = getDecrementButtonProps({style: {marginLeft: "0px", padding: "0px 0px"}});
       const input = getInputProps({style: {marginLeft: "0px", textAlign: "center", padding: "0px 0px", width: "13ch"}});
       
-      console.log(quantity);
+    //   console.log(quantity);
 
       function remove() {
         const item = {quantity: 0, product: cartItem.product, finalprice: cartItem.finalprice};

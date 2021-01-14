@@ -52,13 +52,19 @@ const reducer = (state:state, action:action) => {
             const modifiedItemIndex = state.cart.findIndex(checkCart, action.item);
             if (action.item.quantity!==0) {
                 state.cart[modifiedItemIndex].quantity = action.item.quantity;
-                const newTotalBuffer = state.total + action.subtotal - (modifiedItem.quantity * modifiedItem.finalprice);
+                // const newTotalBuffer = state.total + action.subtotal - (modifiedItem.quantity * modifiedItem.finalprice);
+                const newSubTotalBuffer = state.cart.map((item) => (item.quantity * item.finalprice))
+                const newTotalBuffer =  (newSubTotalBuffer.length!==0)? newSubTotalBuffer.reduce((total, subtotal) => {return total + subtotal}) : 0;
+                console.log('total buffer: ', newTotalBuffer)
                 return {...state, total: newTotalBuffer}; 
             } else {
                 state.cart.splice(modifiedItemIndex,1);
-                const newTotalBuffer = state.total - (modifiedItem.quantity * modifiedItem.finalprice);
-                return {...state, total: newTotalBuffer};  
-            }
+                // const newTotalBuffer = state.total - (modifiedItem.quantity * modifiedItem.finalprice);
+                const newSubTotalBuffer = state.cart.map((item) => (item.quantity * item.finalprice))
+                const newTotalBuffer =  (newSubTotalBuffer.length!==0)? newSubTotalBuffer.reduce((total, subtotal) => {return total + subtotal}) : 0;
+                console.log('total buffer: ', newTotalBuffer)
+                return {...state, total: newTotalBuffer}; 
+                };
         default:
             return state;
     }

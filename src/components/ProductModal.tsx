@@ -34,8 +34,8 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   const [quantity, setQuantity] = useState((product.unity==true)? 0.1 : 1);
   const [subTotal, useSubTotal] = useState((product.unity==true)? (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 0.1) : (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 1));
 
-  console.log('quantity: ', quantity);
-  console.log('subtotal: ', subTotal);
+  // console.log('quantity: ', quantity);
+  // console.log('subtotal: ', subTotal);
 
   const toast = useToast()
   const [windowsWidth, setWindowsWidth] = useState(null);

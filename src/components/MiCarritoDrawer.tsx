@@ -25,7 +25,7 @@ interface DrawerProps {
 }
 
 const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
-    const [{cart}, dispatch] = useDataLayer();
+    const [{cart, total}, dispatch] = useDataLayer();
     // const classes = useStyles();
     // const toggleDrawer = () => {
     //     setOpenCart(true);
@@ -46,7 +46,7 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                     <GridItem
                         rowSpan={1} colSpan={2}
                     >
-                        <Center w="100%" h="100%">
+                        <Center w="100%" h="100%" borderBottom="1px solid lightgray">
                             <Heading
                                 as="h2" size="lg" isTruncated maxWidth="100%"
                             >
@@ -75,7 +75,7 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                             <Heading
                                 as="h2" size="md" isTruncated maxWidth="100%"
                             >
-                                 Total e info
+                                 {total}
                             </Heading>
                         </Center>
                     </GridItem>
