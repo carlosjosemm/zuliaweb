@@ -225,12 +225,12 @@
 
 .cartItemCard__content {
   flex: "1 0 auto";
-  padding: 10px;
+  padding: 5px !important;
 }
 
 .cartItemCard__input {
   border-top: 1px solid lightgray;
-  margin-top: 1ch;
+  padding-top: 0.5ch;
   display: "flex";
   align-items: "center";
   padding-left: 1;
