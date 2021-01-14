@@ -11,12 +11,11 @@ import {SiWhatsapp} from "react-icons/si";
 import styles from "../../styles/Home.module.css";
 // import InstagramEmbed from 'react-instagram-embed';
 // import db from '../firebase';
-// import HeaderMobile from '../components/HeaderMobile'
+import HeaderMobile from '../components/HeaderMobile'
 
 export default function Home() {
   const [{user}, dispatch] = useDataLayer();
   const [show, useShow] = useState(true);
-  // const [products, useProducts] = useState(null);
   const br = useBreakpoint();
   
   useEffect(() => {
@@ -68,8 +67,9 @@ export default function Home() {
         crossOrigin="anonymous"
       />
       <Box maxW="1000px" /*h="100vh"*/ margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
-        <Header />
-        {/* <HeaderMobile /> */}     
+        {(br=='base')? <HeaderMobile /> : <Header /> }
+        {/* <Header />
+        <HeaderMobile />      */}
         <HotProductSlide />
 
         {/* <InstagramEmbed

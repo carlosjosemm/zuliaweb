@@ -3,7 +3,7 @@ import React from "react";
 // import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import { useDataLayer } from "../DataLayer";
-import { Box, Center, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Box, Center, Grid, GridItem, Heading, useBreakpoint } from "@chakra-ui/react";
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -26,6 +26,7 @@ interface DrawerProps {
 
 const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
     const [{cart, total}, dispatch] = useDataLayer();
+    const br = useBreakpoint();
     // const classes = useStyles();
     // const toggleDrawer = () => {
     //     setOpenCart(true);
@@ -37,8 +38,8 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                 {/* <div style={{width: '200px', height: '100vh', backgroundColor: 'black'}}></div> */}
                 <Grid
                     h="100vh"
-                    w="400px"
-                    maxW="60vw"
+                    w={(br=='base')? '70vw' : '400px'}
+                    maxW={(br=='base')? '100vw' : '60vw'}
                     templateRows="repeat(10, 1fr)"
                     templateColumns="repeat(2, 1fr)"
                     bgColor="#c9effc"
@@ -71,11 +72,11 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                     <GridItem
                         rowSpan={1} colSpan={2}
                     >
-                        <Center w="100%" h="100%">
+                        <Center w="100%" h="100%" borderTop="1px solid lightgrey" borderBottom="1px solid lightgrey" >
                             <Heading
                                 as="h2" size="md" isTruncated maxWidth="100%"
                             >
-                                 {total}
+                                 Total: ${total}
                             </Heading>
                         </Center>
                     </GridItem>
