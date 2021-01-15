@@ -42,7 +42,7 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                     maxW={(br=='base')? '100vw' : '60vw'}
                     templateRows="repeat(10, 1fr)"
                     templateColumns="repeat(2, 1fr)"
-                    bgColor="#c9effc"
+                    bgColor={(br!=='base')? "#c9effc" : 'white'}
                 >
                     <GridItem
                         rowSpan={1} colSpan={2}

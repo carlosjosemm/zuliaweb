@@ -14,6 +14,7 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   useToast,
+  useBreakpoint,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Badge, Button, Modal } from "react-bootstrap";
@@ -33,6 +34,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   const [finalprice, useFinalprice] = useState(product.discount * product.price);
   const [quantity, setQuantity] = useState((product.unity==true)? 0.1 : 1);
   const [subTotal, useSubTotal] = useState((product.unity==true)? (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 0.1) : (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 1));
+  const br = useBreakpoint();
 
   // console.log('quantity: ', quantity);
   // console.log('subtotal: ', subTotal);
@@ -237,6 +239,9 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
             </Modal.Body>
           </Modal>
     : ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+      // {(br=='base')? }
+      
       <Modal
           style={{padding: "0px"}}
           size="lg"
