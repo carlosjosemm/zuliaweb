@@ -8,7 +8,21 @@ const breakpoints = createBreakpoints({
     xl: '80em',
   })
 
-const theme = extendTheme({
-  breakpoints
-})
+// const theme = extendTheme({
+//   breakpoints
+// })
+
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
+const fonts = { mono: `'Menlo', monospace` };
+
+const theme = extendTheme({ 
+// config,
+fonts,
+breakpoints,
+});
+
   export default theme;

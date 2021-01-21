@@ -272,6 +272,7 @@ const Header:React.FC<HeaderProps> = () => {
                 <Box>
                     <Link 
                         _hover={{textDecoration: 'none'}}
+                        href="/contacto"
                     >
                         Contáctanos
                     </Link> 📞
