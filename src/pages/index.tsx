@@ -78,7 +78,7 @@ export default function Home() {
       </Head>
       <noscript>You need to enable JavaScript to run this app.</noscript>
 
-      <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
+      <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
         {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
         
         <HotProductSlide />

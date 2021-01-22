@@ -97,7 +97,7 @@ const contacto = () => {
 
             <noscript>You need to enable JavaScript to run this app.</noscript>
 
-            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
+            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
                 {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
                 <Heading
                     as="h2" size="md" maxWidth="100%" textAlign="center" my="1ch"
@@ -176,8 +176,8 @@ const contacto = () => {
                         </>
                     : <Center>Cargando Mapa... <Spinner /></Center>}
 
-                    <RadioGroup  onChange={(nextValue:string) => setTravel(nextValue)} value={travel} mt="1ch">
-                    <Stack direction="row" justifyContent="center">
+                    <RadioGroup  onChange={(nextValue:string) => setTravel(nextValue)} value={travel} mt="1ch" mx={(br=='base')? '1rem' : '0'}>
+                    <Stack direction={(br=='base')? 'column' : 'row'} justifyContent="center" >
                         <Radio colorScheme="yellow" value='NONE'>Sin direcciones</Radio>
                         <Radio colorScheme="yellow" value="TRANSIT">Transito</Radio>
                         <Radio colorScheme="yellow" value='WALKING'>Caminando</Radio>

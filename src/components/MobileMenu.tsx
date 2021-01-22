@@ -1,7 +1,7 @@
 import { Button, Drawer, DrawerBody, Text, DrawerContent, DrawerHeader, DrawerOverlay, Icon, Link, useDisclosure, IconButton } from "@chakra-ui/react";
 import React from "react";
 import { HiMenu } from "react-icons/hi";
-import {IoClose} from 'react-icons/io5';
+import {IoClose, IoCloseSharp} from 'react-icons/io5';
 
 const strongcolor = 'yellow.50';
 const lightcolor = 'yellow.500';
@@ -22,7 +22,17 @@ const MobileMenu = () => {
             <Drawer placement="top" onClose={onClose} isOpen={isOpen} isFullHeight={false} isCentered={true} >
                 <DrawerOverlay>
                 <DrawerContent bgColor={lightcolor}>
-                    <DrawerHeader borderBottomWidth="1px" color="white"><Link _focus={{border: 'none', textDecoration: 'none'}} _visited={{color:'white'}} _active={{border: 'none', textDecoration: 'none'}} href="/"><Text fontSize="3xl">Zulia Pa' Llevar ☀️</Text></Link></DrawerHeader>
+                    <DrawerHeader borderBottomWidth="1px" color="white" d="flex" justifyContent="space-between">
+                        <Link 
+                            _focus={{border: 'none', textDecoration: 'none'}} 
+                            _visited={{color:'white'}} 
+                            _active={{border: 'none', textDecoration: 'none'}} 
+                            href="/"
+                        >
+                            <Text fontSize="2xl">Zulia Pa' Llevar ☀️</Text>
+                        </Link>
+                        <IconButton aria-label="close" icon={<IoCloseSharp />} onClick={onClose} />
+                    </DrawerHeader>
                     <DrawerBody 
                         d="flex" 
                         flexDirection="column"
@@ -34,26 +44,30 @@ const MobileMenu = () => {
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
-                    ><Text fontSize="2xl">Ofertas</Text></Link>
+                    >
+                        <Text fontSize="xl">Ofertas</Text></Link>
                     <Link 
                         my="1ch"
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
-                    ><Text fontSize="2xl">Categorias</Text></Link>
+                    >
+                        <Text fontSize="xl">Categorias</Text></Link>
                     <Link 
                         my="1ch"
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
-                    ><Text fontSize="2xl">Marcas</Text></Link>
+                    >
+                        <Text fontSize="xl">Marcas</Text></Link>
                     <Link 
                         my="1ch" 
                         href="/contacto"
                         _focus={{ textDecoration: 'none'}} 
                         _visited={{color:'white'}}
                         _active={{ textDecoration: 'none'}}
-                    ><Text fontSize="2xl">Contactanos</Text></Link>
+                    >
+                        <Text fontSize="xl">Contactanos</Text></Link>
                     </DrawerBody>
                 </DrawerContent>
                 </DrawerOverlay>
