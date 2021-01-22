@@ -18,6 +18,7 @@ import React, { useState } from "react";
 import { useDataLayer } from "../DataLayer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
 import MiCarritoDrawer from "./MiCarritoDrawer";
+import MobileMenu from "./MobileMenu";
 
 const HeaderMobile: React.FC<{}> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();    
@@ -31,7 +32,7 @@ const HeaderMobile: React.FC<{}> = () => {
     console.log('br: ',br);
     return (
         <>
-            <Box position="sticky" top="0" bg={lightcolor} height="60px" w="100vw" >
+            <Box position="sticky" zIndex="999" top="0" bg={lightcolor} height="60px" w="100vw" >
                 <Grid 
                     templateRows="repeat(2, 1fr)"
                     templateColumns="repeat(10, 1fr)"
@@ -45,25 +46,7 @@ const HeaderMobile: React.FC<{}> = () => {
                     rowSpan={2} colSpan={1}
                     >
                         {/* HEADER LEFT */}
-                            <Menu >
-                                {({isOpen}) => (
-                                    <>
-                                    <MenuButton size='xs' bgColor={lightcolor} isActive={isOpen} as={Button} rightIcon={!isOpen ? 
-                                        <Icon as={HiMenu} h="3ch" w="3ch" color={strongcolor} /> :
-                                        <Icon as={IoClose} h="3ch" w="3ch" color={strongcolor} /> } />
-                                
-                                    <MenuList borderWidth="1px" borderColor={strongcolor} bgColor="yellow.50" color={lightcolor}>
-                                        <MenuItem>Ofertas</MenuItem>
-                                        <MenuDivider />
-                                        <MenuItem>Categorias</MenuItem>
-                                        <MenuDivider/>
-                                        <MenuItem>Marcas</MenuItem>
-                                        <MenuDivider/>
-                                        <MenuItem>Contactanos</MenuItem>
-                                    </MenuList>
-                                    </>
-                                )}
-                            </Menu>
+                            <MobileMenu />
                     </GridItem>
                     
                     <GridItem
