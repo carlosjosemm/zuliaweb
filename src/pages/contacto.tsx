@@ -128,8 +128,8 @@ const contacto = () => {
                             }}
                         >
                             <Marker position={mapInitCenter}><span>AQUI ESTAMOS</span></Marker>
-                            {/* {userLoc? <Marker position={userLoc}><span>AQUI ESTA EL USUARIO</span></Marker> : null} */}
-                            {userLoc? <>
+                            {(userLoc && travel=='NONE')? <Marker position={userLoc}><span>AQUI ESTA EL USUARIO</span></Marker> : null}
+                            {(userLoc && travel!=='NONE')? <>
                             <DirectionsService 
                                 options={{
                                     destination: mapInitCenter,
@@ -143,17 +143,9 @@ const contacto = () => {
                                 options={{
                                     directions: directions
                                 }}
-                                // optional
-                                // onLoad={directionsRenderer => {
-                                //     console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
-                                // }}
-                                // optional
-                                // onUnmount={directionsRenderer => {
-                                //     console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
-                                // }}
                             />
                             </>
-                            : null}
+                            : null }
                         </GoogleMap>
 
                         {userLoc? //SI EL USUARIO MARCA UBICACION, SE CALCULA DISTANCIA
@@ -186,6 +178,7 @@ const contacto = () => {
 
                     <RadioGroup  onChange={(nextValue:string) => setTravel(nextValue)} value={travel} mt="1ch">
                     <Stack direction="row" justifyContent="center">
+                        <Radio colorScheme="yellow" value='NONE'>Sin direcciones</Radio>
                         <Radio colorScheme="yellow" value="TRANSIT">Transito</Radio>
                         <Radio colorScheme="yellow" value='WALKING'>Caminando</Radio>
                         <Radio colorScheme="yellow" value='DRIVING'>Automovil</Radio>
