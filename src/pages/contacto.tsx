@@ -97,7 +97,7 @@ const contacto = () => {
 
             <noscript>You need to enable JavaScript to run this app.</noscript>
 
-            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" h="100vh">
+            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF">
                 {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
                 <Heading
                     as="h2" size="md" maxWidth="100%" textAlign="center" my="1ch"
@@ -106,7 +106,7 @@ const contacto = () => {
                 </Heading>
                 <Box
                     w="100%"
-                    h="100%"
+                    maxH="100%"
                     my="1ch"
                 >
                     {isLoaded? 

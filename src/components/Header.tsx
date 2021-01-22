@@ -148,6 +148,7 @@ const Header:React.FC<HeaderProps> = () => {
                 <GridItem
                     rowSpan={2} colSpan={4}
                 >
+                    <Link _focus={{border: 'none', textDecoration: 'none'}} _visited={{color:'white'}} _active={{border: 'none', textDecoration: 'none'}} href="/">
                     <Flex w="100%" h="100%" justifyContent="center" alignItems="center" pr="2ch">
                     <Image
                         h="100%" 
@@ -157,6 +158,7 @@ const Header:React.FC<HeaderProps> = () => {
                         alt="logo"
                     />
                     </Flex>
+                    </Link>
                 </GridItem>
                 <GridItem
                     rowSpan={2} colSpan={3}
