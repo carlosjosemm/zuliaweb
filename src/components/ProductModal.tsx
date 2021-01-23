@@ -431,6 +431,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               <GridItem rowSpan={2} colSpan={4} >
                 <Flex 
                   h='200px'
+                  justifyContent="center"
                 >
                 <Image
                   src={product.photoURL} 
