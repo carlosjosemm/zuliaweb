@@ -107,7 +107,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 templateColumns="repeat(4, 1fr)"
               >
                 {/* MODAL IMAGE */}
-                <GridItem rowSpan={6} colSpan={2}>
+                <GridItem rowSpan={(br=='base')? 3 : 6} colSpan={(br=='base')? 2 : 2}>
                   <Flex h="100%">
                   <Image
                     src={product.photoURL} 
@@ -116,7 +116,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </GridItem>
 
                 {/* MODAL TITLE AND BADGES */}
-                <GridItem rowSpan={1} colSpan={2}  mx="2ch">
+                <GridItem rowSpan={1} colSpan={(br=='base')? 4 : 2}  mx="2ch">
                   <Flex
                     alignItems="flex-start"
                     justifyContent="flex-end"
@@ -125,8 +125,8 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                     flexDir="column"
                   >
                     <Flex mb="0.7ch">
-                      {product.hot && <Badge style={{marginRight: '5px'}} variant="danger">DESTACADO</Badge>}
-                      {product.new ? <Badge variant="primary">NUEVO</Badge> : null}
+                      {product.hot && <Badge style={{marginRight: '5px'}}  variant="danger">DESTACADO</Badge>}
+                      {product.new && <Badge variant="primary">NUEVO</Badge>}
                     </Flex>
                     <Heading
                       as="h2" size="lg" isTruncated mb="0px" pb="0.3ch" maxWidth="100%"
@@ -137,7 +137,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </GridItem>
 
                 {/* MODAL INFO & DESCRIPTION */}
-                <GridItem rowSpan={2} colSpan={2}  mx="2ch">
+                <GridItem rowSpan={2} colSpan={(br=='base')? 4 : 2}  mx="2ch">
                   <Flex
                     alignItems="left"
                     justifyContent="center"
@@ -204,7 +204,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                 </>}
 
                   {/* FOOTER BUTTONS AND SUBTOTAL */}
-                <GridItem rowSpan={1} colSpan={2}>
+                <GridItem rowSpan={1} colSpan={(br=='base')? 4 : 2} >
                   <Flex h="100%" w="100%" justifyContent="space-around" alignItems="center">
                     <Box>
                     <Button
@@ -240,7 +240,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
           </Modal>
     : ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       
-      // {(br=='base')? }
+      (br!=='base')? 
       
       <Modal
           style={{padding: "0px"}}
@@ -260,8 +260,10 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               templateColumns="repeat(4, 1fr)"
             >
               {/* MODAL IMAGE */}
-              <GridItem rowSpan={6} colSpan={2}>
-                <Flex h="100%">
+              <GridItem rowSpan={(br=='base')? 2 : 6} colSpan={(br=='base')? 4 : 2} >
+                <Flex 
+                  h={(br=='base')? '220px' : '100%'}
+                >
                 <Image
                   src={product.photoURL} 
                   objectFit="cover"
@@ -271,10 +273,10 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               </GridItem>
 
               {/* MODAL TITLE AND BADGES */}
-              <GridItem rowSpan={1} colSpan={2}  mx="1ch">
+              <GridItem rowSpan={1} colSpan={(br=='base')? 4 : 2}  mx="1ch">
                 <Flex
                   alignItems="flex-start"
-                  justifyContent="flex-end"
+                  justifyContent={(br=='base')? 'center' : "flex-end"}
                   h="100%"
                   w="100%"
                   flexDir="column"
@@ -292,7 +294,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               </GridItem>
 
               {/* MODAL INFO & DESCRIPTION */}
-              <GridItem rowSpan={2} colSpan={2}  mx="1ch">
+              <GridItem rowSpan={(br=='base')? 1 : 2} borderBottom='1px solid lightgrey' colSpan={(br=='base')? 4 : 2}  mx="1ch">
                 <Flex
                   alignItems="left"
                   justifyContent="center"
@@ -312,13 +314,13 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               </GridItem>
 
               {/* MODAL QUANTITY INPUT */}
-              <GridItem rowSpan={1} colSpan={2} borderY='1px solid lightgrey' mx="1ch">
-                <Flex h="100%" w="100%" alignItems="center" justifyContent="center" pl="2ch">
+              <GridItem rowSpan={1} colSpan={2} ml="1ch">
+                <Flex h="100%" w="100%" alignItems="center" justifyContent="center" pl={(br=='base')? '0':"2ch"}>
                   <Text fontSize="md" color="black" verticalAlign="center" mb="0px" mr="0.5ch">
-                    Cantidad:
+                    {(br=='base')? null : 'Cantidad:'}
                   </Text>
                   <LightMode>
-                  <NumberInput maxW="60%" mr="2ch" min={0} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
+                  <NumberInput maxW={(br=='base')? '95%':"60%"} mr={(br=='base')? '0':"2ch"} min={0} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
                     <NumberInputField />
                     <NumberInputStepper>
                       <NumberIncrementStepper />
@@ -332,14 +334,14 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               {/* MODAL PRICE AND FINAL PRICE */}
               {product.ofert? <>
               <GridItem rowSpan={1} colSpan={2} >
-                <Flex flexDir="row" w="100%" h="100%" alignItems="center" pr="1ch" justifyContent="center">
+                <Flex flexDir={(br=='base')? 'column':"row"} w="100%" h="100%" alignItems="center" pr="1ch" justifyContent="center">
                   <Text as="s" fontSize="lg" color="red.500" mr="1ch">
                     ${product.price}
                   </Text>
-                  <Text as="b" fontSize="2xl" color="black" mb="0.5ch">
+                  <Text as="b" fontSize="2xl" color="black" mb={(br=='base')? '0px':"0.5ch"}>
                     ${finalprice}
                   </Text>
-                  <Text fontSize="lg" color="black" ml="1ch" mb="0px">
+                  <Text fontSize={(br=='base')? 'md':"lg"} color="black" ml="1ch" mb="0px">
                     x {product.unit}
                   </Text>
                 </Flex>
@@ -359,7 +361,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
               </>}
 
                 {/* FOOTER BUTTONS AND SUBTOTAL */}
-              <GridItem rowSpan={1} colSpan={2}>
+              <GridItem rowSpan={(br=='base')? 1 : 1} colSpan={(br=='base')? 4 : 2} >
                 <Flex flexDir="column" h="100%" w="100%" justifyContent="flex-start" alignItems="center" position="relative" bottom="1ch">
                   <Center mr="10px" mb="5px">
                       <Flex 
@@ -403,6 +405,170 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                   </Flex>
                 </Flex>
               </GridItem>
+            </Grid>
+          </Modal.Body>
+      </Modal>
+//////////////////////////////////////////////////////////////////////////////////////////////
+      :
+      <Modal
+          style={{padding: "0px"}}
+          size="lg"
+          show={isOpen}
+          onHide={onClose}
+          aria-labelledby={product.name}
+          centered
+        >
+          <Modal.Body 
+            style={{padding: "0px"}}
+          >
+            <Grid
+              h="100%"
+              w="100%"
+              templateRows="repeat(6, 1fr)"
+              templateColumns="repeat(4, 1fr)"
+            >
+              {/* MODAL IMAGE */}
+              <GridItem rowSpan={2} colSpan={4} >
+                <Flex 
+                  h='200px'
+                >
+                <Image
+                  src={product.photoURL} 
+                  objectFit="cover"
+                  borderRadius="0.3rem"
+                />
+                </Flex>
+              </GridItem>
+
+              {/* MODAL TITLE AND BADGES */}
+              <GridItem rowSpan={4} colSpan={4}  mx="1ch" d="flex" flexDir="column" justifyContent="space-around" p="1ch">
+                <Flex
+                  alignItems="flex-start"
+                  justifyContent={(br=='base')? 'center' : "flex-end"}
+                  // h="100%"
+                  w="100%"
+                  flexDir="column"
+                >
+                  <Flex mb="0.4ch">
+                    {product.hot && <Badge style={{marginRight: '1ch'}} variant="danger">DESTACADO</Badge>}
+                    {product.new ? <Badge variant="primary">NUEVO</Badge> : null}
+                  </Flex>
+                  <Heading
+                    as="h2" size="md" isTruncated mb="0px" pb="0.2ch" maxWidth="100%"
+                  >
+                    {product.name}
+                  </Heading>
+
+              {/* MODAL INFO & DESCRIPTION */}
+                <Flex
+                  alignItems="left"
+                  justifyContent="center"
+                  flexDir="column"
+                  // h="100%"
+                  w="100%"
+                  mt="1ch"
+                >
+                  <Heading
+                    as="h3" size="xs"
+                    borderBottom="1px solid lightgrey"
+                    pb="0.5ch"
+                  >
+                    INFORMACION DEL PRODUCTO
+                  </Heading>
+                  <p style={{color: 'gray', fontSize: "small"}}>La descripcion del producto, con algunos datos que lo hagan mas llamativos al cliente al momento de agregar al carrito.</p>
+                </Flex>
+                </Flex>
+
+              {/* MODAL QUANTITY INPUT */}
+                <Flex 
+                  w="100%" 
+                  alignItems="center" 
+                  justifyContent="center" 
+                  pl='0px'
+                  flexDir="column"
+                >
+                  <LightMode>
+                  <NumberInput w='60%' mr='0' min={1} max={100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
+                    <NumberInputField textAlign="center" />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper />
+                      <NumberDecrementStepper />
+                    </NumberInputStepper>
+                  </NumberInput>
+                  </LightMode>
+
+              {/* MODAL PRICE AND FINAL PRICE */}
+              {product.ofert? <>
+                <Flex flexDir='row' w="100%"  alignItems="center" pr="1ch" mt='1ch' justifyContent="center">
+                  <Text as="s" fontSize="lg" color="red.500" mr="1ch">
+                    ${product.price}
+                  </Text>
+                  <Text as="b" fontSize="3xl" color="black" mb={(br=='base')? '0px':"0.5ch"}>
+                    ${finalprice}
+                  </Text>
+                  <Text fontSize={(br=='base')? 'md':"lg"} color="black" ml="1ch" mb="0px">
+                    x {product.unit}
+                  </Text>
+                </Flex>
+              </>:
+              <>
+                <Flex flexDir="row" w="100%" h="100%" alignItems="center" pr="1ch" justifyContent="center">
+                  <Text as="b" fontSize="3xl" color="black" >
+                    ${finalprice}
+                  </Text>
+                  <Text fontSize="lg" color="black" ml="0.5ch" mb="0px">
+                    x {product.unit}
+                  </Text>
+                </Flex>
+              </>}
+              </Flex>
+
+                {/* FOOTER BUTTONS AND SUBTOTAL */}
+                <Flex flexDir="column" 
+                // h="100%" 
+                w="100%" justifyContent="flex-start" alignItems="center" position="relative" bottom="1ch">
+                  <Center mr="10px" mb="5px">
+                      <Flex 
+                        // position="relative" 
+                        // bottom="1.5ch" 
+                        alignItems="center"
+                        justifyContent="center"
+                      >
+                        <Text fontSize="md" 
+                          // position="relative" 
+                          // top="1ch" mb="0px" 
+                          mb="0px"
+                          borderBottom="1px solid grey"
+                          mr="1ch"
+                        >
+                          Subtotal:
+                        </Text>
+                        <Text fontSize="xl" color="gray.600" mb="0px">
+                          ${subTotal}
+                        </Text>
+                    </Flex>
+                  </Center>
+                  <Flex>
+                    <Button
+                      size="sm"
+                      className={styles.addButton}
+                      style={{marginRight: "1ch"}}
+                      // variant="primary" //this is a darker blue
+                      onClick={(e) => handleAddtoCart(e, product, quantity, finalprice, subTotal)}
+                      disabled={parseFloat(quantity.toString())==0}
+                      // active={adding}
+                    >
+                      Agregar al Carrito
+                    </Button>
+                    <Button variant="danger"
+                      size="sm"
+                      onClick={onClose} 
+                    >
+                      Cancelar
+                    </Button>
+                  </Flex>
+                </Flex>
+                </GridItem>
             </Grid>
           </Modal.Body>
       </Modal>
