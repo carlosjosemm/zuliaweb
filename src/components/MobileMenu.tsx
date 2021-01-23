@@ -13,6 +13,7 @@ const MobileMenu = () => {
         <>
             <IconButton 
                 aria-label="menu"
+                bgColor="rgb(214, 158, 46)"
                 icon={!isOpen ? 
                 <Icon as={HiMenu} h="3ch" w="3ch" color={strongcolor} /> :
                 <Icon as={IoClose} h="3ch" w="3ch" color={strongcolor} />} 
