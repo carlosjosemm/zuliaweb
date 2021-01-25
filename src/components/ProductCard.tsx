@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
     
     useEffect(() => {
         if (product.ofert) {
-            useFinalprice(product.price * product.discount);
+            useFinalprice(Math.ceil(product.price * product.discount));
         } else {
             useFinalprice(product.price);
         }

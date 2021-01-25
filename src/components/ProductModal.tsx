@@ -31,7 +31,7 @@ interface ModalProps {
 
 const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   const [{}, dispatch] = useDataLayer();
-  const [finalprice, useFinalprice] = useState(product.discount * product.price);
+  const [finalprice, useFinalprice] = useState(Math.ceil(product.discount * product.price));
   const [quantity, setQuantity] = useState((product.unity==true)? 0.1 : 1);
   const [subTotal, useSubTotal] = useState((product.unity==true)? (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 0.1) : (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 1));
   const br = useBreakpoint();
