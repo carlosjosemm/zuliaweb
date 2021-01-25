@@ -163,7 +163,15 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
                       Cantidad:
                     </Text>
                     <LightMode>
-                    <NumberInput maxW="150px" mr="2rem" min={(product.unity==true)? 0.1 : 1} max={(product.unity==true)? 10 : 100} value={format(quantity)} onChange={(valueString) => setQuantity(parseFloat(valueString))}>
+                    <NumberInput 
+                      maxW="150px" 
+                      mr="2rem" 
+                      min={(product.unity==true)? 0.1 : 1} 
+                      max={(product.unity==true)? 10 : 100} 
+                      value={format(quantity)} 
+                      onChange={(valueString) => setQuantity(parseFloat(valueString))}
+                      step={(product.unity==true)? 0.1 : 1 }
+                    >
                       <NumberInputField />
                       <NumberInputStepper>
                         <NumberIncrementStepper />
