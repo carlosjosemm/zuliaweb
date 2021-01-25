@@ -98,7 +98,7 @@ export default function Home() {
           </Link>
         </LightMode>
       </Box>
-      <UploadData />
+      {/* <UploadData /> */}
     </div>    
   )
 }

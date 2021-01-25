@@ -41,8 +41,8 @@
    "harinajuana": [
       {
          "name": "Harina Juana 1Kg",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.87,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -93,8 +93,8 @@
    "harinapan": [
       {
          "name": "Harina P.A.N 1Kg",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.9,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -145,8 +145,8 @@
    "adobocaribe": [
       {
          "name": "Adobo Caribe 200gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.75,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -197,8 +197,8 @@
    "nesteadurazno": [
       {
          "name": "Nestea Durazno 500gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.88,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -223,8 +223,8 @@
    "nesteaduraznoliquido": [
       {
          "name": "Nestea Durazno 500ml",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.9,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -262,8 +262,8 @@
    "quesoduro": [
       {
          "name": "Queso Duro",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.75,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -288,8 +288,8 @@
    "natalazuliana": [
       {
          "name": "Nata La Zuliana 750gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.82,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -340,8 +340,8 @@
    "rikezaoriginal": [
       {
          "name": "Rikeza Original 200gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.92,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -379,8 +379,8 @@
    "tequeñostequepops": [
       {
          "name": "Tequeños Tequepops 12uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.7,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -405,8 +405,8 @@
    "tequeñostequezuelar": [
       {
          "name": "Tequeños Tequezuelar 12uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.84,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -444,8 +444,8 @@
    "tequeyoyos": [
       {
          "name": "Tequeyoyos 8uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.83,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -483,8 +483,8 @@
    "paledoniasdonacarmen": [
       {
          "name": "Paledonias DONA CARMEN 4uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.79,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -522,8 +522,8 @@
    "paledoniasantojitos": [
       {
          "name": "Paledonias Antojitos 6uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.68,
          "hot": true,
          "photoURL": null,
          "new": false,
@@ -548,8 +548,8 @@
    "rellenitosnewton": [
       {
          "name": "Rellenitos Newton 6uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.95,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -574,8 +574,8 @@
    "besitosdecoco": [
       {
          "name": "Besitos de Coco 6uni",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.78,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -600,8 +600,8 @@
    "pandequeso": [
       {
          "name": "Pan de queso",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.71,
          "hot": true,
          "photoURL": null,
          "new": false,
@@ -613,8 +613,8 @@
    "panandino": [
       {
          "name": "Pan andino",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.86,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -639,8 +639,8 @@
    "lecheenpolvolalechera": [
       {
          "name": "Leche en polvo La lechera 400gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.88,
          "hot": false,
          "photoURL": null,
          "new": false,
@@ -676,8 +676,8 @@
    "casabe": [
       {
          "name": "Casabe 200gr",
-         "ofert": false,
-         "discount": 1,
+         "ofert": true,
+         "discount": 0.84,
          "hot": false,
          "photoURL": null,
          "new": false,
