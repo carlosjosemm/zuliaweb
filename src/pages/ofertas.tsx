@@ -1,12 +1,42 @@
-import React from 'react';  
+import React, { useEffect } from 'react';  
 import { Box, Center, Heading, Spinner, useBreakpoint } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.css";
 import Head from 'next/head';
 import HeaderMobile from '../components/HeaderMobile';
 import Header from '../components/Header';
+import { useDataLayer } from '../DataLayer';
+import { actionTypes } from '../reducer';
+import db from '../firebase';
+import ProductCard from '../components/ProductCard';
+import { ProductData } from '../types';
 
 const ofertas = () => {
     const br = useBreakpoint();
+    const [{ofertproducts}, dispatch] = useDataLayer();
+
+    useEffect(() => {
+        const queryBuffer = []; 
+        const getOfertProducts = () => {
+            !ofertproducts?
+            db.collection("products").where("ofert","==",true).where("availability", "==",true).get().then(
+                (query) => {
+                    query.forEach( product =>
+                        queryBuffer.push(product.data())            
+                    );
+                    dispatch({
+                        type: actionTypes.SET_OFERT_PRODUCTS, ofertproducts: queryBuffer,
+                    });
+                    // console.log('hotproducts: ', hotproducts.map((pr:ProductData) => pr.price));            
+                }
+            ) : null
+        };
+
+        getOfertProducts();
+
+        ofertproducts && console.log(ofertproducts.map(pr => pr.ofert)); 
+
+    }, [ofertproducts])
+
 
     return (
         <div className={styles.backgroundImg}>
@@ -32,10 +62,19 @@ const ofertas = () => {
             <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
                 {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
                 <Center my="20px">
-                <Heading as="h2" size="2xl" fontWeight="400">
-                    Productos en descuento
-                </Heading>
-            </Center>
+                    <Heading as="h2" size="2xl" fontWeight="400">
+                        Productos en descuento
+                    </Heading>
+                </Center>
+
+                <Box d="flex" flexWrap="wrap" flexDir="row" justifyContent="center">
+                    {ofertproducts? 
+                        ofertproducts
+                        .map((pr:ProductData, index:number) => (
+                            <ProductCard product={pr} key={index} />
+                        ))
+                    : <div>NO DATA</div>}
+                </Box>
             </Box>
         </div>
     );
