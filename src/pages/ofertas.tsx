@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';  
-import { Box, Center, Heading, Spinner, useBreakpoint } from "@chakra-ui/react";
+import React, { useEffect, useState } from 'react';  
+import { Box, Center, Heading, IconButton, LightMode, Link, Spinner, useBreakpoint } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.css";
 import Head from 'next/head';
 import HeaderMobile from '../components/HeaderMobile';
@@ -9,12 +9,24 @@ import { actionTypes } from '../reducer';
 import db from '../firebase';
 import ProductCard from '../components/ProductCard';
 import { ProductData } from '../types';
+import { SiWhatsapp } from 'react-icons/si';
 
 const ofertas = () => {
     const br = useBreakpoint();
     const [{ofertproducts}, dispatch] = useDataLayer();
+    const [show, useShow] = useState(false);
 
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 150) {
+                useShow(true);
+                } else {
+                useShow(false);
+                }}
+            )
+        };
+
         const queryBuffer = []; 
         const getOfertProducts = () => {
             !ofertproducts?
@@ -35,8 +47,15 @@ const ofertas = () => {
 
         ofertproducts && console.log(ofertproducts.map(pr => pr.ofert)); 
 
-    }, [ofertproducts])
-
+        return () => {
+            window.removeEventListener("scroll", () => {
+                if (window.scrollY > 150) {
+                useShow(true);
+                } else {
+                useShow(false);
+                }} );
+            };
+    }, [ofertproducts]);
 
     return (
         <div className={styles.backgroundImg}>
@@ -75,6 +94,19 @@ const ofertas = () => {
                         ))
                     : null}
                 </Box>
+                
+                <LightMode>
+                <Link href="https://wa.link/8xxfzu" isExternal >
+                    <IconButton 
+                        className={!show? styles.floatingButtonWhatsapp__hidden : styles.floatingButtonWhatsapp}
+                        colorScheme="whatsapp" 
+                        aria-label="Whatsapp"
+                        borderRadius="full"
+                        icon={<SiWhatsapp size="23px"/>}
+                        color="white"
+                        ></IconButton>
+                </Link>
+                </LightMode>
             </Box>
         </div>
     );
