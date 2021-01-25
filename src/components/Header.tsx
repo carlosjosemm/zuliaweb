@@ -257,7 +257,10 @@ const Header:React.FC<HeaderProps> = () => {
                 zIndex="100"                
             >
                 <Box>
-                    <Link _hover={{textDecoration: 'none'}}>
+                    <Link 
+                        _hover={{textDecoration: 'none'}}
+                        href="/ofertas"
+                    >
                         Ofertas 
                     </Link> ⚡
                 </Box>
