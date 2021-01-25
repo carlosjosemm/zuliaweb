@@ -66,7 +66,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
     // } else {
     //     useFinalprice(product.price);
     // };
-    useSubTotal(quantity * finalprice);
+    useSubTotal(Math.ceil(quantity * finalprice));
 
     // only execute all the code below in client side
     if (typeof window !== 'undefined') {
