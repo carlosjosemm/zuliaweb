@@ -16,7 +16,7 @@ import UploadData from '../components/UploadData';
 
 export default function Home() {
   const [{user}, dispatch] = useDataLayer();
-  const [show, useShow] = useState(true);
+  const [show, useShow] = useState(false);
   const br = useBreakpoint();
   
   useEffect(() => {
