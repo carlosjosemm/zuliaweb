@@ -61,7 +61,7 @@ const ofertas = () => {
 
             <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
                 {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
-                <Center my="20px">
+                <Center my="20px" textAlign="center">
                     <Heading as="h2" size="2xl" fontWeight="400">
                         Productos en descuento
                     </Heading>
@@ -73,7 +73,7 @@ const ofertas = () => {
                         .map((pr:ProductData, index:number) => (
                             <ProductCard product={pr} key={index} />
                         ))
-                    : <div>NO DATA</div>}
+                    : null}
                 </Box>
             </Box>
         </div>
