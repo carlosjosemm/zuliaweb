@@ -5,21 +5,24 @@ export const initialState = {
     hotproducts: null,
     cart: [],
     total: 0,
+    ofertproducts: null
 };
 
-interface action {
-    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART"|"CHANGE_QUANTITY";
+interface actionType {
+    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART"|"CHANGE_QUANTITY"|"SET_OFERT_PRODUCTS";
     user: any;
     hotproducts: Array<any>;
     subtotal: number;
     item: CartItem;
+    ofertproducts: Array<any>;
 };
 
-interface state {
+interface stateType {
     user: any;
     hotproducts: Array<object>;
     cart: Array<CartItem>;
     total: number;
+    ofertproducts: Array<object>;
 }
 
 export const actionTypes = {
@@ -27,18 +30,21 @@ export const actionTypes = {
     SET_HOT_PRODUCTS: "SET_HOT_PRODUCTS",
     ADD_TO_CART: "ADD_TO_CART",
     CHANGE_QUANTITY: "CHANGE_QUANTITY",
+    SET_OFERT_PRODUCTS: "SET_OFERT_PRODUCTS",
 };
 
 function checkCart (this:CartItem, item:CartItem) {
     return item.product.name == this.product.name;
 }
 
-const reducer = (state:state, action:action) => {
+const reducer = (state:stateType, action:actionType) => {
     switch (action.type) {
         case actionTypes.SET_USER:
             return {...state, user: action.user,};
+
         case actionTypes.SET_HOT_PRODUCTS:
             return {...state, hotproducts: action.hotproducts};
+
         case actionTypes.ADD_TO_CART:
             const cartBuffer = state.cart;
             const exists = cartBuffer.findIndex(checkCart, action.item);
@@ -47,6 +53,7 @@ const reducer = (state:state, action:action) => {
             cartBuffer.push(action.item);
             const totalBuffer = state.total + action.subtotal;
             return {...state, cart: cartBuffer, total: totalBuffer};
+
         case actionTypes.CHANGE_QUANTITY:
             const modifiedItem = state.cart.find(checkCart, action.item);
             const modifiedItemIndex = state.cart.findIndex(checkCart, action.item);
@@ -65,6 +72,10 @@ const reducer = (state:state, action:action) => {
                 console.log('total buffer: ', newTotalBuffer)
                 return {...state, total: newTotalBuffer}; 
                 };
+
+        case actionTypes.SET_OFERT_PRODUCTS:
+            return {...state, ofertproducts: action.ofertproducts};
+            
         default:
             return state;
     }
