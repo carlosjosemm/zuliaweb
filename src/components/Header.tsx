@@ -30,30 +30,44 @@ import {FaFacebook, FaInstagram,} from "react-icons/fa";
 import {SiWhatsapp} from "react-icons/si";
 import { CartItem } from "../types";
 import MiCarritoDrawer from "./MiCarritoDrawer";
+import db from "../firebase";
 
 interface HeaderProps {};
 
 const Header:React.FC<HeaderProps> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();    
     const btnRef = useRef();
-    const [{user, cart}, dispatch] = useDataLayer();
+    const [{user, cart, total}, dispatch] = useDataLayer();
     const [openCart, setOpenCart] = React.useState(false);
 
-    const totalItems:Array<any> = cart.map((item:CartItem) => {
+    const totalItems:Array<any> = cart? cart.map((item:CartItem) => {
         return parseInt(item.quantity.toString())
-    })
+    }) : [0];
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
               // User is signed in.
-              dispatch(
-                    {type: actionTypes.SET_USER, user: user}
+                db.collection('users').doc(user.email).get().then(
+                    query => {
+                        const dbCartData = query.data() /*as Array<CartItem>*/
+                        // dispatch({
+                        //     type: actionTypes.FETCH_CART, cart: dbCart
+                        // });
+                        dispatch(
+                            {type: actionTypes.SET_USER, user: user, cart: dbCartData.cart, dbTotal: dbCartData.carttotal}
+                        );
+                    }
                 );
+            //   dispatch(
+            //         {type: actionTypes.SET_USER, user: user, cart: dbCart}
+            //     );
+                
             } else {
               // No user is signed in.
+              const cleanCart = [];
               dispatch(
-                {type: actionTypes.SET_USER, user: null}
+                {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: total}
             );
             }
           });

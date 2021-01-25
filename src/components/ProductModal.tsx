@@ -51,7 +51,7 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
       {type: actionTypes.ADD_TO_CART, item: item, subtotal: subTotal}
     );
     toast({
-      title: `Producto ${product.name} agregado a tu carrito!`,
+      title: `Producto ${product.name}(${quantity}) agregado a tu carrito!`,
       // description: "El producto fue ",
       status: "success",
       duration: 3000,

@@ -33,8 +33,9 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(async () => {
             const result = await auth.signInWithPopup(ggprovider);
+            const cleanCart = [];
             dispatch(
-                { type: actionTypes.SET_USER, user: result.user }
+                { type: actionTypes.SET_USER, user: result.user, cart: cleanCart, dbTotal: 0 }
             );
         })
         .catch((error) => {
@@ -53,9 +54,9 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
     
                 // The signed-in user info.
                 var userlogged = result.user;
-
+                const cleanCart = [];
                 dispatch(
-                    { type: actionTypes.SET_USER, user: userlogged }
+                    { type: actionTypes.SET_USER, user: userlogged, cart: cleanCart, dbTotal: 0 }
                 );
 
 
