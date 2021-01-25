@@ -13,6 +13,7 @@ import styles from "../../styles/Home.module.css";
 // import InstagramEmbed from 'react-instagram-embed';
 // import db from '../firebase';
 import HeaderMobile from '../components/HeaderMobile'
+import * as ProductDataRaw from '../../data/product-data.json';
 
 export default function Home() {
   const [{user}, dispatch] = useDataLayer();
@@ -30,20 +31,30 @@ export default function Home() {
         window.removeEventListener("scroll", this.window);
     };
   });
-  //     db.collection('products').doc('dontostonajo').set({
-  //       availability: true,
-  //       discount: 1,
-  //       ofert: false,
-  //       price: 120,
-  //       unit: 'unidad', 
-  //       unity: false,
-  //       name: "Don Toston Ajo 60gr",
-  //       photoURL:"https://i.imgur.com/kVm6VXm.jpg"
-  //     }).then((docRef) => {
-  //       console.log(`producto creado con id: ${docRef}`);
-  //       }).catch(function(error) {
-  //         console.error("Error writing document: ", error); 
-  //     });
+
+  const products = Object.entries(ProductDataRaw)[0][1]; //object with parsed data of products from the json file
+  const upQuery = Object.keys(products); // array of all products ids
+  console.log(upQuery);
+  // upQuery.forEach((id) => {
+  //   // console.log(id);
+  //   // const data = ProductDataRaw[id];
+  //   // console.log(data[0]);
+  //   // console.log(products);
+  //         db.collection('products').doc(id).set({
+  //           availability: (products[id][0].price == 'N/A')? false : true,
+  //           discount: products[id][0].discount,
+  //           ofert: products[id][0].ofert,
+  //           price: parseFloat(products[id][0].price),
+  //           unit: products[id][0].unity? 'Kg' : 'unidad', 
+  //           unity: products[id][0].unity,
+  //           name: products[id][0].name,
+  //           photoURL:products[id][0].photoURL,
+  //         }).then((id) => {
+  //           console.log(`producto creado con id: ${id}`);
+  //         }).catch((error) => {
+  //           console.error("Error writing document: ", error); 
+  //         });
+  // })
 
   //       db.collection("products").get().then(pr => {
   //         useProducts(pr.docs.map(
