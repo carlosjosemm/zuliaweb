@@ -1,728 +1,728 @@
 {
-    "hallacas": [
-       {
-          "name": "Hallacas",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "Carne, Pollo, Puerco",
-          "price": "250"
-       }
-    ],
-    "pandejamon": [
-       {
-          "name": "Pan de Jamón",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "Mini",
-          "price": "300"
-       }
-    ],
-    "hojasdeplatanos": [
-       {
-          "name": "Hojas de plátanos 500gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "Paq 500gr",
-          "price": "750"
-       }
-    ],
-    "harinajuana": [
-       {
-          "name": "Harina Juana 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 Kilo",
-          "price": "230"
-       }
-    ],
-    "harinamorixe": [
-       {
-          "name": "Harina Morixe 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 KILO",
-          "price": "180"
-       }
-    ],
-    "harinalanieveblanca": [
-       {
-          "name": "Harina La Nieve Blanca 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 KILO",
-          "price": "N/A"
-       }
-    ],
-    "harinalanieveamarilla": [
-       {
-          "name": "Harina La Nieve Amarilla 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 KILO",
-          "price": "190"
-       }
-    ],
-    "harinapan": [
-       {
-          "name": "Harina P.A.N 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 KILO",
-          "price": "270"
-       }
-    ],
-    "harinasol": [
-       {
-          "name": "Harina del Sol 1Kg",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "1 KILO",
-          "price": "190"
-       }
-    ],
-    "dontostonnatural": [
-       {
-          "name": "Don Toston Natural 60gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "60 GRAMOS",
-          "price": "120"
-       }
-    ],
-    "adobolasazon": [
-       {
-          "name": "Adobo La Sazon 180gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "180 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "adobocaribe": [
-       {
-          "name": "Adobo Caribe 200gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "200 GRAMOS",
-          "price": "130"
-       }
-    ],
-    "rekomalta": [
-       {
-          "name": "Reko Malta 330ml",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "330 cc",
-          "price": "140"
-       }
-    ],
-    "rekopina": [
-       {
-          "name": "RekoPina 500ml",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 ML",
-          "price": "90"
-       }
-    ],
-    "nestealimon": [
-       {
-          "name": "Nestea Limón 500gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "nesteadurazno": [
-       {
-          "name": "Nestea Durazno 500gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "nestealimonliquido": [
-       {
-          "name": "Nestea Limón 500ml",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 ML",
-          "price": "N/A"
-       }
-    ],
-    "nesteaduraznoliquido": [
-       {
-          "name": "Nestea Durazno 500ml",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 ML",
-          "price": "N/A"
-       }
-    ],
-    "teliptonlimon": [
-       {
-          "name": "Te Lipton Limon 500gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 GRAMOS",
-          "price": "250"
-       }
-    ],
-    "quesosemiduro": [
-       {
-          "name": "Queso Semi Duro",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "450"
-       }
-    ],
-    "quesoduro": [
-       {
-          "name": "Queso Duro",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "470"
-       }
-    ],
-    "quesodemano": [
-       {
-          "name": "Queso de Mano 3uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "ENVASE 3 UND",
-          "price": "450"
-       }
-    ],
-    "natalazuliana": [
-       {
-          "name": "Nata La Zuliana 750gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "750 GRAMOS",
-          "price": "380"
-       }
-    ],
-    "natatovareño": [
-       {
-          "name": "Nata Tovareño 200gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "200 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "jamonendiablado": [
-       {
-          "name": "Jamón endiablado 180gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "180 gr",
-          "price": "200"
-       }
-    ],
-    "rikezatocineta": [
-       {
-          "name": "Rikeza Tocineta 200gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "200 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "rikezaoriginal": [
-       {
-          "name": "Rikeza Original 200gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "200 GRAMOS",
-          "price": "N/A"
-       }
-    ],
-    "caraotasnegras": [
-       {
-          "name": "Caraotas Negras",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "150"
-       }
-    ],
-    "aceitedeoliva": [
-       {
-          "name": "Aceite de oliva 500ml",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 ML",
-          "price": "180"
-       }
-    ],
-    "tequeñostequepops": [
-       {
-          "name": "Tequeños Tequepops 12uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "12 UNIDADES",
-          "price": "N/A"
-       }
-    ],
-    "tequeñoslazuliana": [
-       {
-          "name": "Tequeños La Zuliana 12uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "12 UNIDADES",
-          "price": "250"
-       }
-    ],
-    "tequeñostequezuelar": [
-       {
-          "name": "Tequeños Tequezuelar 12uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "12 UNIDADES",
-          "price": "190"
-       }
-    ],
-    "pastelitostequezueñar": [
-       {
-          "name": "Pastelitos Tequezueñar 12uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "12 UNIDADES",
-          "price": "N/A"
-       }
-    ],
-    "tequeñostequerock": [
-       {
-          "name": "Tequeños Tequerock 12uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "12 und",
-          "price": "250"
-       }
-    ],
-    "tequeyoyos": [
-       {
-          "name": "Tequeyoyos 8uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "8 und",
-          "price": "250"
-       }
-    ],
-    "chuletaahumada": [
-       {
-          "name": "Chuleta Ahumada",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "500"
-       }
-    ],
-    "mieldeabeja": [
-       {
-          "name": "Miel de abeja 500gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "500 GRAMOS",
-          "price": "180"
-       }
-    ],
-    "paledoniasdonacarmen": [
-       {
-          "name": "Paledonias DONA CARMEN 4uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "4 UNIDADES",
-          "price": "110"
-       }
-    ],
-    "galletasdehuevo": [
-       {
-          "name": "Galletas de huevo 5uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "5 UNIDADES",
-          "price": "150"
-       }
-    ],
-    "galletasdehuevoconchipsdechocolate": [
-       {
-          "name": "Galletas de huevo chocolate 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "150"
-       }
-    ],
-    "paledoniasantojitos": [
-       {
-          "name": "Paledonias Antojitos 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "150"
-       }
-    ],
-    "yoyitosconguayaba": [
-       {
-          "name": "Yoyitos con guayaba 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "N/A"
-       }
-    ],
-    "rellenitosnewton": [
-       {
-          "name": "Rellenitos Newton 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "N/A"
-       }
-    ],
-    "orejonesconguayaba": [
-       {
-          "name": "Orejones con Guayaba 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "N/A"
-       }
-    ],
-    "besitosdecoco": [
-       {
-          "name": "Besitos de Coco 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "150"
-       }
-    ],
-    "panpiñita": [
-       {
-          "name": "Pan Piñita 6uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "6 UNIDADES",
-          "price": "150"
-       }
-    ],
-    "pandequeso": [
-       {
-          "name": "Pan de queso",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "UNIDAD",
-          "price": "350"
-       }
-    ],
-    "panandino": [
-       {
-          "name": "Pan andino",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "UNIDAD",
-          "price": "220"
-       }
-    ],
-    "cafedolca": [
-       {
-          "name": "Cafe Dolca 170gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "170 GRAMOS",
-          "price": "290"
-       }
-    ],
-    "lecheenpolvolalechera": [
-       {
-          "name": "Leche en polvo La lechera 400gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "400 GRAMOS",
-          "price": "200"
-       },
-       {
-          "name": "Leche en polvo La lechera 800gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "800 GRAMOS",
-          "price": "400"
-       }
-    ],
-    "panelasdesanjoaquin": [
-       {
-          "name": "Panelas de San Joaquin 5uni",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "PAQ DE 5",
-          "price": "N/A"
-       }
-    ],
-    "casabe": [
-       {
-          "name": "Casabe 200gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "200 GRAMOS",
-          "price": "170"
-       }
-    ],
-    "onotoengrano": [
-       {
-          "name": "Onoto en grano 100gr",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": false,
-          "unit": "100 GRAMOS",
-          "price": "100"
-       }
-    ],
-    "platanosamarillos": [
-       {
-          "name": "Plátanos amarillos",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "200"
-       }
-    ],
-    "supremasdepollo": [
-       {
-          "name": "Supremas de Pollo",
-          "ofert": false,
-          "discount": 1,
-          "hot": false,
-          "photoURL": null,
-          "new": false,
-          "unity": true,
-          "unit": "POR KILO",
-          "price": "260"
-       }
-    ]
- }
+   "hallacas": [
+      {
+         "name": "Hallacas",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "Carne, Pollo, Puerco",
+         "price": "250"
+      }
+   ],
+   "pandejamon": [
+      {
+         "name": "Pan de Jamón",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "Mini",
+         "price": "300"
+      }
+   ],
+   "hojasdeplatanos": [
+      {
+         "name": "Hojas de plátanos 500gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "Paq 500gr",
+         "price": "750"
+      }
+   ],
+   "harinajuana": [
+      {
+         "name": "Harina Juana 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "1 Kilo",
+         "price": "230"
+      }
+   ],
+   "harinamorixe": [
+      {
+         "name": "Harina Morixe 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "1 KILO",
+         "price": "180"
+      }
+   ],
+   "harinalanieveblanca": [
+      {
+         "name": "Harina La Nieve Blanca 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "1 KILO",
+         "price": "N/A"
+      }
+   ],
+   "harinalanieveamarilla": [
+      {
+         "name": "Harina La Nieve Amarilla 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "1 KILO",
+         "price": "190"
+      }
+   ],
+   "harinapan": [
+      {
+         "name": "Harina P.A.N 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "1 KILO",
+         "price": "270"
+      }
+   ],
+   "harinasol": [
+      {
+         "name": "Harina del Sol 1Kg",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "1 KILO",
+         "price": "190"
+      }
+   ],
+   "dontostonnatural": [
+      {
+         "name": "Don Toston Natural 60gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "60 GRAMOS",
+         "price": "120"
+      }
+   ],
+   "adobolasazon": [
+      {
+         "name": "Adobo La Sazon 180gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "180 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "adobocaribe": [
+      {
+         "name": "Adobo Caribe 200gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "200 GRAMOS",
+         "price": "130"
+      }
+   ],
+   "rekomalta": [
+      {
+         "name": "Reko Malta 330ml",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "330 cc",
+         "price": "140"
+      }
+   ],
+   "rekopina": [
+      {
+         "name": "RekoPina 500ml",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 ML",
+         "price": "90"
+      }
+   ],
+   "nestealimon": [
+      {
+         "name": "Nestea Limón 500gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "500 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "nesteadurazno": [
+      {
+         "name": "Nestea Durazno 500gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "nestealimonliquido": [
+      {
+         "name": "Nestea Limón 500ml",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 ML",
+         "price": "N/A"
+      }
+   ],
+   "nesteaduraznoliquido": [
+      {
+         "name": "Nestea Durazno 500ml",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 ML",
+         "price": "N/A"
+      }
+   ],
+   "teliptonlimon": [
+      {
+         "name": "Te Lipton Limon 500gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 GRAMOS",
+         "price": "250"
+      }
+   ],
+   "quesosemiduro": [
+      {
+         "name": "Queso Semi Duro",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "450"
+      }
+   ],
+   "quesoduro": [
+      {
+         "name": "Queso Duro",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "470"
+      }
+   ],
+   "quesodemano": [
+      {
+         "name": "Queso de Mano 3uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "ENVASE 3 UND",
+         "price": "450"
+      }
+   ],
+   "natalazuliana": [
+      {
+         "name": "Nata La Zuliana 750gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "750 GRAMOS",
+         "price": "380"
+      }
+   ],
+   "natatovareño": [
+      {
+         "name": "Nata Tovareño 200gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "200 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "jamonendiablado": [
+      {
+         "name": "Jamón endiablado 180gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "180 gr",
+         "price": "200"
+      }
+   ],
+   "rikezatocineta": [
+      {
+         "name": "Rikeza Tocineta 200gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "200 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "rikezaoriginal": [
+      {
+         "name": "Rikeza Original 200gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "200 GRAMOS",
+         "price": "N/A"
+      }
+   ],
+   "caraotasnegras": [
+      {
+         "name": "Caraotas Negras",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "150"
+      }
+   ],
+   "aceitedeoliva": [
+      {
+         "name": "Aceite de oliva 500ml",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "500 ML",
+         "price": "180"
+      }
+   ],
+   "tequeñostequepops": [
+      {
+         "name": "Tequeños Tequepops 12uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "12 UNIDADES",
+         "price": "N/A"
+      }
+   ],
+   "tequeñoslazuliana": [
+      {
+         "name": "Tequeños La Zuliana 12uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "12 UNIDADES",
+         "price": "250"
+      }
+   ],
+   "tequeñostequezuelar": [
+      {
+         "name": "Tequeños Tequezuelar 12uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "12 UNIDADES",
+         "price": "190"
+      }
+   ],
+   "pastelitostequezueñar": [
+      {
+         "name": "Pastelitos Tequezueñar 12uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "12 UNIDADES",
+         "price": "N/A"
+      }
+   ],
+   "tequeñostequerock": [
+      {
+         "name": "Tequeños Tequerock 12uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": true,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "12 und",
+         "price": "250"
+      }
+   ],
+   "tequeyoyos": [
+      {
+         "name": "Tequeyoyos 8uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "8 und",
+         "price": "250"
+      }
+   ],
+   "chuletaahumada": [
+      {
+         "name": "Chuleta Ahumada",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "500"
+      }
+   ],
+   "mieldeabeja": [
+      {
+         "name": "Miel de abeja 500gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": true,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "500 GRAMOS",
+         "price": "180"
+      }
+   ],
+   "paledoniasdonacarmen": [
+      {
+         "name": "Paledonias DONA CARMEN 4uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "4 UNIDADES",
+         "price": "110"
+      }
+   ],
+   "galletasdehuevo": [
+      {
+         "name": "Galletas de huevo 5uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "5 UNIDADES",
+         "price": "150"
+      }
+   ],
+   "galletasdehuevoconchipsdechocolate": [
+      {
+         "name": "Galletas de huevo chocolate 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "150"
+      }
+   ],
+   "paledoniasantojitos": [
+      {
+         "name": "Paledonias Antojitos 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": true,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "150"
+      }
+   ],
+   "yoyitosconguayaba": [
+      {
+         "name": "Yoyitos con guayaba 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "N/A"
+      }
+   ],
+   "rellenitosnewton": [
+      {
+         "name": "Rellenitos Newton 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "N/A"
+      }
+   ],
+   "orejonesconguayaba": [
+      {
+         "name": "Orejones con Guayaba 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "N/A"
+      }
+   ],
+   "besitosdecoco": [
+      {
+         "name": "Besitos de Coco 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "150"
+      }
+   ],
+   "panpiñita": [
+      {
+         "name": "Pan Piñita 6uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "6 UNIDADES",
+         "price": "150"
+      }
+   ],
+   "pandequeso": [
+      {
+         "name": "Pan de queso",
+         "ofert": false,
+         "discount": 1,
+         "hot": true,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "UNIDAD",
+         "price": "350"
+      }
+   ],
+   "panandino": [
+      {
+         "name": "Pan andino",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "UNIDAD",
+         "price": "220"
+      }
+   ],
+   "cafedolca": [
+      {
+         "name": "Cafe Dolca 170gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "170 GRAMOS",
+         "price": "290"
+      }
+   ],
+   "lecheenpolvolalechera": [
+      {
+         "name": "Leche en polvo La lechera 400gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "400 GRAMOS",
+         "price": "200"
+      },
+      {
+         "name": "Leche en polvo La lechera 800gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": false,
+         "unit": "800 GRAMOS",
+         "price": "400"
+      }
+   ],
+   "panelasdesanjoaquin": [
+      {
+         "name": "Panelas de San Joaquin 5uni",
+         "ofert": false,
+         "discount": 1,
+         "hot": true,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "PAQ DE 5",
+         "price": "N/A"
+      }
+   ],
+   "casabe": [
+      {
+         "name": "Casabe 200gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "200 GRAMOS",
+         "price": "170"
+      }
+   ],
+   "onotoengrano": [
+      {
+         "name": "Onoto en grano 100gr",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": false,
+         "unit": "100 GRAMOS",
+         "price": "100"
+      }
+   ],
+   "platanosamarillos": [
+      {
+         "name": "Plátanos amarillos",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": true,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "200"
+      }
+   ],
+   "supremasdepollo": [
+      {
+         "name": "Supremas de Pollo",
+         "ofert": false,
+         "discount": 1,
+         "hot": false,
+         "photoURL": null,
+         "new": false,
+         "unity": true,
+         "unit": "POR KILO",
+         "price": "260"
+      }
+   ]
+}

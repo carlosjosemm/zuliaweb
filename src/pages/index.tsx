@@ -11,7 +11,7 @@ import React, {
 import {SiWhatsapp} from "react-icons/si";
 import styles from "../../styles/Home.module.css";
 // import InstagramEmbed from 'react-instagram-embed';
-// import db from '../firebase';
+import db from '../firebase';
 import HeaderMobile from '../components/HeaderMobile'
 import * as ProductDataRaw from '../../data/product-data.json';
 
@@ -35,26 +35,24 @@ export default function Home() {
   const products = Object.entries(ProductDataRaw)[0][1]; //object with parsed data of products from the json file
   const upQuery = Object.keys(products); // array of all products ids
   console.log(upQuery);
-  // upQuery.forEach((id) => {
-  //   // console.log(id);
-  //   // const data = ProductDataRaw[id];
-  //   // console.log(data[0]);
-  //   // console.log(products);
-  //         db.collection('products').doc(id).set({
-  //           availability: (products[id][0].price == 'N/A')? false : true,
-  //           discount: products[id][0].discount,
-  //           ofert: products[id][0].ofert,
-  //           price: parseFloat(products[id][0].price),
-  //           unit: products[id][0].unity? 'Kg' : 'unidad', 
-  //           unity: products[id][0].unity,
-  //           name: products[id][0].name,
-  //           photoURL:products[id][0].photoURL,
-  //         }).then((id) => {
-  //           console.log(`producto creado con id: ${id}`);
-  //         }).catch((error) => {
-  //           console.error("Error writing document: ", error); 
-  //         });
-  // })
+  upQuery.forEach((id) => {
+          db.collection('products').doc(id).set({
+            availability: (products[id][0].price == 'N/A')? false : true,
+            discount: products[id][0].discount,
+            ofert: products[id][0].ofert,
+            price: parseFloat(products[id][0].price),
+            unit: products[id][0].unity? 'Kg' : 'unidad', 
+            unity: products[id][0].unity,
+            name: products[id][0].name,
+            photoURL:products[id][0].photoURL,
+            hot: products[id][0].hot,
+            new: products[id][0].new,
+          }).then((id) => {
+            console.log(`producto creado con id: ${id}`);
+          }).catch((error) => {
+            console.error("Error writing document: ", error); 
+          });
+  })
 
   //       db.collection("products").get().then(pr => {
   //         useProducts(pr.docs.map(
