@@ -33,16 +33,10 @@ const HotProductSlide = () => {
                     dispatch({
                         type: actionTypes.SET_HOT_PRODUCTS, hotproducts: queryBuffer
                     });
-                    // console.log('hotproducts: ', hotproducts.map((pr:ProductData) => pr.price));            
                 }
             )
         };
         getHotProducts();
-        // dispatch({
-        //     type: actionTypes.SET_HOT_PRODUCTS, hotproducts: queryBuffer
-        // });
-        console.log(`useEffect was here slider...`);
-        // hotproducts? console.log('hotproducts: ', hotproducts.map((pr:ProductData) => pr.price)) : null;
     }, []);
 
     return (

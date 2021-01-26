@@ -29,7 +29,6 @@ const HeaderMobile: React.FC<{}> = () => {
     const lightcolor = 'yellow.500';
     const logoSize = useBreakpointValue({sm: '130px', base: '300px', md: '130px', lg: '130px', xl:'130px'})
     const br = useBreakpoint();
-    console.log('br: ',br);
     return (
         <>
             <Box position="sticky" zIndex="999" top="0" bg={lightcolor} height="60px" w="100vw" >
