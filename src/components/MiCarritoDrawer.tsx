@@ -32,9 +32,9 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
             <Drawer variant="temporary" anchor="right" open={openCart} onClose={() => setOpenCart(false)}>
                 <Grid
                     h="100vh"
-                    minW="280px"
+                    minW="300px"
                     w={(br=='base')? '70vw' : '400px'}
-                    maxW={(br=='base')? '100vw' : '60vw'}
+                    maxW={(br=='base')? '90vw' : '70vw'}
                     templateRows="repeat(10, 1fr)"
                     templateColumns="repeat(2, 1fr)"
                     bgColor={(br!=='base')? "#c9effc" : 'white'}
