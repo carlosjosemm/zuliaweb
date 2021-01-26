@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import Drawer from '@material-ui/core/Drawer';
 import { useDataLayer } from "../DataLayer";
-import { Box, Center, Grid, GridItem, Heading, useBreakpoint } from "@chakra-ui/react";
+import { Box, Center, Flex, Grid, GridItem, Heading, IconButton, useBreakpoint } from "@chakra-ui/react";
 import { CartItem } from "../types";
 import CartItemCard from "./CartItemCard";
+import { IoCloseSharp } from "react-icons/io5";
 interface DrawerProps {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -42,13 +43,21 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                     <GridItem
                         rowSpan={1} colSpan={2}
                     >
-                        <Center w="100%" h="100%" borderBottom="1px solid lightgray">
-                            <Heading
-                                as="h2" size="lg" isTruncated maxWidth="100%"
-                            >
-                                Carrito de Compra
-                            </Heading>
-                        </Center>
+                        <Flex w="100%" h="100%" px="1ch" borderBottom="1px solid lightgray" justifyContent="space-between" alignItems="center" >
+                            <Center flex="2">
+                                <Heading
+                                    as="h2" size="lg" isTruncated
+                                >
+                                    Carrito de Compra
+                                </Heading>
+                            </Center>
+                            <IconButton 
+                                aria-label="close" 
+                                size="lg" 
+                                onClick={() => setOpenCart(false)} 
+                                icon={<IoCloseSharp />} 
+                            />
+                        </Flex>
                     </GridItem>
 
                     <GridItem
