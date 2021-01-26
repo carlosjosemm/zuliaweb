@@ -33,13 +33,14 @@ const ProductCard: React.FC<ProductCardProps> = ({product, key}) => {
                 <Box 
                     d={!product.ofert? 'none' : 'flex'} 
                     position="absolute" 
-                    top="-1ch" left="-1ch" 
+                    top={(br=='base')? '0' : "-1ch"} left={(br=='base')? '0' : "-1ch"} 
                     bgColor="blue.600" 
                     color="white" 
-                    w="5.5ch" h="5.5ch" 
+                    w={(br=='base')? '4ch' : "5ch"} h={(br=='base')? '4ch' : "5ch"} 
                     borderRadius="full" 
                     justifyContent="center" 
-                    fontWeight="700"
+                    fontWeight={(br=='base')? '500' : "700"}
+                    zIndex="1000"
                 >
                     <Center>-{Math.floor((1 - product.discount)*100)}%</Center>
                 </Box>

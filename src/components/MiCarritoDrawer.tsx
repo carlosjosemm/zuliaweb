@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Drawer from '@material-ui/core/Drawer';
 import { useDataLayer } from "../DataLayer";
 import { Box, Center, Grid, GridItem, Heading, useBreakpoint } from "@chakra-ui/react";
@@ -13,12 +13,26 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
 
     const [{cart, total}, dispatch] = useDataLayer();
     const br = useBreakpoint();
+    const docRef = useRef(null);
+
+    useEffect(() => {
+        let script = document.createElement("script");
+        // let anchor = document.getElementById("inject-comments-for-uterances");
+        script.setAttribute("src", "https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js");
+        // script.setAttribute("crossorigin","anonymous");
+        script.setAttribute("data-public-key", "ENV_PUBLIC_KEY");
+        // script.setAttribute("repo", "[ENTER REPO HERE]");
+        // script.setAttribute("issue-term", "pathname");
+        script.setAttribute("data-transaction-amount", "100.00");
+        docRef.current = script;
+    }, [])
 
     return (
         <>
             <Drawer variant="temporary" anchor="right" open={openCart} onClose={() => setOpenCart(false)}>
                 <Grid
                     h="100vh"
+                    minW="280px"
                     w={(br=='base')? '70vw' : '400px'}
                     maxW={(br=='base')? '100vw' : '60vw'}
                     templateRows="repeat(10, 1fr)"
@@ -66,7 +80,13 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                             <Heading
                                 as="h2" size="md" isTruncated maxWidth="100%"
                             >
-                                 Boton de comprar o iniciar sesion
+                                <form action="https://www.example.com/paymentsuccess" method="POST">
+                                <script
+                                    ref={docRef}
+                                >
+                                    
+                                </script>
+                                </form>
                             </Heading>
                         </Center>
                     </GridItem>
