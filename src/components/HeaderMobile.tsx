@@ -1,10 +1,13 @@
 import { Box, Grid, GridItem, Icon, IconButton, Image, Input, InputGroup, InputRightElement, useBreakpoint, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
 import {BiSearch, BiUser, BiCart} from 'react-icons/bi';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDataLayer } from "../DataLayer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
 import MiCarritoDrawer from "./MiCarritoDrawer";
 import MobileMenu from "./MobileMenu";
+import firebase from "firebase";
+import db from "../firebase";
+import { actionTypes } from "../reducer";
 
 const HeaderMobile: React.FC<{}> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();    
@@ -14,6 +17,31 @@ const HeaderMobile: React.FC<{}> = () => {
     const lightcolor = 'yellow.500';
     const logoSize = useBreakpointValue({sm: '130px', base: '300px', md: '130px', lg: '130px', xl:'130px'})
     const br = useBreakpoint();
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // User is signed in.
+                db.collection('users').doc(user.email).get().then( //fetch cartData from firebase
+                    query => {
+                        const dbCartData = query.data() //parse it
+                        const cleanCart = [];
+                        dispatch(
+                            {type: actionTypes.SET_USER, user: user, cart: dbCartData?.cart ?? cleanCart , dbTotal: dbCartData?.carttotal ?? 0}
+                        );
+                    }
+                );                
+            } else {
+              // No user is signed in.
+              const cleanCart = [];
+              dispatch(
+                {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: 0}
+            );
+            }
+          });
+    }, [user]);
+
+
     return (
         <>
             <Box position="sticky" zIndex="999" top="0" bg={lightcolor} height="60px" w="100vw" >
