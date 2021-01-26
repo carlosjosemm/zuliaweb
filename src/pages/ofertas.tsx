@@ -38,7 +38,6 @@ const ofertas = () => {
                     dispatch({
                         type: actionTypes.SET_OFERT_PRODUCTS, ofertproducts: queryBuffer,
                     });
-                    // console.log('hotproducts: ', hotproducts.map((pr:ProductData) => pr.price));            
                 }
             ) : null
         };

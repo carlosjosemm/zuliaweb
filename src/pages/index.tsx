@@ -29,18 +29,9 @@ export default function Home() {
       return () => {
         window.removeEventListener("scroll", this.window);
     };
-  });
+    });
 
-  //       db.collection("products").get().then(pr => {
-  //         useProducts(pr.docs.map(
-  //           doc => ({
-  //             id: doc.id, data: doc.data()
-  //           })
-  //         ));
-  //         console.log(pr.docs.map(doc => (doc.data())));
-  //         console.log(products);
-  //       });
-    }
+  }
   , []);
 
   return (

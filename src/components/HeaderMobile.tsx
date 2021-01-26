@@ -1,19 +1,5 @@
-import { Box, Button, Grid, GridItem, Icon, IconButton, Image, Input, InputGroup, InputRightElement, useBreakpoint, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
-import {HiMenu} from 'react-icons/hi';
+import { Box, Grid, GridItem, Icon, IconButton, Image, Input, InputGroup, InputRightElement, useBreakpoint, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
 import {BiSearch, BiUser, BiCart} from 'react-icons/bi';
-import {IoClose} from 'react-icons/io5';
-import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    // MenuItemOption,
-    // MenuGroup,
-    // MenuOptionGroup,
-    // MenuIcon,
-    // MenuCommand,
-    MenuDivider,
-  } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDataLayer } from "../DataLayer";
 import MiCuentaDrawer from "./MiCuentaDrawer";
@@ -22,7 +8,6 @@ import MobileMenu from "./MobileMenu";
 
 const HeaderMobile: React.FC<{}> = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();    
-    // const btnRef = useRef();
     const [{user, cart}, dispatch] = useDataLayer();
     const [openCart, setOpenCart] = useState(false);
     const strongcolor = 'yellow.50';

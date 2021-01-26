@@ -98,11 +98,6 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                         pb="50px"
                     >
                     
-                    {/* <Flex 
-                        // flexDirection="column" 
-                        // alignContent="space-evenly" 
-                        // justifyContent="center" 
-                    > */}
                     {user ? 
                         
                         <Button  
@@ -142,14 +137,7 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                         
                         <LightMode>
                             <Button leftIcon={<Icon as={FaFacebook} w="25px" h="25px" />} 
-                            // variant="outline" 
-                            // color={darkerGrey} 
                             colorScheme="facebook"
-                            // _active={{bg: 'grey'}}
-                            // borderColor="darkgrey" 
-                            // bgColor="white"
-                            // _hover={{bg: 'lighgrey'}}
-                            // _focus={{border: '1px solid darkgrey'}}
                             onClick={signInFacebook}
                             >
                             Iniciar sesión con Facebook
@@ -157,16 +145,9 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                         </LightMode>
                         </>
                     }
-                    {/* </Flex>                     */}
                     </DrawerBody>
 
                     <DrawerFooter>
-                    {/* <Button boxShadow="0 2px 3px  rgba(0, 0, 0, 0.2)" borderColor="yellow.800" color="yellow.800" variant="outline" mr={3} onClick={onClose}>
-                        Cancelar
-                    </Button>
-                    <Button color="yellow.800" borderColor="yellow.500" boxShadow="0 2px 3px  rgba(0, 0, 0, 0.2)" bgColor="#feb800" variant="outline">
-                        Save
-                    </Button> */}
                     </DrawerFooter>
                 </DrawerContent>
                 </DrawerOverlay>

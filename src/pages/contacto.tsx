@@ -7,11 +7,9 @@ import { Box, Center,
     useBreakpoint 
 } from "@chakra-ui/react";
 import React, { 
-    useEffect, 
     useRef, 
     useState, 
 } from "react";
-import { useDataLayer } from "../DataLayer";
 import styles from "../../styles/Home.module.css";
 import HeaderMobile from "../components/HeaderMobile";
 import Header from "../components/Header";
@@ -36,9 +34,7 @@ const contacto = () => {
             lat: -34.58828073401789,
             lng: -58.40096530040079, 
     }});
-    // const directions = useRef(null);
     const [directions, setDirections] = useState(null);
-    const [{user, cart}, dispatch] = useDataLayer();
     const [userLoc, setUserLoc] = useState(null);
     const [travel, setTravel] = useState('TRANSIT');
     const br = useBreakpoint();
@@ -63,20 +59,6 @@ const contacto = () => {
         lng: -58.40096530040079, 
     }
 
-    // useEffect(() => {
-    //     // window.addEventListener("scroll", () => {
-    //     //     if (window.scrollY > 150) {
-    //     //         useShow(true);
-    //     //     } else {
-    //     //         useShow(false);
-    //     //     }
-    //     //     return () => {
-    //     //         window.removeEventListener("scroll", this.window);
-    //     //     };
-    //     // });
-    // }
-    // , []);
-    
     return (
         <div className={styles.backgroundImg}>
             <Head>
@@ -139,7 +121,6 @@ const contacto = () => {
                                 callback={ res => setDirections(res) }
                             /> 
                             <DirectionsRenderer
-                                // required
                                 options={{
                                     directions: directions
                                 }}
@@ -193,7 +174,6 @@ const contacto = () => {
                     </Heading>
                 </Box>
             </Box>
-
         </div>
     );
 }

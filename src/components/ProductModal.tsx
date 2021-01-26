@@ -36,9 +36,6 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   const [subTotal, useSubTotal] = useState((product.unity==true)? (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 0.1) : (parseFloat(product.price.toString()) * parseFloat(product.discount.toString()) * 1));
   const br = useBreakpoint();
 
-  // console.log('quantity: ', quantity);
-  // console.log('subtotal: ', subTotal);
-
   const toast = useToast()
   const [windowsWidth, setWindowsWidth] = useState(null);
 
@@ -51,8 +48,8 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
       {type: actionTypes.ADD_TO_CART, item: item, subtotal: subTotal}
     );
     toast({
-      title: `Producto ${product.name}(${quantity}) agregado a tu carrito!`,
-      // description: "El producto fue ",
+      title: `Producto ${product.name} (${quantity}) agregado a tu carrito!`,
+      // description: " ",
       status: "success",
       duration: 3000,
       isClosable: true,
@@ -61,11 +58,6 @@ const ProductModal: React.FC<ModalProps> = ({isOpen, onClose, product}) => {
   };
 
   useEffect(() => {
-    // if (product.ofert) {
-    //   useFinalprice(product.price * product.discount);
-    // } else {
-    //     useFinalprice(product.price);
-    // };
     useSubTotal(Math.ceil(quantity * finalprice));
 
     // only execute all the code below in client side

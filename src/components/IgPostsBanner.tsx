@@ -17,8 +17,8 @@ const IgPostsBanner = () => {
                 flexDir="row"
                 width="100%"
             >
-                {posts.map( (post) => (
-                    <InstagramPost url={post} />
+                {posts.map( (post, index) => (
+                    <InstagramPost url={post} key={index} />
                 )  
                 )}
             </Flex>
