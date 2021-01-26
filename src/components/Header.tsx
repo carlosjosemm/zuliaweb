@@ -48,26 +48,20 @@ const Header:React.FC<HeaderProps> = () => {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
               // User is signed in.
-                db.collection('users').doc(user.email).get().then(
+                db.collection('users').doc(user.email).get().then( //fetch cartData from firebase
                     query => {
-                        const dbCartData = query.data() /*as Array<CartItem>*/
-                        // dispatch({
-                        //     type: actionTypes.FETCH_CART, cart: dbCart
-                        // });
+                        const dbCartData = query.data() //parse it
+                        const cleanCart = [];
                         dispatch(
-                            {type: actionTypes.SET_USER, user: user, cart: dbCartData.cart, dbTotal: dbCartData.carttotal}
+                            {type: actionTypes.SET_USER, user: user, cart: dbCartData?.cart ?? cleanCart , dbTotal: dbCartData?.carttotal ?? 0}
                         );
                     }
-                );
-            //   dispatch(
-            //         {type: actionTypes.SET_USER, user: user, cart: dbCart}
-            //     );
-                
+                );                
             } else {
               // No user is signed in.
               const cleanCart = [];
               dispatch(
-                {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: total}
+                {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: 0}
             );
             }
           });
@@ -94,7 +88,7 @@ const Header:React.FC<HeaderProps> = () => {
                             <Flex mb="1ch" w="100%" direction="row" alignItems="flex-end" justifyContent="space-evenly">
                                 <LightMode>
                                     <Link href="https://www.facebook.com/zuliapallevar/" isExternal>
-                                    <IconButton //onClick={}
+                                    <IconButton
                                         aria-label="Facebook"
                                         color="white"
                                         borderRadius="full"
@@ -152,7 +146,6 @@ const Header:React.FC<HeaderProps> = () => {
                                 _placeholder={{color: "white"}}
                                 size="sm"
                                 bgColor="#feb800"
-                                // bgColor="white"
                             />    
                             </LightMode>
                             </InputGroup>
@@ -250,14 +243,9 @@ const Header:React.FC<HeaderProps> = () => {
 
             {/* NAV BAR */}
             <HStack 
-                // mx="10px"
                 color="white" 
                 mt="2px" 
-                // borderRadius="5px"
                 padding="3px"
-                // borderColor= "#57a7dc"
-                // borderBottom="3px solid #3182CE"
-                // border="3px solid #3182CE"
                 fontWeight="500" 
                 bgColor="blue.500" 
                 px="100px" 

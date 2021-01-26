@@ -8,9 +8,7 @@ import {
     Button, 
     Icon, 
     DrawerFooter, 
-    Center, 
     LightMode,
-    Flex
 } from "@chakra-ui/react";
 import firebase from "firebase";
 import React from "react";
@@ -40,8 +38,9 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
         })
         .catch((error) => {
             // Handle Errors here.
-            var errorCode = error.code;
+            // var errorCode = error.code;
             var errorMessage = error.message;
+            console.log('error: ', errorMessage);
         });
     };
 
@@ -53,14 +52,9 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
                 // var credential = result.credential;
     
                 // The signed-in user info.
-                var userlogged = result.user;
+                var userlogged: firebase.User = result.user;
                 const cleanCart = [];
-                dispatch(
-                    { type: actionTypes.SET_USER, user: userlogged, cart: cleanCart, dbTotal: 0 }
-                );
 
-
-    
                 // This gives you a Facebook Access Token. You can use it to access the Facebook API.
                 // var accessToken = credential.accessToken;
             })
@@ -80,7 +74,6 @@ const MiCuentaDrawer: React.FC<DrawerProps> = ({isOpen, onClose}) => {
 
             
     };
-
     const darkerGrey = '#404040';
 
     return (
