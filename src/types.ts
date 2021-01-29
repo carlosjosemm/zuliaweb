@@ -9,7 +9,7 @@ export type ProductData = {
     ofert: boolean;
     name: string;
     unit: string;
-    __proto__?: object;
+    category?: string;
 }
 
 export interface CartItem {

@@ -19,6 +19,7 @@ const UploadData = () => {
               photoURL:products[id][0].photoURL,
               hot: products[id][0].hot,
               new: products[id][0].new,
+              category: products[id][0].category
             }).then((id) => {
               console.log(`producto creado con id: ${id}`);
             }).catch((error) => {

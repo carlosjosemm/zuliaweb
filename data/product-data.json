@@ -9,7 +9,8 @@
          "new": false,
          "unity": false,
          "unit": "Carne, Pollo, Puerco",
-         "price": "250"
+         "price": "250",
+         "category": "preparados"
       }
    ],
    "pandejamon": [
@@ -22,7 +23,8 @@
          "new": false,
          "unity": false,
          "unit": "Mini",
-         "price": "300"
+         "price": "300",
+         "category": "preparados"
       }
    ],
    "hojasdeplatanos": [
@@ -35,7 +37,8 @@
          "new": false,
          "unity": false,
          "unit": "Paq 500gr",
-         "price": "750"
+         "price": "750",
+         "category": "ingredientes"
       }
    ],
    "harinajuana": [
@@ -48,7 +51,8 @@
          "new": false,
          "unity": false,
          "unit": "1 Kilo",
-         "price": "230"
+         "price": "230",
+         "category": "harinas"
       }
    ],
    "harinamorixe": [
@@ -61,7 +65,8 @@
          "new": false,
          "unity": false,
          "unit": "1 KILO",
-         "price": "180"
+         "price": "180",
+         "category": "harinas"
       }
    ],
    "harinalanieveblanca": [
@@ -74,7 +79,8 @@
          "new": true,
          "unity": false,
          "unit": "1 KILO",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "harinas"
       }
    ],
    "harinalanieveamarilla": [
@@ -87,7 +93,8 @@
          "new": false,
          "unity": false,
          "unit": "1 KILO",
-         "price": "190"
+         "price": "190",
+         "category": "harinas"
       }
    ],
    "harinapan": [
@@ -100,7 +107,8 @@
          "new": false,
          "unity": false,
          "unit": "1 KILO",
-         "price": "270"
+         "price": "270",
+         "category": "harinas"
       }
    ],
    "harinasol": [
@@ -113,7 +121,8 @@
          "new": true,
          "unity": false,
          "unit": "1 KILO",
-         "price": "190"
+         "price": "190",
+         "category": "harinas"
       }
    ],
    "dontostonnatural": [
@@ -126,7 +135,8 @@
          "new": false,
          "unity": false,
          "unit": "60 GRAMOS",
-         "price": "120"
+         "price": "120",
+         "category": "snacks"
       }
    ],
    "adobolasazon": [
@@ -139,7 +149,8 @@
          "new": false,
          "unity": false,
          "unit": "180 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "ingredientes"
       }
    ],
    "adobocaribe": [
@@ -152,7 +163,8 @@
          "new": false,
          "unity": false,
          "unit": "200 GRAMOS",
-         "price": "130"
+         "price": "130",
+         "category": "ingredientes"
       }
    ],
    "rekomalta": [
@@ -165,7 +177,8 @@
          "new": false,
          "unity": false,
          "unit": "330 cc",
-         "price": "140"
+         "price": "140",
+         "category": "bebidas"
       }
    ],
    "rekopina": [
@@ -178,7 +191,8 @@
          "new": false,
          "unity": false,
          "unit": "500 ML",
-         "price": "90"
+         "price": "90",
+         "category": "bebidas"
       }
    ],
    "nestealimon": [
@@ -191,7 +205,8 @@
          "new": true,
          "unity": false,
          "unit": "500 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "bebidas"
       }
    ],
    "nesteadurazno": [
@@ -204,7 +219,8 @@
          "new": false,
          "unity": false,
          "unit": "500 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "bebidas"
       }
    ],
    "nestealimonliquido": [
@@ -217,7 +233,8 @@
          "new": false,
          "unity": false,
          "unit": "500 ML",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "bebidas"
       }
    ],
    "nesteaduraznoliquido": [
@@ -230,7 +247,8 @@
          "new": false,
          "unity": false,
          "unit": "500 ML",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "bebidas"
       }
    ],
    "teliptonlimon": [
@@ -243,7 +261,8 @@
          "new": false,
          "unity": false,
          "unit": "500 GRAMOS",
-         "price": "250"
+         "price": "250",
+         "category": "bebidas"
       }
    ],
    "quesosemiduro": [
@@ -256,7 +275,8 @@
          "new": false,
          "unity": true,
          "unit": "POR KILO",
-         "price": "450"
+         "price": "450",
+         "category": "lacteos"
       }
    ],
    "quesoduro": [
@@ -269,7 +289,8 @@
          "new": false,
          "unity": true,
          "unit": "POR KILO",
-         "price": "470"
+         "price": "470",
+         "category": "lacteos"
       }
    ],
    "quesodemano": [
@@ -282,7 +303,8 @@
          "new": false,
          "unity": false,
          "unit": "ENVASE 3 UND",
-         "price": "450"
+         "price": "450",
+         "category": "lacteos"
       }
    ],
    "natalazuliana": [
@@ -295,7 +317,8 @@
          "new": false,
          "unity": false,
          "unit": "750 GRAMOS",
-         "price": "380"
+         "price": "380",
+         "category": "lacteos"
       }
    ],
    "natatovareño": [
@@ -308,7 +331,8 @@
          "new": false,
          "unity": false,
          "unit": "200 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "lacteos"
       }
    ],
    "jamonendiablado": [
@@ -321,7 +345,8 @@
          "new": true,
          "unity": false,
          "unit": "180 gr",
-         "price": "200"
+         "price": "200",
+         "category": "ingredientes"
       }
    ],
    "rikezatocineta": [
@@ -334,7 +359,8 @@
          "new": true,
          "unity": false,
          "unit": "200 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "lacteos"
       }
    ],
    "rikezaoriginal": [
@@ -347,7 +373,8 @@
          "new": false,
          "unity": false,
          "unit": "200 GRAMOS",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "lacteos"
       }
    ],
    "caraotasnegras": [
@@ -360,7 +387,8 @@
          "new": false,
          "unity": true,
          "unit": "POR KILO",
-         "price": "150"
+         "price": "150",
+         "category": "ingredientes"
       }
    ],
    "aceitedeoliva": [
@@ -373,7 +401,8 @@
          "new": true,
          "unity": false,
          "unit": "500 ML",
-         "price": "180"
+         "price": "180",
+         "category": "ingredientes"
       }
    ],
    "tequeñostequepops": [
@@ -386,7 +415,8 @@
          "new": false,
          "unity": false,
          "unit": "12 UNIDADES",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "frituras"
       }
    ],
    "tequeñoslazuliana": [
@@ -399,7 +429,8 @@
          "new": false,
          "unity": false,
          "unit": "12 UNIDADES",
-         "price": "250"
+         "price": "250",
+         "category": "frituras"
       }
    ],
    "tequeñostequezuelar": [
@@ -412,7 +443,8 @@
          "new": false,
          "unity": false,
          "unit": "12 UNIDADES",
-         "price": "190"
+         "price": "190",
+         "category": "frituras"
       }
    ],
    "pastelitostequezueñar": [
@@ -425,7 +457,8 @@
          "new": false,
          "unity": false,
          "unit": "12 UNIDADES",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "frituras"
       }
    ],
    "tequeñostequerock": [
@@ -438,7 +471,8 @@
          "new": false,
          "unity": false,
          "unit": "12 und",
-         "price": "250"
+         "price": "250",
+         "category": "frituras"
       }
    ],
    "tequeyoyos": [
@@ -451,7 +485,8 @@
          "new": false,
          "unity": false,
          "unit": "8 und",
-         "price": "250"
+         "price": "250",
+         "category": "frituras"
       }
    ],
    "chuletaahumada": [
@@ -464,7 +499,8 @@
          "new": true,
          "unity": true,
          "unit": "POR KILO",
-         "price": "500"
+         "price": "500",
+         "category": "ingredientes"
       }
    ],
    "mieldeabeja": [
@@ -477,7 +513,8 @@
          "new": false,
          "unity": false,
          "unit": "500 GRAMOS",
-         "price": "180"
+         "price": "180",
+         "category": "ingredientes"
       }
    ],
    "paledoniasdonacarmen": [
@@ -490,7 +527,8 @@
          "new": false,
          "unity": false,
          "unit": "4 UNIDADES",
-         "price": "110"
+         "price": "110",
+         "category": "snacks"
       }
    ],
    "galletasdehuevo": [
@@ -503,7 +541,8 @@
          "new": false,
          "unity": false,
          "unit": "5 UNIDADES",
-         "price": "150"
+         "price": "150",
+         "category": "snacks"
       }
    ],
    "galletasdehuevoconchipsdechocolate": [
@@ -516,7 +555,8 @@
          "new": false,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "150"
+         "price": "150",
+         "category": "snacks"
       }
    ],
    "paledoniasantojitos": [
@@ -529,7 +569,8 @@
          "new": false,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "150"
+         "price": "150",
+         "category": "snacks"
       }
    ],
    "yoyitosconguayaba": [
@@ -542,7 +583,8 @@
          "new": false,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "snacks"
       }
    ],
    "rellenitosnewton": [
@@ -555,7 +597,8 @@
          "new": false,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "snacks"
       }
    ],
    "orejonesconguayaba": [
@@ -568,7 +611,8 @@
          "new": true,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "preparados"
       }
    ],
    "besitosdecoco": [
@@ -581,7 +625,8 @@
          "new": false,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "150"
+         "price": "150",
+         "category": "snacks"
       }
    ],
    "panpiñita": [
@@ -594,7 +639,8 @@
          "new": true,
          "unity": false,
          "unit": "6 UNIDADES",
-         "price": "150"
+         "price": "150",
+         "category": "preparados"
       }
    ],
    "pandequeso": [
@@ -607,7 +653,8 @@
          "new": false,
          "unity": false,
          "unit": "UNIDAD",
-         "price": "350"
+         "price": "350",
+         "category": "preparados"
       }
    ],
    "panandino": [
@@ -620,7 +667,8 @@
          "new": false,
          "unity": false,
          "unit": "UNIDAD",
-         "price": "220"
+         "price": "220",
+         "category": "preparados"
       }
    ],
    "cafedolca": [
@@ -633,7 +681,8 @@
          "new": false,
          "unity": false,
          "unit": "170 GRAMOS",
-         "price": "290"
+         "price": "290",
+         "category": "ingredientes"
       }
    ],
    "lecheenpolvolalechera": [
@@ -646,7 +695,8 @@
          "new": false,
          "unity": false,
          "unit": "400 GRAMOS",
-         "price": "200"
+         "price": "200",
+         "category": "ingredientes"
       },
       {
          "name": "Leche en polvo La lechera 800gr",
@@ -657,7 +707,8 @@
          "new": true,
          "unity": false,
          "unit": "800 GRAMOS",
-         "price": "400"
+         "price": "400",
+         "category": "ingredientes"
       }
    ],
    "panelasdesanjoaquin": [
@@ -670,7 +721,8 @@
          "new": false,
          "unity": false,
          "unit": "PAQ DE 5",
-         "price": "N/A"
+         "price": "N/A",
+         "category": "snacks"
       }
    ],
    "casabe": [
@@ -683,7 +735,8 @@
          "new": false,
          "unity": false,
          "unit": "200 GRAMOS",
-         "price": "170"
+         "price": "170",
+         "category": "ingredientes"
       }
    ],
    "onotoengrano": [
@@ -696,7 +749,8 @@
          "new": false,
          "unity": false,
          "unit": "100 GRAMOS",
-         "price": "100"
+         "price": "100",
+         "category": "ingredientes"
       }
    ],
    "platanosamarillos": [
@@ -709,7 +763,8 @@
          "new": true,
          "unity": true,
          "unit": "POR KILO",
-         "price": "200"
+         "price": "200",
+         "category": "ingredientes"
       }
    ],
    "supremasdepollo": [
@@ -722,7 +777,8 @@
          "new": false,
          "unity": true,
          "unit": "POR KILO",
-         "price": "260"
+         "price": "260",
+         "category": "ingredientes"
       }
    ]
 }
