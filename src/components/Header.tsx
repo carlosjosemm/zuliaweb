@@ -267,15 +267,18 @@ const Header:React.FC<HeaderProps> = () => {
                     </Link> ⚡
                 </Box>
                 <Box>
-                    <Link _hover={{textDecoration: 'none'}}>
+                    <Link 
+                        _hover={{textDecoration: 'none'}}
+                        href="/categorias"
+                    >
                         Categorias
                     </Link>
                 </Box>
-                <Box>
+                {/* <Box>
                     <Link _hover={{textDecoration: 'none'}}>
                         Marcas
                     </Link>
-                </Box>
+                </Box> */}
                 <Box>
                     <Link 
                         _hover={{textDecoration: 'none'}}

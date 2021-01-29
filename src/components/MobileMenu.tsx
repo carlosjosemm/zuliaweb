@@ -45,6 +45,7 @@ const MobileMenu = () => {
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
+                        href="/ofertas"
                     >
                         <Text fontSize="xl">Ofertas</Text></Link>
                     <Link 
@@ -52,15 +53,16 @@ const MobileMenu = () => {
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
+                        href="categorias"
                     >
                         <Text fontSize="xl">Categorias</Text></Link>
-                    <Link 
+                    {/* <Link 
                         my="1ch"
                         _focus={{border: 'none', textDecoration: 'none'}} 
                         _visited={{color:'white'}} 
                         _active={{border: 'none', textDecoration: 'none'}}
                     >
-                        <Text fontSize="xl">Marcas</Text></Link>
+                        <Text fontSize="xl">Marcas</Text></Link> */}
                     <Link 
                         my="1ch" 
                         href="/contacto"

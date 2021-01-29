@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Icon, IconButton, Image, Input, InputGroup, InputRightElement, useBreakpoint, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Icon, IconButton, Image, Input, InputGroup, InputRightElement, Link, useBreakpoint, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
 import {BiSearch, BiUser, BiCart} from 'react-icons/bi';
 import React, { useEffect, useState } from "react";
 import { useDataLayer } from "../DataLayer";
@@ -64,6 +64,7 @@ const HeaderMobile: React.FC<{}> = () => {
                     <GridItem
                     rowSpan={2} colSpan={3}
                     >
+                        <Link _focus={{border: 'none', textDecoration: 'none'}} _visited={{color:'white'}} _active={{border: 'none', textDecoration: 'none'}} href="/">
                         <Image
                             boxSize={logoSize}
                             p="0.5ch 1ch 0.5ch 0.5ch"
@@ -72,7 +73,8 @@ const HeaderMobile: React.FC<{}> = () => {
                             alt="logo"
                             w="100%"
                             h="100%"
-                        />                            
+                        />     
+                        </Link>                       
                     </GridItem>
                     
                     <GridItem
