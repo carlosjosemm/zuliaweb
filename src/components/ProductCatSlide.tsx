@@ -4,7 +4,6 @@ import { ProductData } from "../types";
 import ProductCard from "./ProductCard";
 import Carousel from "react-elastic-carousel";
 import db from "../firebase";
-import { actionTypes } from "../reducer";
 import { useDataLayer } from "../DataLayer";
 
 interface ProductCatSlideProps {
