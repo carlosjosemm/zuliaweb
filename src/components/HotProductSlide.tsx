@@ -25,7 +25,7 @@ const HotProductSlide = () => {
 
         const queryBuffer = []; 
         const getHotProducts = () => {
-            db.collection("products").where("hot","==",true).where("availability", "==",true).get().then(
+            hotproducts ?? db.collection("products").where("hot","==",true).where("availability", "==",true).get().then(
                 (query) => {
                     query.forEach( product =>
                         queryBuffer.push(product.data())            
