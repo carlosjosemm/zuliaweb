@@ -9,8 +9,6 @@ const admin = require('firebase-admin');
     // credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
     // })
 
-// console.log('FIREBASE INSTANCE ID: ', admin.app().instanceId);
-// console.log('admin name: ', admin.app.name)
 if (admin.app.length==1) { 
     console.log('trying to initialize...')
     admin.initializeApp({
@@ -18,9 +16,9 @@ if (admin.app.length==1) {
     })
     console.log('lenght after init: ', admin.app.length)
 };
-console.log('trying to create db...')
-const db = admin.firestore();
- console.log('ENV: ', process.env.NODE_ENV);
+// console.log('trying to create db...')
+// const db = admin.firestore();
+//  console.log('ENV: ', process.env.NODE_ENV);
 
 export default (req, res) => {
     const configAccess_token = process.env.ENV_ML_ACCESSKEY;
@@ -42,6 +40,8 @@ export default (req, res) => {
         email: 'payer@email.com'
         }
     };
+    console.log('trying to create db...')
+    const db = admin.firestore();
 
     // Guarda y postea el pago
     mercadopago.payment.save(payment_data).then((data) => {
@@ -50,6 +50,7 @@ export default (req, res) => {
         console.log('response data: ', data);
         if (data.status=='201') {
             const token = v4();
+            console.log('token: ', token);
             db.collection('data store').doc(token).set({
                 outcome: data.body.status,
                 detail: data.body.status_detail,
@@ -57,6 +58,7 @@ export default (req, res) => {
             res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${token}`);
         } else {
             const badtoken = v4();
+            console.log('badtoken: ', badtoken);
             res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${badtoken}`);
         }
     }).catch( (error) => {
