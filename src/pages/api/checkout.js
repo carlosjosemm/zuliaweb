@@ -4,10 +4,10 @@ console.log('trying to require admin...')
 const admin = require('firebase-admin');
 // admin.app().delete().then(() => console.log('Firebase app deleted successfully')).catch((error) => console.log(error));
 // const serviceAccount = require('../../../data/tiendazuliaweb-c2d6d6398f0e.json');
-// console.log('trying to initialize...')
-    // admin.initializeApp({
-    // credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
-    // })
+console.log('trying to initialize...')
+    admin.initializeApp({
+    credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
+    })
 
 // if (admin.app.length==1) { 
 //     console.log('trying to initialize...')
