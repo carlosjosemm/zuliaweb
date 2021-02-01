@@ -46,7 +46,7 @@ const pagar = () => {
             <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
             {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
             <Center w="100%" my="1rem" >
-            <form id="ml-button" action="http://localhost:3000/api/checkout" method="POST"></form>
+            <form id="ml-button" action={(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/api/checkout' : 'http://localhost:3000/api/checkout'} method="POST"></form>
             </Center>
             </Box>
 
