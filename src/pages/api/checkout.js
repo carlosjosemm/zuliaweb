@@ -9,13 +9,13 @@ const admin = require('firebase-admin');
     // credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
     // })
 
-if (admin.app.length==1) { 
-    console.log('trying to initialize...')
-    admin.initializeApp({
-    credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
-    })
-    console.log('lenght after init: ', admin.app.length)
-};
+// if (admin.app.length==1) { 
+//     console.log('trying to initialize...')
+//     admin.initializeApp({
+//     credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
+//     })
+//     console.log('lenght after init: ', admin.app.length)
+// };
 // console.log('trying to create db...')
 // const db = admin.firestore();
 //  console.log('ENV: ', process.env.NODE_ENV);
@@ -54,8 +54,10 @@ export default (req, res) => {
             db.collection('data store').doc(token).set({
                 outcome: data.body.status,
                 detail: data.body.status_detail,
-            });
-            res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${token}`);
+            }).then(() => {
+                res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${token}`);
+            }).catch((error) => console.log(error));
+            // res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${token}`);
         } else {
             const badtoken = v4();
             console.log('badtoken: ', badtoken);
