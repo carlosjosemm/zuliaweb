@@ -47,7 +47,7 @@ export default (req, res) => {
     mercadopago.payment.save(payment_data).then((data) => {
         // ...    
         // Imprime el estado del pago
-        console.log('response data: ', data);
+        console.log('response data: ', data.body.status);
         if (data.status=='201') {
             const token = v4();
             console.log('token: ', token);
