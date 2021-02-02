@@ -1,10 +1,8 @@
 import admin from 'firebase-admin';
-// admin.app().delete();
-// console.log('trying to initialize...')
-// admin.initializeApp({
-//     credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
-//     })
-// console.log('firestore lenght2: ', admin.app().firestore.length);
+console.log('trying to initialize...')
+admin.initializeApp({
+    credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
+    })
 
 
 export default function handler(req, res) {
