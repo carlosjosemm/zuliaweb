@@ -6,11 +6,12 @@ export const initialState = {
     hotproducts: null,
     cart: [],
     total: 0,
-    ofertproducts: null
+    ofertproducts: null,
+    paytoken: null,
 };
 
 interface actionType {
-    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART"|"CHANGE_QUANTITY"|"SET_OFERT_PRODUCTS";
+    type: "SET_USER"|"SET_HOT_PRODUCTS"|"ADD_TO_CART"|"CHANGE_QUANTITY"|"SET_OFERT_PRODUCTS"|'SET_PAYTOKEN';
     user: any;
     hotproducts: Array<any>;
     subtotal: number;
@@ -18,6 +19,7 @@ interface actionType {
     ofertproducts: Array<any>;
     cart: Array<any>;
     dbTotal: number;
+    paytoken: string;
 };
 
 interface stateType {
@@ -26,6 +28,7 @@ interface stateType {
     cart: Array<CartItem>;
     total: number;
     ofertproducts: Array<object>;
+    paytoken: string;
 }
 
 export const actionTypes = {
@@ -34,6 +37,7 @@ export const actionTypes = {
     ADD_TO_CART: "ADD_TO_CART",
     CHANGE_QUANTITY: "CHANGE_QUANTITY",
     SET_OFERT_PRODUCTS: "SET_OFERT_PRODUCTS",
+    SET_PAYTOKEN: "SET_PAYTOKEN",
 };
 
 function checkCart (this:CartItem, item:CartItem) {
@@ -42,6 +46,9 @@ function checkCart (this:CartItem, item:CartItem) {
 
 const reducer = (state:stateType, action:actionType) => {
     switch (action.type) {
+        case actionTypes.SET_PAYTOKEN:
+            return {...state, paytoken: action.paytoken}
+
         case actionTypes.SET_USER:
             return {...state, user: action.user, cart: action.cart, total: action.dbTotal };
 
