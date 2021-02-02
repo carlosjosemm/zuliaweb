@@ -1,10 +1,10 @@
 import admin from 'firebase-admin';
 import mercadopago from 'mercadopago';
 
-console.log('trying to initialize...')
-admin.initializeApp({
-    credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
-    })
+// console.log('trying to initialize...')
+// admin.initializeApp({
+//     credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
+//     })
 
 export default function handler(req, res) {
     const {
