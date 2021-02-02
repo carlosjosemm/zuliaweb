@@ -39,7 +39,7 @@ export default function handler(req, res) {
                 };
                 mercadopago.payment.save(payment_data).then(
                     (data) => {
-                        console.log('response data from ML: ', data.body);
+                        console.log('response data from ML: ', data.body.status);
                         if (data.status=='201') {
                             db.collection('data store').doc(paytoken).set({
                                 outcome: data.body.status,
