@@ -16,20 +16,10 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
     const br = useBreakpoint();
     const docRef = useRef(null);
 
-    useEffect(() => {
-        let script = document.createElement("script");
-        // let anchor = document.getElementById("inject-comments-for-uterances");
-        script.setAttribute("src", "https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js");
-        // script.setAttribute("crossorigin","anonymous");
-        script.setAttribute("data-public-key", "ENV_PUBLIC_KEY");
-        // script.setAttribute("repo", "[ENTER REPO HERE]");
-        // script.setAttribute("issue-term", "pathname");
-        script.setAttribute("data-transaction-amount", "100.00");
-        docRef.current = script;
-    }, [])
-
-    return (
+    return ( 
+        // React.createElement('form', {action: "https://www.example.com/paymentsuccess", method: "POST"}, )
         <>
+            <form id="ml-button" action="https://www.example.com/paymentsuccess" method="POST"></form>
             <Drawer variant="temporary" anchor="right" open={openCart} onClose={() => setOpenCart(false)}>
                 <Grid
                     h="100vh"
@@ -85,19 +75,15 @@ const MiCarritoDrawer: React.FC<DrawerProps> = ({openCart, setOpenCart}) => {
                     <GridItem
                         rowSpan={1} colSpan={2}
                     >
-                        <Center w="100%" h="100%">
+                        {/* <Center w="100%" h="100%">
                             <Heading
                                 as="h2" size="md" isTruncated maxWidth="100%"
                             >
-                                <form action="https://www.example.com/paymentsuccess" method="POST">
-                                <script
-                                    ref={docRef}
-                                >
-                                    
-                                </script>
-                                </form>
+
                             </Heading>
-                        </Center>
+                        </Center> */}
+                        {/* <form id="ml-button" name="ml-button" action="https://www.example.com/paymentsuccess" method="POST"></form> */}
+
                     </GridItem>
                 </Grid>
             </Drawer>

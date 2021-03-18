@@ -1,8 +1,10 @@
-import { Box, Center, Spinner, useBreakpoint } from "@chakra-ui/react"
+import { Box, Center, Heading, Spinner, useBreakpoint } from "@chakra-ui/react"
 import Head from "next/head"
 import styles from "../../styles/Home.module.css";
-import React, { useEffect, useRef, 
-    // useState 
+import React, { 
+    useEffect, 
+    // useRef, 
+    useState 
 } from "react"
 import HeaderMobile from "../components/HeaderMobile";
 import Header from "../components/Header";
@@ -10,22 +12,15 @@ import { useDataLayer } from "../DataLayer";
 import {v4} from 'uuid';
 import axios from 'axios';
 import { actionTypes } from "../reducer";
+import { CartItem } from "../types";
+import CartItemCard from "../components/CartItemCard";
+import CartItemPay from "../components/CartItemPay";
+import { Input } from "@chakra-ui/react"
 
 const pagar = () => {
-    const [{cart, user, paytoken}, dispatch] = useDataLayer();
+    const [{cart, user, paytoken, total}, dispatch] = useDataLayer();
     const br = useBreakpoint();
-    // const [paytoken, setPaytoken] = useState(v4());
-    // const paytoken = useRef(null);
-
-    // if (!paytoken.current) {
-    //     paytoken.current = v4();
-    //     console.log('paytoken.current: ', paytoken.current);
-    // }
-    // const buffer = v4();
-    // if (!paytoken) {
-    //     dispatch({type: actionTypes.SET_PAYTOKEN, paytoken: buffer });
-    //     console.log('paytoken: ', paytoken);
-    // }
+    const [buyerEmail, setBuyerEmail] = useState('carlos')
     
     const initPay = (e) => {
         e.preventDefault();
@@ -37,19 +32,32 @@ const pagar = () => {
         }).then((res) => console.log(res)).catch(error => console.error(error));
     }
 
+    function getBuyerEmail(e) {
+        if (e.target.value.includes('@')) {
+            let script = document.createElement("script");
+            script.setAttribute("src", "https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js");
+            script.type = "text/javascript";
+            script.setAttribute("data-public-key", "TEST-2ae58add-cfc4-4931-8531-92b47a74bff2");
+            script.setAttribute("data-transaction-amount", "100.00");    
+            document.getElementById('ml-button').appendChild(script);    
+        } else {}
+
+    }
+
     useEffect(() => {
         const buffer = v4();
         //To avoid multiple children appended, this only runs on first load when paytoken is null:
         if (!paytoken) {
             dispatch({type: actionTypes.SET_PAYTOKEN, paytoken: buffer });
             console.log('paytoken: ', paytoken);
-            let script = document.createElement("script");
-            script.setAttribute("src", "https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js");
-            script.type = "text/javascript";
-            script.setAttribute("data-public-key", "TEST-2ae58add-cfc4-4931-8531-92b47a74bff2");
-            script.setAttribute("data-transaction-amount", "100.00");
-            // const test = document.getElementById('ml-button');
-            document.getElementById('ml-button').appendChild(script);    
+            if (user || buyerEmail) {
+                let script = document.createElement("script");
+                script.setAttribute("src", "https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js");
+                script.type = "text/javascript";
+                script.setAttribute("data-public-key", "TEST-2ae58add-cfc4-4931-8531-92b47a74bff2");
+                script.setAttribute("data-transaction-amount", "100.00");    
+                document.getElementById('ml-button').appendChild(script);    
+            }
         };
         console.log('paytoken post-render: ', paytoken);
     }, [paytoken])
@@ -75,13 +83,25 @@ const pagar = () => {
 
             <noscript>You need to enable JavaScript to run this app.</noscript>
 
-            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh">
-            {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
-            <Center w="100%" my="1rem" >
-            <form id="ml-button" action={(process.env.NODE_ENV=='production')? `https://zuliaweb.vercel.app/api/checkout/${paytoken}` : `http://localhost:3000/api/checkout/${paytoken}`} method="POST" onClick={initPay} ></form>
-            </Center>
-            </Box>
+            <Box maxW="1000px" margin="auto" padding="0px" mb="0px" bgColor="#EBFAFF" minH="100vh"  >
+                {br? (br=='base')? <HeaderMobile /> : <Header /> : <Center><Spinner /></Center>}
+                    <Box >
+                    {cart.map((item:CartItem, index: number) => (
+                            <CartItemPay cartItem={item} key={index} />
+                        ))}
+                    </Box>
 
+                    <Heading as="h4" size="xl" fontWeight="500" textAlign="center" marginY="1rem" >
+                            {`Total: ${total}`}
+                    </Heading>
+
+                    <Input variant="flushed" placeholder="Dirección de e-mail" onSubmit={e => getBuyerEmail(e)} />
+
+                    <Center w="100%" my="1rem" >
+                        <form id="ml-button" action={(process.env.NODE_ENV=='production')? `https://zuliaweb.vercel.app/api/checkout/${paytoken}` : `http://localhost:3000/api/checkout/${paytoken}`} method="POST" onClick={initPay} ></form>
+                    </Center>
+
+            </Box>
         </div>
     );
 }

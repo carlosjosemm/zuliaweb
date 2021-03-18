@@ -30,7 +30,7 @@ export default (req, res) => {
     const issuer_id = req.body.issuer_id;
 
     var payment_data = {
-        transaction_amount: 100,
+        transaction_amount: 110,
         token: token,
         description: 'Payment description',
         installments: parseInt(installments),
@@ -47,7 +47,7 @@ export default (req, res) => {
     mercadopago.payment.save(payment_data).then((data) => {
         // ...    
         // Imprime el estado del pago
-        console.log('response data: ', data.body.status);
+        console.log('response data: ', data.body);
         if (data.status=='201') {
             const token = v4();
             console.log('token: ', token);

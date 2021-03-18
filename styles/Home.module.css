@@ -334,3 +334,48 @@
   object-fit: cover !important;
   padding: 5px 0px;
 }
+
+/*********************************************************************************************************/
+
+.CartItemPay {
+  display: flex !important;
+  justify-content: center;
+  /* background-color: white;
+  color: black; */
+  margin: auto;
+  margin-top: 0.7rem;
+  /* background-color: #ebfaff; */
+  background: #ebfaff;
+  max-width: 600px;
+}
+
+.CartItemPay__details {
+  display: "flex";
+  flex-direction: "column";
+  padding: 5px 0px;
+  align-items: center;
+}
+
+.CartItemPay__content {
+  flex: "1 0 auto";
+  padding: 5px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.CartItemPay__input {
+  border-top: 1px solid lightgray;
+  padding-top: 0.5ch;
+  display: "flex";
+  align-items: "center";
+  padding-left: 1;
+  padding-bottom: 1;
+}
+
+.CartItemPay__photo {
+  width: 50px !important;
+  object-fit: cover !important;
+  padding: 5px 0px;
+  margin-right: 2rem;
+}

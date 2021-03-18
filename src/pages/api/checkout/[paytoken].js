@@ -1,3 +1,4 @@
+//CHECKOUT 
 import admin from 'firebase-admin';
 import mercadopago from 'mercadopago';
 
@@ -6,11 +7,23 @@ import mercadopago from 'mercadopago';
 //     credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_CLOUD_KEY_JSON))
 //     })
 
+const outcomeType = {
+    accredited: "accredited",
+    pending_contingency: "pending_contingency",
+    cc_rejected_other_reason: "cc_rejected_other_reason",
+    cc_rejected_call_for_authorize: "cc_rejected_call_for_authorize",
+    cc_rejected_insufficient_amount: "cc_rejected_insufficient_amount",
+    cc_rejected_bad_filled_security_code: "cc_rejected_bad_filled_security_code",
+    cc_rejected_bad_filled_date: "cc_rejected_bad_filled_date",
+    cc_rejected_bad_filled_other: "cc_rejected_bad_filled_other",
+    none: "none",
+} 
+
+
 export default function handler(req, res) {
     const {
       query: { paytoken },
     } = req;
-    // console.log('req body: ', req.body);
     console.log(`paytoken from checkout: ${paytoken}`);
 
     const configAccess_token = process.env.ENV_ML_ACCESSKEY;
@@ -27,19 +40,20 @@ export default function handler(req, res) {
                 const installments = req.body.installments;
                 const issuer_id = req.body.issuer_id;
                 var payment_data = {
-                    transaction_amount: 110,
+                    transaction_amount: parseInt(pendingPayment.total),
                     token: token,
-                    description: 'Payment description',
+                    description: 'Checkout',
                     installments: parseInt(installments),
                     payment_method_id: payment_method_id,
                     issuer_id: issuer_id,
                     payer: {
-                    email: 'payer@email.com'
+                    email: pendingPayment.user
                     }
                 };
                 mercadopago.payment.save(payment_data).then(
                     (data) => {
-                        console.log('response data from ML: ', data.body.status);
+                        console.log('response data from ML: ', data.body.status_detail);
+                        console.log('response data from ML: ', data.body.status)
                         if (data.status=='201') {
                             db.collection('data store').doc(paytoken).set({
                                 outcome: data.body.status,
@@ -59,6 +73,9 @@ export default function handler(req, res) {
                 )
             } else {
                 console.log('pending payment doesnt exists, paytoken tried: ', paytoken);
+                const badtoken = v4();
+                res.redirect(`${(process.env.NODE_ENV=='production')? 'https://zuliaweb.vercel.app/transaction' : '/transaction' }/${badtoken}`);
+
             }
         }
     )
