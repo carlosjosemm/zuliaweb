@@ -45,24 +45,29 @@ const Header:React.FC<HeaderProps> = () => {
     }) : [0];
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) { //check for user auth state
             if (user) {
               // User is signed in.
                 db.collection('users').doc(user.email).get().then( //fetch cartData from firebase
                     query => {
                         const dbCartData = query.data() //parse it
                         const cleanCart = [];
-                        dispatch(
+                        dispatch( // push cart info to data layer
                             {type: actionTypes.SET_USER, user: user, cart: dbCartData?.cart ?? cleanCart , dbTotal: dbCartData?.carttotal ?? 0}
                         );
                     }
                 );                
             } else {
               // No user is signed in.
-              const cleanCart = [];
-              dispatch(
-                {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: 0}
-            );
+              var cleanCart = [];
+              var unAuthTotal = 0;
+              if (localStorage.getItem('unAuthCart')) { //cart data exists locally (unAuthenticated)
+                cleanCart = JSON.parse(localStorage.getItem('unAuthCart'));
+                unAuthTotal = parseInt(localStorage.getItem('unAuthTotal'))
+                dispatch(
+                    {type: actionTypes.SET_USER, user: null, cart: cleanCart, dbTotal: unAuthTotal}
+                );
+              }
             }
           });
     }, [user]);
@@ -208,7 +213,7 @@ const Header:React.FC<HeaderProps> = () => {
                             h="25px" w="25px" 
                             color="inherit" 
                         />}
-                        rightIcon={(cart.length!==0) ? 
+                        rightIcon={(cart?.length!==0) ? 
                             (<Center 
                             borderRadius="999px" 
                             bgColor="red.600" 

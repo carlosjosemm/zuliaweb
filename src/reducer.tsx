@@ -63,16 +63,19 @@ const reducer = (state:stateType, action:actionType) => {
             cartBuffer[exists].quantity = state.cart[exists].quantity + action.item.quantity :
             cartBuffer.push(action.item);
             const totalBuffer = state.total + action.subtotal;
-
-            state.user && db.collection('users').doc(state.user.email).set({
+        
+            //user logged -- send to firestore
+            if (state.user) { db.collection('users').doc(state.user.email).set({
                 cart: cartBuffer,
                 carttotal: totalBuffer,
-            });
+            })} else { //no logged user -- save in localstorage
+                localStorage.setItem('unAuthCart', JSON.stringify(cartBuffer));
+                localStorage.setItem('unAuthTotal', JSON.stringify(totalBuffer));
+            }
 
             return {...state, cart: cartBuffer, total: totalBuffer};
 
         case actionTypes.CHANGE_QUANTITY:
-            // const modifiedItem = state.cart.find(checkCart, action.item);
             const modifiedItemIndex = state.cart.findIndex(checkCart, action.item);
 
             if (action.item.quantity!==0) {
@@ -80,22 +83,31 @@ const reducer = (state:stateType, action:actionType) => {
                 const newSubTotalBuffer = state.cart.map((item) => (item.quantity * item.finalprice));
                 const newTotalBuffer =  (newSubTotalBuffer.length!==0)? newSubTotalBuffer.reduce((total, subtotal) => {return total + subtotal}) : 0;
 
-                state.user && db.collection('users').doc(state.user.email).set({
-                    cart: state.cart,
-                    carttotal: newTotalBuffer,
-                });    
+                if (state.user) { // user logged -- send to firestore
+                    db.collection('users').doc(state.user.email).set({
+                        cart: state.cart,
+                        carttotal: newTotalBuffer,
+                    })
+                } else { // no logged user -- save in localstorage
+                    localStorage.setItem('unAuthCart', JSON.stringify(state.cart));
+                    localStorage.setItem('unAuthTotal', JSON.stringify(newTotalBuffer));
+                }
                 return {...state, total: newTotalBuffer}; 
             } else {
                 state.cart.splice(modifiedItemIndex,1);
                 const newSubTotalBuffer = state.cart.map((item) => (item.quantity * item.finalprice))
                 const newTotalBuffer =  (newSubTotalBuffer.length!==0)? newSubTotalBuffer.reduce((total, subtotal) => {return total + subtotal}) : 0;
                 
-                state.user && db.collection('users').doc(state.user.email).set({
+                if (state.user) { db.collection('users').doc(state.user.email).set({
                     cart: state.cart,
                     carttotal: newTotalBuffer,
-                });
+                })
+                } else {
+                    localStorage.setItem('unAuthCart', JSON.stringify(state.cart));
+                    localStorage.setItem('unAuthTotal', JSON.stringify(newTotalBuffer));
+                }
                 return {...state, total: newTotalBuffer}; 
-                };
+            };
 
         case actionTypes.SET_OFERT_PRODUCTS:
             return {...state, ofertproducts: action.ofertproducts};
